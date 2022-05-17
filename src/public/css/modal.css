@@ -1,0 +1,223 @@
+/*
+                <div style="opacity: 1; pointer-events: auto;" class="modal">
+                        <div class="modal-bg-close"></div>
+                        <span class="modal-close">×</span>
+                        <div class="modal-container">
+                                <div class="modal-container-image">
+                                        <img src="./img/productos/MANTO STAND 27.jpg" class="modal-image">
+                                        <div class="modal-container-mini-image">
+                                                <img src="./img/productos/MANTO STAND 32.jpg"
+                                                        class="modal-mini-image">
+                                        </div>
+                                </div>
+                                <div class="modal-container-info">
+                                        <p class="produc">Manto Estandar EDIL 2.7mm</p>
+                                        <p class="p2">Características:</p>
+                                        <ul class="ul-2">
+                                                Lista
+                                        </ul>
+                                        <p class="p2">Usos:</p>
+                                        <p class="p1">Parrafo</p>
+                                        <a class="a-info">Consulta</a>
+                                </div>
+                        </div>
+                </div>
+*/
+
+.modal {
+        position: fixed;
+        background: rgba(0, 0, 0, 0.473);
+        top: 0;
+        left: 0;
+        z-index: 3;
+        min-height: 100vh;
+        height: 100%;
+        width: 100vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+}
+
+.modal-close {
+        position: absolute;
+        top: 25px;
+        right: 25px;
+        font-size: 80px;
+        line-height: 0;
+        font-weight: 400;
+        color: hsl(0, 0%, 73%);
+        cursor: pointer;
+        z-index: 4;
+}
+
+.modal-close:hover{
+        color: hsl(0, 0%, 95%);
+}
+
+.modal-bg-close {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+}
+
+.modal-container {
+        position: relative;
+        display: flex;
+        width: clamp(750px, 85%, 1200px);
+        height: 80vh;
+}
+
+.modal-image {
+        height: 100%;
+}
+
+
+.modal-container-image {
+        position: relative;
+        height: 100%;
+}
+
+.modal-container-mini-image {
+        position: absolute;
+        top: 5px;
+        left: 10px;
+        display: flex;
+        flex-direction: column;
+
+}
+
+.modal-mini-image {
+        width: 60px;
+        border: 1px solid #fff;
+        margin: 5px 0;
+        cursor: pointer;
+}
+
+.modal-mini-image:hover {
+        filter: saturate(120%) brightness(120%);
+}
+
+.modal-container-info {
+        width: 100%;
+        padding: 15px 20px;
+        background: #ffffff;
+}
+
+.modal-ul {
+        list-style: none;
+        margin-top: 5px;
+}
+
+.modal-product-title {
+        font-size: 20px;
+}
+
+.modal-h3 {
+        margin-top: 15px;
+        font-weight: 600;
+        font-size: 17px;
+}
+
+.modal-desc {
+        margin-top: 5px;
+}
+
+.modal-consulta {
+        display: flex;
+        height: 38px;
+        width: max-content;
+        padding: 0 15px;
+        background: #00bb2d;
+        position: absolute;
+        font-size: 18px;
+        font-weight: 600;
+        border-radius: 10px;
+        border: #00bb2d 2px solid;
+        left: 100%;
+        bottom: 0;
+        transform: translate(-110%, -15%);
+        text-decoration: none;
+        color: #fff;
+        text-transform: capitalize;
+        cursor: pointer;
+        line-height: 2;
+        justify-content: center;
+        transition: background .5s, color .5s;
+}
+
+.modal-consulta::after {
+        content: '';
+        width: 24px;
+        height: 24px;
+        position: relative;
+        background-image: url(../img/icons/Whatsapp_logo.svg);
+        background-size: cover;
+        color: #00bb2d;
+        top: 50%;
+        transform: translateY(-50%);
+        margin-left: 10px;
+        transition: background .4s, color .5s;
+}
+
+.modal-consulta:hover {
+        background: transparent;
+        color: #00bb2d;
+}
+
+.modal-consulta:hover::after {
+        background-image: url(../img/icons/Whatsapp_logo_1.svg);
+        background-size: cover;
+}
+
+@media screen and (max-height: 430px) {
+        .modal-container{
+                height: 100%;
+        }
+}
+
+
+@media screen and (max-width: 750px) {
+
+        .modal{
+                overflow-y: scroll;
+                padding: 70px 0;
+        }
+
+        .modal-container{
+                width: clamp(300px, 85vw, 500px);
+                height: auto;
+                flex-direction: column;
+                margin: auto;
+        }
+
+        .modal-mini-image{
+                width: 70px;
+        }       
+
+        .modal-close{
+                font-size: 100px;
+                top: 35px;
+                right: 35px;
+        }
+
+        .modal-container-image{
+                height: max-content;
+                width: 100%;
+        }
+
+        .modal-image{
+                width: 100%;
+                height: 100%;
+        }
+
+        .modal-container-info{
+                height: 100%;
+                padding-bottom: 60px;
+        }
+}
+
+@media screen and (max-width: 400px){
+        .modal-mini-image{
+                width: 50px;
+        }        
+}

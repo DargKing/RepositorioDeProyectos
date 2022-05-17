@@ -1,0 +1,234 @@
+/* Este Es El Coontenedor De la Calculadora */
+
+.sec-calculadora{
+min-height: 640px;
+height: auto;
+width: 100%;
+margin-top: 100px;
+display: grid;
+grid-template-columns: 0.55fr .45fr;
+align-items: center;
+position: relative;
+padding: 50px 10px;
+}
+
+
+/* Este Es El Fondo De La Calculadora */
+
+.fondo-calc{
+background-image: url('../img/servicios/IMPER\ DE\ TECHOS\ MANTO\ REAL\ \ AT.jpg');
+background-repeat: no-repeat;
+background-size: cover;
+position: absolute;
+width: 100%;
+height: 100%;
+top: 0;
+left: 0;
+/* z-index: 1; */
+}
+
+/* Esto Es Para Que A La Mitad Este Medio Blanco */
+
+.fondo-calc-blanco{
+/* display: none; */
+position: absolute;
+right: 0;
+top: 0;
+width: 100%;
+height: 100%;
+background: var(--azul-lluvisol-transparente);
+/* z-index: 1; */
+}
+
+/* Este Es El Cuerpo De La Calculadora */
+
+.calc{
+width: 340px;
+height: 540px;
+border: 1px solid;
+border-radius: 10px;
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+background: #3C3C40;
+margin-bottom: 10px;
+}
+
+/* Este Es El Input Type Text De La Calculadora*/
+
+.calc #barra{
+width: 300px;
+height: 50px;
+border-radius: 10px;
+border: 2px solid;
+text-align: center;
+font-size: 40px;
+letter-spacing: 3px;
+font-family: 'Digital';
+outline: none;
+margin: 20px 0 10px 0;
+background: #949494;
+}
+
+/* Este Es El Select De La Calculadora, En Este Select Se Puede Elegir El Tipo De Produucto A Calcular */
+
+.selectCalc{
+width: 250px;
+height: 40px;
+margin-bottom: 10px;
+font-size: 19px;
+text-align: center;
+text-transform: capitalize;
+background: #F2F2F2;
+font-family: 'Quicksand', sans-serif;
+}
+
+/* Estos Son Los Botones De La Calculadora */
+
+.botonesCalc{
+width: 86px;
+height: 86px;
+margin-bottom: 10px;
+font-size: 28px;
+background: #BFADA8;
+font-family: 'Quicksand', sans-serif;
+cursor: pointer;
+}
+
+.botonesCalc[value="="]{
+background: #038C73;
+font-size: 40px;
+border-top: #00ab8b 3px solid;
+border-left: #00ab8b 3px solid;
+border-bottom: #006955 3px solid;
+border-right: #006955 3px solid;
+}
+
+.botonesCalc[value="="]:active{
+border-bottom: #00ab8b 3px solid;
+border-right: #00ab8b 3px solid;
+border-left: #006955 3px solid;
+border-top: #006955 3px solid;
+}
+
+.botonesCalc[value="⟵"]{
+background: #41BFB3;
+border-top: #81CAC3 3px solid;
+border-left: #81CAC3 3px solid;
+border-bottom: #2B8077 3px solid;
+border-right: #2B8077 3px solid;
+}
+
+.botonesCalc[value="⟵"]:active{
+background: #41BFB3;
+border-bottom: #81CAC3 3px solid;
+border-right: #81CAC3 3px solid;
+border-top: #2B8077 3px solid;
+border-left: #2B8077 3px solid;
+}
+
+/* Este Es El Contenedor De Los Botones */
+
+.divBoton{
+display: flex;
+justify-content: space-evenly;
+flex-wrap: wrap;
+width: 100%;
+}
+
+/* En Esta Columna Esta La Calculadora */
+
+.col-1{
+display: flex;
+justify-content: space-evenly;
+align-items: center;
+flex-wrap: wrap;
+}
+
+/* En Esta Otra Columna Esta La Informacion */
+
+.col-2{
+height: auto;
+display: flex;
+flex-direction: column;
+}
+
+/* En Este Div Esta El Resultado */
+
+.div-resul{
+width: 70%;
+max-width: 235px;
+height: min-content;
+border-radius: 10px;
+position: relative;
+padding: 15px;
+background: var(--azul-lluvisol);
+border: 2px solid #fff;
+}
+
+/* Asi Es Como Se Vera El Texto Que Dice El Resultado */
+
+.div-resul p{
+text-align: center;
+font-size: 17px;
+word-wrap: break-word;
+color: #fff;
+}
+
+/* El Form Group Sirve Para Separa Grupos */
+
+.form-group{
+margin: 15px auto;
+width: 60%;
+text-transform: capitalize;
+text-align: left;
+word-spacing: 2px;
+}
+
+
+
+/* Esto Es Para Pantallas De Ancho Pequeño Como La De Los Telefonos */
+
+@media screen and (max-width: 1400px){
+
+/* El Contenedor De la Calculadora Pero Para Telefonos */
+
+.sec-calculadora{
+display: grid;
+min-height: 1150px;
+height: auto;
+grid-template-rows: 0.6fr 0.5fr;
+grid-template-columns: initial;
+padding: 0;
+}
+
+/* La Columna Dos Es Donde Se Muestra La Informacion y Ahora Esta Arriba De La Calculadora */
+
+.col-2 .form-group{
+width: 90%;
+text-align: center;
+}
+.col-2{
+grid-row: 1/2;
+}
+
+/* La Columna Uno Es Donde Esta La Calculadora y Ahora Esta Debajo De La Informacion */
+
+.col-1{
+grid-template-columns: 1fr;
+grid-template-rows: .8fr .2fr;
+display: grid;
+justify-items: center;
+align-items: center;
+grid-row: 2/3;
+padding-bottom: 50px;
+}
+.div-resul{
+transform: none;
+top: initial;
+margin-top: 50px;
+}
+.fondo-calc-blanco{
+display: block;
+}
+}

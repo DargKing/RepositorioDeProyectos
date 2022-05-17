@@ -1,0 +1,96 @@
+.container-contact {
+    display: grid;
+    justify-items: center;
+    grid-template-columns: repeat(3, 1fr);
+    padding-bottom: 20px;
+}
+
+.mobile {
+    display: none;
+}
+
+.div-info-contact {
+    margin-top: 30px;
+    font-weight: 400;
+}
+
+.div-info-contact h3 {
+    font-weight: 600;
+}
+
+.div-info-contact a {
+    color: #ffffff;
+}
+
+.div-info-contact a:hover {
+    color: #ffffffea;
+}
+
+@media screen and (max-width: 780px) {
+
+    .container-contact {
+        display: grid;
+        justify-items: center;
+        grid-template-columns: none;
+        grid-template-rows: repeat(3, fit-content);
+        left: 50%;
+        transform: translateX(-50%);
+        position: relative;
+        width: 80%;
+        text-align: center;
+    }
+
+
+
+}
+
+
+@media screen and (max-width: 890px) {
+
+    .mobile {
+        display: initial;
+    }
+
+    .desktop {
+        display: none;
+    }
+
+}
+
+.redes-sociales {
+    margin: 90px 20px 0 20px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-content: center;
+}
+
+/* Imagenes */
+
+.redes-sociales img {
+    width: 45px;
+    margin: 7px 10px;
+}
+
+@media screen and (max-width: 600px) {
+    .redes-sociales {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding-bottom: 50px;
+        margin: 60px 20px 0 20px;
+    }
+
+    /* Imagenes */
+
+    .redes-sociales img {
+        width: 55px;
+        margin: 7px 10px;
+    }
+}
+
+.icon-nuestras-redes {
+    width: 45px;
+    margin: 10px 10px 0px 10px;
+    opacity: 0.9;
+    flex-wrap: wrap;
+}
