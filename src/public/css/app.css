@@ -7,7 +7,7 @@
 
 @font-face {
         font-family: 'Digital';
-        src: url(./fonts/ds_digital/DS-DIGIB.TTF);
+        src: url(./fonts/ds_digital/DS-Digital-Bold.ttf);
 }
 
 * {
@@ -82,6 +82,14 @@ a {
         text-align: center;
 }
 
+/* Alinea objetos en el centro */
+
+.center{
+        display: flex;
+        justify-content: center;
+}
+
+
 /* La Primer Letra De Cada Palabra Se Convierte En Mayuscula */
 
 .text-uppercase {
@@ -142,6 +150,14 @@ a {
 
 .overflow-hidden{
         overflow: hidden;
+}
+
+.display-block{
+        display: block;
+}
+
+.display-none{
+        display: none !important;
 }
 
 @media screen and (max-width: 700px) {
