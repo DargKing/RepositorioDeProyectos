@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node ./src/server.js",
-    "webpack": "webpack --mode production",
+    "webpack": "webpack --mode production --watch",
     "webpack-dev": "webpack --mode development --watch",
     "dev": "nodemon ./src/server.js",
     "lin": "eslint . --fix  --ext .js"
