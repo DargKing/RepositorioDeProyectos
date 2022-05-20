@@ -57,7 +57,7 @@
 .modal-bg-close {
         width: 100%;
         height: 100%;
-        position: absolute;
+        position: fixed;
 }
 
 .modal-container {
@@ -69,6 +69,7 @@
 
 .modal-image {
         height: 100%;
+        background: #fff;
 }
 
 
@@ -88,7 +89,9 @@
 
 .modal-mini-image {
         width: 60px;
+        height: 79.55px;
         border: 1px solid #fff;
+        background-color: #cdcdcd;
         margin: 5px 0;
         cursor: pointer;
 }
@@ -192,6 +195,7 @@
 
         .modal-mini-image{
                 width: 70px;
+                height: 92.8px;
         }       
 
         .modal-close{
@@ -219,5 +223,6 @@
 @media screen and (max-width: 400px){
         .modal-mini-image{
                 width: 50px;
+                height: 66.2px;
         }        
 }

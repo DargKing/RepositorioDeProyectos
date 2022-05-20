@@ -13,6 +13,7 @@
     position: relative;
     width: 800px;
     height: 600px;
+    background: #ffffff;
 }
 
 .map-responsive iframe {
@@ -105,7 +106,7 @@
     margin: 7px 10px;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 700px) {
     .redes-sociales {
         display: flex;
         flex-wrap: wrap;
