@@ -84,7 +84,7 @@ a {
 
 /* Alinea objetos en el centro */
 
-.center{
+.center {
         display: flex;
         justify-content: center;
 }
@@ -148,20 +148,26 @@ a {
         color: #ffffff !important;
 }
 
-.overflow-hidden{
+.overflow-hidden {
         overflow: hidden;
 }
 
-.display-block{
+.display-block {
         display: block;
 }
 
-.display-none{
+.display-none {
         display: none !important;
 }
 
 @media screen and (max-width: 700px) {
-        main{
+        main {
                 padding: 0;
         }
+}
+
+.terms-text {
+        font-weight: 400;
+        font-size: 20px;
+        margin: 20px 0;
 }
