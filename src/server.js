@@ -8,7 +8,7 @@ const app = express();
 console.log("******************")
 app.use(morgan("dev"));
 console.log("******************")
-app.use("/static", express.static(path.join(__dirname, 'public')))
+app.use(express.static(path.join(__dirname, 'public')))
 
 // Config
 
