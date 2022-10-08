@@ -7,7 +7,7 @@
     "start": "node ./src/server.js",
     "webpack": "webpack --mode production",
     "webpack-dev": "webpack --mode development --watch",
-    "dev": "nodemon ./src/server.js",
+    "server-dev": "nodemon ./src/server.js",
     "lin": "eslint . --fix  --ext .js"
   },
   "keywords": [],

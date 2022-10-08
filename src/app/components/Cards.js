@@ -3,12 +3,12 @@ import React, { Component } from 'react'
 export default class Notes extends Component {
 
     state = {
-        cards: this.props.productos
+        cards: this.props.productos,
     }
 
     componentDidMount() {
         setTimeout(() => {
-            if(this.props.redirecting){
+            if (this.props.redirecting) {
                 this.props.moveToCard()
             }
         }, 300)
@@ -26,7 +26,9 @@ export default class Notes extends Component {
                     this.state.cards.filter((item) => item.fav).map((card, i) => {
                         return (
                             <div key={card.nameCard + i} onClick={() => this.props.redirectModal(card)} className="card">
-                                <img className="myImg" src={card.urlImage} alt={card.nameCard}/>
+                                <div className="container-card-image">
+                                        <img className="myImg" src={card.urlImage} alt={card.nameCard} />
+                                    </div>
                                 <div className="backCard">
                                     <h3>{card.nameCard}</h3>
                                 </div>
@@ -44,7 +46,9 @@ export default class Notes extends Component {
                         }).map(card => {
                             return (
                                 <div key={card.nameCard} onClick={() => this.props.showModal(card)} className="card">
-                                    <img className="myImg" src={card.urlImage} alt={card.nameCard}/>
+                                    <div className="container-card-image">
+                                        <img className="myImg" src={card.urlImage} alt={card.nameCard} />
+                                    </div>
                                     <div className="backCard">
                                         <h3>{card.nameCard}</h3>
                                     </div>
@@ -60,7 +64,9 @@ export default class Notes extends Component {
                         }).map(card => {
                             return (
                                 <div key={card.nameCard} onClick={() => this.props.showModal(card)} className="card">
-                                    <img className="myImg" src={card.urlImage} alt={card.nameCard}/>
+                                    <div className="container-card-image">
+                                        <img className="myImg" src={card.urlImage} alt={card.nameCard} />
+                                    </div>
                                     <div className="backCard">
                                         <h3>{card.nameCard}</h3>
                                     </div>
@@ -76,7 +82,9 @@ export default class Notes extends Component {
                         }).map(card => {
                             return (
                                 <div key={card.nameCard} onClick={() => this.props.showModal(card)} className="card">
-                                    <img className="myImg" src={card.urlImage} alt={card.nameCard}/>
+                                    <div className="container-card-image">
+                                        <img className="myImg" src={card.urlImage} alt={card.nameCard} />
+                                    </div>
                                     <div className="backCard">
                                         <h3>{card.nameCard}</h3>
                                     </div>
