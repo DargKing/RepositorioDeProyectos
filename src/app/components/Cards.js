@@ -1,12 +1,20 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 
 export default class Notes extends Component {
 
     state = {
-        cards: this.props.productos,
+        cards: [{}]
+    }
+
+    getInfoProducts = async function () {
+        fetch("/products/data")
+            .then((obj) => obj.json())
+            .then((obj) => this.setState({ cards: obj }))
     }
 
     componentDidMount() {
+        this.getInfoProducts()
         setTimeout(() => {
             if (this.props.redirecting) {
                 this.props.moveToCard()
@@ -27,8 +35,8 @@ export default class Notes extends Component {
                         return (
                             <div key={card.nameCard + i} onClick={() => this.props.redirectModal(card)} className="card">
                                 <div className="container-card-image">
-                                        <img className="myImg" src={card.urlImage} alt={card.nameCard} />
-                                    </div>
+                                    <img className="myImg" src={card.urlImage} alt={card.nameCard} />
+                                </div>
                                 <div className="backCard">
                                     <h3>{card.nameCard}</h3>
                                 </div>
@@ -45,14 +53,16 @@ export default class Notes extends Component {
                             return item.type == "manto"
                         }).map(card => {
                             return (
-                                <div key={card.nameCard} onClick={() => this.props.showModal(card)} className="card">
-                                    <div className="container-card-image">
-                                        <img className="myImg" src={card.urlImage} alt={card.nameCard} />
+                                <Link to={"/products/" + card.nameCard.replace(/ /gi, "::")}>
+                                    <div key={card.nameCard} onClick={() => this.props.showModal(card)} className="card">
+                                        <div className="container-card-image">
+                                            <img className="myImg" src={card.urlImage} alt={card.nameCard} />
+                                        </div>
+                                        <div className="backCard">
+                                            <h3>{card.nameCard}</h3>
+                                        </div>
                                     </div>
-                                    <div className="backCard">
-                                        <h3>{card.nameCard}</h3>
-                                    </div>
-                                </div>
+                                </Link>
                             )
                         })}
 

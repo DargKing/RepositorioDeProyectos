@@ -15,17 +15,17 @@ export default class Footer extends Component {
             <footer className="footer light" id="footerLL">
 
                 <div className="div-footer-img">
-                    <Link to="/"><img className="logo-footer" src="./img/Logo-Lluvisol-footer.png" alt="" /></Link>
+                    <Link to="/"><img className="logo-footer" src="/img/Logo-Lluvisol-footer.png" alt="" /></Link>
 
                     <ul className="ul-footer ul-footer-img ul-data-footer">
                         <li className="li-footer li-data-footer">
-                            <img src="./img/icons/pin-de-mapa.png" className="icons-footer" alt="" />
+                            <img src="/img/icons/pin-de-mapa.png" className="icons-footer" alt="" />
                             <a className="footer-a" href="https://g.page/impermeabilizadora-lluvisol-c-a-?share">UD-291 COMPLEJO
                                 MICRO EMPRESARIAL CALLE VENTUARI GALPON N°7 DE UNARE 1 Ciudad Guayana
                                 8050, Bolívar Venezuela</a>
                         </li>
                         <li className="li-footer li-data-footer">
-                            <img src="./img/icons/llamada-telefonica.png" className="icons-footer" alt="" />
+                            <img src="/img/icons/llamada-telefonica.png" className="icons-footer" alt="" />
                             0424-9163501 <br /> 0416-1852770 <br /> 0424-9574402
                         </li>
                     </ul>
@@ -56,12 +56,12 @@ export default class Footer extends Component {
                     </li>
 
                     <li className="li-footer">
-                        <a href=""><img className="icon-nuestras-redes" src="./img/icons/icono_facebook.svg" alt="Facebook" /></a>
-                        <a href=""><img className="icon-nuestras-redes" src="./img/icons/icono_instagram.svg" alt="Instagram" /></a>
-                        <a href=""><img className="icon-nuestras-redes" src="./img/icons/Whatsapp_logo.svg" alt="Whatsapp" /></a>
-                        <a href=""><img className="icon-nuestras-redes" src="./img/icons/tiktok.svg" alt="Tiktok" /></a>
-                        <a href=""><img className="icon-nuestras-redes" src="./img/icons/pinterest.svg" alt="Pinterest" /></a>
-                        <a href=""><img className="icon-nuestras-redes" src="./img/icons/youtube.svg" alt="Youtube" /></a>
+                        <a href=""><img className="icon-nuestras-redes" src="/img/icons/icono_facebook.svg" alt="Facebook" /></a>
+                        <a href=""><img className="icon-nuestras-redes" src="/img/icons/icono_instagram.svg" alt="Instagram" /></a>
+                        <a href=""><img className="icon-nuestras-redes" src="/img/icons/Whatsapp_logo.svg" alt="Whatsapp" /></a>
+                        <a href=""><img className="icon-nuestras-redes" src="/img/icons/tiktok.svg" alt="Tiktok" /></a>
+                        <a href=""><img className="icon-nuestras-redes" src="/img/icons/pinterest.svg" alt="Pinterest" /></a>
+                        <a href=""><img className="icon-nuestras-redes" src="/img/icons/youtube.svg" alt="Youtube" /></a>
                     </li>
 
                 </ul>

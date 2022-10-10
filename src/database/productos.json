@@ -3,11 +3,11 @@
                 "nameCard": "Manto Estándar EDIL",
                 "type": "manto",
                 "fav": true,
-                "urlImage": "./img/productos/MANTO STAND 27.jpg",
+                "urlImage": "/img/productos/MANTO STAND 27.jpg",
                 "modal": [
                         {
                                 "name": "Manto Estandar EDIL 2.7mm",
-                                "url": "./img/productos/MANTO STAND 27.jpg",
+                                "url": "/img/productos/MANTO STAND 27.jpg",
                                 "carac": [
                                         "Tamaño del Rollo: 10m x 1m",
                                         "Peso aproximado: 2,96 Kg por metro cuadrado",
@@ -23,7 +23,7 @@
                         },
                         {
                                 "name": "Manto Estandar EDIL 3.2mm",
-                                "url": "./img/productos/MANTO STAND 32.jpg",
+                                "url": "/img/productos/MANTO STAND 32.jpg",
                                 "carac": [
                                         "Tamaño del Rollo: 10m x 1m",
                                         "Peso aproximado: 3.9 Kg por metro cuadrado",
@@ -39,7 +39,7 @@
                         },
                         {
                                 "name": "Manto Estandar EDIL 4.2mm",
-                                "url": "./img/productos/MANTO STAND 42.jpg",
+                                "url": "/img/productos/MANTO STAND 42.jpg",
                                 "carac": [
                                         "Tamaño del Rollo: 10m x 1m",
                                         "Peso aproximado: 4.9 Kg por metro cuadrado",
@@ -57,13 +57,13 @@
         },
         {
                 "nameCard": "Manto Poliester EDIL",
-                "urlImage": "./img/productos/MANTO POLIESTER 3.jpg",
+                "urlImage": "/img/productos/MANTO POLIESTER 3.jpg",
                 "type": "manto",
                 "fav": false,
                 "modal": [
                         {
                                 "name": "Manto Poliester EDIL 3mm",
-                                "url": "./img/productos/MANTO POLIESTER 3.jpg",
+                                "url": "/img/productos/MANTO POLIESTER 3.jpg",
                                 "carac": [
                                         "Tamaño del Rollo: 10m x 1m",
                                         "Peso aproximado: 3.5 Kg por metro cuadrado",
@@ -80,7 +80,7 @@
                         },
                         {
                                 "name": "Manto Poliester EDIL 4mm",
-                                "url": "./img/productos/MANTO POLIESTER 4.jpg",
+                                "url": "/img/productos/MANTO POLIESTER 4.jpg",
                                 "carac": [
                                         "Tamaño del Rollo: 10m x 1m",
                                         "Peso aproximado: 4.5 Kg por metro cuadrado",
@@ -96,7 +96,7 @@
                         },
                         {
                                 "name": "Manto Poliester Plus EDIL 3mm",
-                                "url": "./img/productos/MANTO POLIESTER PLUS.jpg",
+                                "url": "/img/productos/MANTO POLIESTER PLUS.jpg",
                                 "carac": [
                                         "Tamaño del Rollo: 10m x 1m",
                                         "Peso aproximado: 3.3 Kg por metro cuadrado",
@@ -113,13 +113,13 @@
         },
         {
                 "nameCard": "Manto Real AT EDIL 3mm",
-                "urlImage": "./img/productos/MANTO REAL AT.jpg",
+                "urlImage": "/img/productos/MANTO REAL AT.jpg",
                 "type": "manto",
                 "fav": true,
                 "modal": [
                         {
                                 "name": "Manto Real AT EDIL 3mm",
-                                "url": "./img/productos/MANTO REAL AT.jpg",
+                                "url": "/img/productos/MANTO REAL AT.jpg",
                                 "carac": [
                                         "Tamaño del Rollo: 10m x 1m",
                                         "Peso aproximado: 3.3 Kg por metro cuadrado",
@@ -134,7 +134,7 @@
                         },
                         {
                                 "name": "Manto Real AT EDIL 3mm SL",
-                                "url": "./img/productos/MANTO REAL AT.jpg",
+                                "url": "/img/productos/MANTO REAL AT.jpg",
                                 "carac": [
                                         "Tamaño del Rollo: 10m x 1m",
                                         "Peso aproximado: 3.3 Kg por metro cuadrado",
@@ -151,13 +151,13 @@
         },
         {
                 "nameCard": "Manto Granulado EDIL 3mm",
-                "urlImage": "./img/productos/MANTO GRANUL VERDE.jpg",
+                "urlImage": "/img/productos/MANTO GRANUL VERDE.jpg",
                 "type": "manto",
                 "fav": false,
                 "modal": [
                         {
                                 "name": "Manto Granulado Verde EDIL 3mm",
-                                "url": "./img/productos/MANTO GRANUL VERDE.jpg",
+                                "url": "/img/productos/MANTO GRANUL VERDE.jpg",
                                 "carac": [
                                         "Tamaño del Rollo: 10m x 1m",
                                         "Peso aproximado: 3.5 Kg por metro cuadrado",
@@ -173,7 +173,7 @@
                         },
                         {
                                 "name": "Manto Granulado Rojo EDIL 3mm",
-                                "url": "./img/productos/MANTO GRANUL ROJO.jpg",
+                                "url": "/img/productos/MANTO GRANUL ROJO.jpg",
                                 "carac": [
                                         "Tamaño del Rollo: 10m x 1m",
                                         "Peso aproximado: 3.5 Kg por metro cuadrado",
@@ -193,11 +193,11 @@
                 "nameCard": "Manto Reforzado EDIL",
                 "type": "manto",
                 "fav": false,
-                "urlImage": "./img/productos/MANTO REFORZ 3 Y 4.jpg",
+                "urlImage": "/img/productos/MANTO REFORZ 3 Y 4.jpg",
                 "modal": [
                         {
                                 "name": "Manto Reforzado EDIL 3mm",
-                                "url": "./img/productos/MANTO REFORZ 3 Y 4.jpg",
+                                "url": "/img/productos/MANTO REFORZ 3 Y 4.jpg",
                                 "carac": [
                                         "Tamaño del Rollo: 10m x 1m",
                                         "Peso aproximado: 3.2 Kg por metro cuadrado",
@@ -212,7 +212,7 @@
                         },
                         {
                                 "name": "Manto Reforzado EDIL 4mm",
-                                "url": "./img/productos/MANTO REFORZ 3 Y 4.jpg",
+                                "url": "/img/productos/MANTO REFORZ 3 Y 4.jpg",
                                 "carac": [
                                         "Tamaño del Rollo: 10m x 1m",
                                         "Peso aproximado: 4 Kg por metro cuadrado",
@@ -231,11 +231,11 @@
                 "nameCard": "Primer Normal EDIL",
                 "type": "vaciable",
                 "fav": true,
-                "urlImage": "./img/productos/PRIMER NORMAL.jpg",
+                "urlImage": "/img/productos/PRIMER NORMAL.jpg",
                 "modal": [
                         {
                                 "name": "Primer Normal EDIL",
-                                "url": "./img/productos/PRIMER NORMAL.jpg",
+                                "url": "/img/productos/PRIMER NORMAL.jpg",
                                 "carac": [
                                         "Galón(1 Gal): 3.2kg",
                                         "Cuñete(5 Gal): 16.3kg",
@@ -249,7 +249,7 @@
                         },
                         {
                                 "name": "Primer Plus PP EDIL",
-                                "url": "./img/productos/PRIMER PLUS.jpg",
+                                "url": "/img/productos/PRIMER PLUS.jpg",
                                 "carac": [
                                         "Galón(1 Gal): 3.4kg",
                                         "Cuñete(5 Gal): 18kg",
@@ -263,7 +263,7 @@
                         },
                         {
                                 "name": "Primer Super PS EDIL",
-                                "url": "./img/productos/PRIMER SUPER.jpg",
+                                "url": "/img/productos/PRIMER SUPER.jpg",
                                 "carac": [
                                         "Galón(1 Gal): 2.9kg",
                                         "Cuñete(5 Gal): 14.5kg",
@@ -281,11 +281,11 @@
                 "nameCard": "Emulflex EF EDIL",
                 "type": "vaciable",
                 "fav": false,
-                "urlImage": "./img/productos/EMULFLEX.jpg",
+                "urlImage": "/img/productos/EMULFLEX.jpg",
                 "modal": [
                         {
                                 "name": "Emulflex EF EDIL",
-                                "url": "./img/productos/EMULFLEX.jpg",
+                                "url": "/img/productos/EMULFLEX.jpg",
                                 "carac": [
                                         "Galón(1 Gal): 3.2kg",
                                         "Cuñete(5 Gal): 18kg",
@@ -305,11 +305,11 @@
                 "nameCard": "Asfalto Liquido AP EDIL",
                 "type": "vaciable",
                 "fav": false,
-                "urlImage": "./img/productos/ASFALTO LIQUIDO.jpg",
+                "urlImage": "/img/productos/ASFALTO LIQUIDO.jpg",
                 "modal": [
                         {
                                 "name": "Asfalto Liquido AP EDIL",
-                                "url": "./img/productos/ASFALTO LIQUIDO.jpg",
+                                "url": "/img/productos/ASFALTO LIQUIDO.jpg",
                                 "carac": [
                                         "Galón(1 Gal): 2.9kg",
                                         "Cuñete(5 Gal): 15.6kg",
@@ -327,11 +327,11 @@
                 "nameCard": "Asfadil AF EDIL",
                 "type": "vaciable",
                 "fav": false,
-                "urlImage": "./img/productos/ASFADIL.jpg",
+                "urlImage": "/img/productos/ASFADIL.jpg",
                 "modal": [
                         {
                                 "name": "Asfadil AF EDIL",
-                                "url": "./img/productos/ASFADIL.jpg",
+                                "url": "/img/productos/ASFADIL.jpg",
                                 "carac": [
                                         "Galón(a Gal): 3.7kg",
                                         "Cuñete(5 Gal): 18.5kg",
@@ -350,11 +350,11 @@
                 "nameCard": "Cemento Plástico EDIL",
                 "type": "vaciable",
                 "fav": false,
-                "urlImage": "./img/productos/CEMENTO PLAST.jpg",
+                "urlImage": "/img/productos/CEMENTO PLAST.jpg",
                 "modal": [
                         {
                                 "name": "Cemento Plástico EDIL",
-                                "url": "./img/productos/CEMENTO PLAST.jpg",
+                                "url": "/img/productos/CEMENTO PLAST.jpg",
                                 "carac": [
                                         "Galón(1 Gal): 3.5kg",
                                         "Cuñete(5 Gal): 17.8kg",
@@ -374,11 +374,11 @@
                 "nameCard": "Blanco Tech BT EDIL",
                 "type": "vaciable",
                 "fav": false,
-                "urlImage": "./img/productos/BLANCO TECH.jpg",
+                "urlImage": "/img/productos/BLANCO TECH.jpg",
                 "modal": [
                         {
                                 "name": "Blanco Tech BT EDIL",
-                                "url": "./img/productos/BLANCO TECH.jpg",
+                                "url": "/img/productos/BLANCO TECH.jpg",
                                 "carac": [
                                         "Cuñete(5 Gal): 18.9kg",
                                         "Rendimiento: Aproximadamente 10 por metro cuadrado/Cuñete",
@@ -394,11 +394,11 @@
                 "nameCard": "Pintura De Aluminio EDIL",
                 "type": "vaciable",
                 "fav": false,
-                "urlImage": "./img/productos/PINTURA ALUM.jpg",
+                "urlImage": "/img/productos/PINTURA ALUM.jpg",
                 "modal": [
                         {
                                 "name": "Pintura De Aluminio EDIL",
-                                "url": "./img/productos/PINTURA ALUM.jpg",
+                                "url": "/img/productos/PINTURA ALUM.jpg",
                                 "carac": [
                                         "Galón(1 Gal): 3.1kg",
                                         "Cuñete(5 Gal): 15.5kg",
@@ -416,11 +416,11 @@
                 "nameCard": "Pintura Elastomérica EDIL",
                 "type": "vaciable",
                 "fav": false,
-                "urlImage": "./img/productos/PINTURA ELAST.jpg",
+                "urlImage": "/img/productos/PINTURA ELAST.jpg",
                 "modal": [
                         {
                                 "name": "Pintura Elastomérica EDIL",
-                                "url": "./img/productos/PINTURA ELAST.jpg",
+                                "url": "/img/productos/PINTURA ELAST.jpg",
                                 "carac": [
                                         "Cuñete(5 Gal): 25kg",
                                         "Rendimiento: 2 por metro cuadrado/Cuñetes",
@@ -436,11 +436,11 @@
                 "nameCard": "Teja Asfáltica Rectangular EDIL",
                 "type": "tejas",
                 "fav": false,
-                "urlImage": "./img/productos/TEJA RECT ROJA.jpg",
+                "urlImage": "/img/productos/TEJA RECT ROJA.jpg",
                 "modal": [
                         {
                                 "name": "Teja Asfáltica Rectangular EDIL Rojo",
-                                "url": "./img/productos/TEJA RECT ROJA.jpg",
+                                "url": "/img/productos/TEJA RECT ROJA.jpg",
                                 "carac": [
                                         "Peso x por metro cuadrado: 7.8kg",
                                         "Lamina: 100cm x 33cm",
@@ -458,7 +458,7 @@
                         },
                         {
                                 "name": "Teja Asfáltica Rectangular EDIL Verde",
-                                "url": "./img/productos/TEJA RECT VERDE.jpg",
+                                "url": "/img/productos/TEJA RECT VERDE.jpg",
                                 "carac": [
                                         "Peso x por metro cuadrado: 7.8kg",
                                         "Lamina: 100cm x 33cm",
@@ -480,11 +480,11 @@
                 "nameCard": "Teja Asfáltica Hexagonal EDIL",
                 "type": "tejas",
                 "fav": false,
-                "urlImage": "./img/productos/TEJA HEX ROJA.jpg",
+                "urlImage": "/img/productos/TEJA HEX ROJA.jpg",
                 "modal": [
                         {
                                 "name": "Teja Asfáltica Hexagonal EDIL Rojo",
-                                "url": "./img/productos/TEJA HEX ROJA.jpg",
+                                "url": "/img/productos/TEJA HEX ROJA.jpg",
                                 "carac": [
                                         "Peso x por metro cuadrado: 7.8kg",
                                         "Lamina: 100cm x 33cm",
@@ -502,7 +502,7 @@
                         },
                         {
                                 "name": "Teja Asfáltica Hexagonal EDIL Verde",
-                                "url": "./img/productos/TEJA HEX VERDE.jpg",
+                                "url": "/img/productos/TEJA HEX VERDE.jpg",
                                 "carac": [
                                         "Peso x por metro cuadrado: 7.8kg",
                                         "Lamina: 100cm x 33cm",

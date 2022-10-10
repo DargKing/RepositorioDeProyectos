@@ -34,7 +34,7 @@ export default class Nav extends Component {
                         <header className="header-nav" id="header-nav">
                                 <nav className="nav">
 
-                                        <Link onClick={() => this.setState({ seeing: false })} to="/"><img src="./img/Logo-Lluvisol.png" alt="Logo De LLuvisol" /></Link>
+                                        <Link onClick={() => this.setState({ seeing: false })} to="/"><img src="/img/Logo-Lluvisol.png" alt="Logo De LLuvisol" /></Link>
 
                                         <div className="burger" onClick={this.toogle}>
                                                 <div className="line-midle"></div>
@@ -57,17 +57,17 @@ export default class Nav extends Component {
                                                 </ul>
 
                                                 <div className="redes-sociales">
-                                                        <img className="icon-nuestras-redes" src="./img/icons/icono_facebook.svg" alt="facebook" />
+                                                        <img className="icon-nuestras-redes" src="/img/icons/icono_facebook.svg" alt="facebook" />
 
-                                                        <img className="icon-nuestras-redes" src="./img/icons/icono_instagram.svg" alt="instagram" />
+                                                        <img className="icon-nuestras-redes" src="/img/icons/icono_instagram.svg" alt="instagram" />
 
-                                                        <img className="icon-nuestras-redes" src="./img/icons/Whatsapp_logo.svg" alt="whatsapp" />
+                                                        <img className="icon-nuestras-redes" src="/img/icons/Whatsapp_logo.svg" alt="whatsapp" />
 
-                                                        <img className="icon-nuestras-redes" src="./img/icons/tiktok.svg" alt="tiktok" />
+                                                        <img className="icon-nuestras-redes" src="/img/icons/tiktok.svg" alt="tiktok" />
 
-                                                        <img className="icon-nuestras-redes" src="./img/icons/pinterest.svg" alt="pinterest" />
+                                                        <img className="icon-nuestras-redes" src="/img/icons/pinterest.svg" alt="pinterest" />
 
-                                                        <img className="icon-nuestras-redes" src="./img/icons/youtube.svg" alt="youtube" />
+                                                        <img className="icon-nuestras-redes" src="/img/icons/youtube.svg" alt="youtube" />
                                                 </div>
 
                                         </div>
