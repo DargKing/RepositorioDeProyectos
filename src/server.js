@@ -2,6 +2,7 @@ const express = require('express');;
 const path = require('path');
 const morgan = require('morgan');
 const fs = require('fs');
+const { setTimeout } = require('timers/promises');
 
 const app = express();
 
@@ -15,7 +16,7 @@ app.use(express.static(path.join(__dirname, 'public')))
 
 app.set("port", process.env.PORT || 4000);
 app.set('views', path.join(__dirname, '/public/'));
-app.engine('html', require('ejs').__express);  
+app.engine('html', require('ejs').__express);
 app.set('view engine', 'html');
 
 app.get("/products/data", (req, res) => {
@@ -28,17 +29,15 @@ app.get("/products/data/:nameCard", (req, res) => {
         let data = undefined;
 
         for (var i = 0; i < dataJson.length; i++) {
-                if(dataJson[i].nameCard == req.params.nameCard.replace(/::/gi, " ")){
+                if (dataJson[i].nameCard == req.params.nameCard.replace(/::/gi, " ")) {
                         data = dataJson[i];
                 }
         }
 
-        if(data == undefined)
-                res.json({
-                        nameCard: "Undefined"
-                })
+        if (data == undefined)
+                res.sendStatus(404)
 
-        res.json(data)
+        setTimeout(10000, res.json(data))
 })
 
 app.get("/*", (req, res) => {
