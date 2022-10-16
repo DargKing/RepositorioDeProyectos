@@ -101,20 +101,3 @@
         width: calc(100% - 5px);
         transform: translateY(-50%);
 }
-
-@media screen and (max-width: 720px){
-
-        .card::before {
-                background: transparent;
-                backdrop-filter: initial;
-                -webkit-backdrop-filter: initial;
-        }
-
-        .card:hover .myImg {
-                transform: translateX(-50%);
-        }
-
-        .backCard {
-                right: 5%;
-        }
-}

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 
 export default class Nav extends Component {
 
@@ -20,8 +20,8 @@ export default class Nav extends Component {
                         document.body.classList.remove("overflow-hidden")
         }
 
-        componentDidMount(){
-                window.addEventListener("resize", ()=>{
+        componentDidMount() {
+                window.addEventListener("resize", () => {
                         if (window.innerWidth < 700 && this.state.seeing)
                                 document.body.classList.add("overflow-hidden")
                         else if (window.innerWidth > 700 && this.state.seeing && document.body.classList.contains("overflow-hidden"))
@@ -36,40 +36,17 @@ export default class Nav extends Component {
 
                                         <Link onClick={() => this.setState({ seeing: false })} to="/"><img src="/img/Logo-Lluvisol.png" alt="Logo De LLuvisol" /></Link>
 
-                                        <div className="burger" onClick={this.toogle}>
-                                                <div className="line-midle"></div>
-                                        </div>
 
-                                        <div className="aside-nav" style={{ transform: !this.state.seeing ? "translateX(-100%)" : "translateX(0%)" }} id="asideNav">
-
-                                                <div className="burger active" onClick={this.toogle} >
-                                                        <div className="line-midle"></div>
-                                                </div>
-
+                                        <div className="container-links-nav">
                                                 <ul className="ul-nav">
-                                                        <Link onClick={this.move} to="/"><li className="li-nav">Inicio</li></Link>
+                                                        <NavLink style={({ isActive }) => isActive ? { opacity: "0.8" } : undefined} to="/"><li className="li-nav">Inicio</li></NavLink>
 
-                                                        <Link onClick={this.move} to="/products"><li className="li-nav">Productos</li></Link>
+                                                        <NavLink style={({ isActive }) => isActive ? { opacity: "0.8" } : undefined} to="/products"><li className="li-nav">Productos</li></NavLink>
 
-                                                        <Link onClick={this.move} to="/about"><li className="li-nav">contacto</li></Link>
+                                                        <NavLink style={({ isActive }) => isActive ? { opacity: "0.8" } : undefined} to="/about"><li className="li-nav">contacto</li></NavLink>
 
-                                                        <Link onClick={this.move} to="/faq"><li className="li-nav">preguntas frecuentes</li></Link>
+                                                        <NavLink style={({ isActive }) => isActive ? { opacity: "0.8" } : undefined} to="/faq"><li className="li-nav">preguntas frecuentes</li></NavLink>
                                                 </ul>
-
-                                                <div className="redes-sociales">
-                                                        <img className="icon-nuestras-redes" src="/img/icons/icono_facebook.svg" alt="facebook" />
-
-                                                        <img className="icon-nuestras-redes" src="/img/icons/icono_instagram.svg" alt="instagram" />
-
-                                                        <img className="icon-nuestras-redes" src="/img/icons/Whatsapp_logo.svg" alt="whatsapp" />
-
-                                                        <img className="icon-nuestras-redes" src="/img/icons/tiktok.svg" alt="tiktok" />
-
-                                                        <img className="icon-nuestras-redes" src="/img/icons/pinterest.svg" alt="pinterest" />
-
-                                                        <img className="icon-nuestras-redes" src="/img/icons/youtube.svg" alt="youtube" />
-                                                </div>
-
                                         </div>
 
                                 </nav>
