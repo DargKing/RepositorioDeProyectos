@@ -11,7 +11,7 @@ export default class Calculadora extends Component {
             "**Deseas Cubrir"
         ],
         value: "",
-        select: "CP"
+        select: "RM"
     }
 
     addNumCalc = (value) => {
@@ -254,8 +254,8 @@ export default class Calculadora extends Component {
 
                             <select name="Producto" onChange={this.changeSelect} value={this.state.select} className="selectCalc">
 
-                                <option value="CP">Cemento Plástico</option>
                                 <option value="RM">Rollos de Manto</option>
+                                <option value="CP">Cemento Plástico</option>
                                 <option value="PG">Primer (Galon)</option>
                                 <option value="TA">Tejas Asfálticas</option>
                                 <option value="PA">Pintura de Aluminio (Galon)</option>

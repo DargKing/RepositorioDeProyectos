@@ -17,6 +17,7 @@ padding: 50px 10px;
 
 .fondo-calc{
 background-image: url('../img/servicios/IMPER-DE-TECHOS-MANTO-REAL--AT.jpg');
+animation: loader-skeleton-card 4s ease-in infinite;
 background-repeat: no-repeat;
 background-size: cover;
 position: absolute;
