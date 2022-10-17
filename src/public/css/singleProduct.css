@@ -123,6 +123,7 @@
         transition: background .4s, color .5s;
 }
 
+
 .consulta-singleProduct:hover {
         background: transparent;
         border: #00bb2d 2px solid;

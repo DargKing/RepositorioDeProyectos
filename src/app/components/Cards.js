@@ -56,6 +56,7 @@ export default class Notes extends Component {
                                         <div className="backCard loading-backCard">
                                         </div>
                                     </div>
+                                    
                                     <div className="card">
                                         <div className="container-card-image">
                                             <img className="myImg" />

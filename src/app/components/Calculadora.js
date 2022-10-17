@@ -271,7 +271,7 @@ export default class Calculadora extends Component {
 
                                 <input type="button" className="botonesCalc" value="2"
                                     onClick={() => this.addNumCalc(2)} />
-
+                                    
                                 <input type="button" className="botonesCalc" value="3"
                                     onClick={() => this.addNumCalc(3)} />
 
