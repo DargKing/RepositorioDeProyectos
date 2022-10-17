@@ -17,6 +17,7 @@ padding: 50px 10px;
 
 .fondo-calc{
 background-image: url('../img/servicios/IMPER-DE-TECHOS-MANTO-REAL--AT.jpg');
+animation: loader-skeleton-card 4s ease-in infinite;
 background-repeat: no-repeat;
 background-size: cover;
 position: absolute;
@@ -184,7 +185,6 @@ text-transform: capitalize;
 text-align: left;
 word-spacing: 2px;
 }
-
 
 
 /* Esto Es Para Pantallas De Ancho Pequeño Como La De Los Telefonos */

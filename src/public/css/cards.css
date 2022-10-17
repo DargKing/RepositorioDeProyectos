@@ -13,11 +13,16 @@
 }
 
 .container-card-image{
+        --width: 340px;
         position: relative;
         overflow: hidden;
-        width: 340px;
+        width: var(--width);
         height: 466px;
         border: 3px solid #000;
+
+        background: #bdc3c7;
+        animation: loader-skeleton-card 2s ease-in infinite;
+        /* transition: background 1s; */
 }
 
 .myImg {
@@ -85,7 +90,8 @@
         transition: top 1s 0.3s, transform 1s 0.9s, width 0.2s;
         background: #ffffff;
         padding: 15px 20px;
-        /* top: -5px; */
+        animation: loader-skeleton-backCard 1.5s ease-in infinite;
+        border: 3px solid;
 }
 
 .backCard h3 {
@@ -98,6 +104,33 @@
 
 .card:hover .backCard{
         top: -233px;
-        width: calc(100% - 5px);
         transform: translateY(-50%);
+}
+
+@keyframes loader-skeleton-card{
+        0% {
+                background-color: #bdc3c7;
+        }
+        
+        50%{
+                background-color:  #929799;
+        }
+
+        100% {
+                background-color: #bdc3c7;
+        }
+}
+
+@keyframes loader-skeleton-backCard{
+        0% {
+                background-color: #ffffff;
+        }
+        
+        50%{
+                background-color:  #eeeeee;
+        }
+
+        100% {
+                background-color: #ffffff;
+        }
 }

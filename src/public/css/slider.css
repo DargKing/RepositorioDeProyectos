@@ -6,39 +6,28 @@
 .slider {
     position: relative;
     overflow: hidden;
+    background: #bdc3c7;
+    animation: loader-skeleton-card 2s ease-in infinite;
 }
 
 .slides {
     position: relative;
     display: flex;
-    /* overflow: hidden; */
     pointer-events: none;
 }
 
 .slide {
     width: 100%;
+    min-height: clamp(193px, 40vw, 555px);
     flex-shrink: 0;
-    /* animation-name: slide;
-    animation-duration: var(--duration);
-    animation-iteration-count: infinite;
-    animation-timing-function: linear; */
     list-style: none;
 }
-
-/* .slides:hover .slide {
-    animation-play-state: paused;
-} */
 
 .slide img {
     width: 100%;
     vertical-align: top;
 }
 
-/* .slide a {
-    width: 100%;
-    display: inline-block;
-    position: relative;
-} */
 
 .caption {
     color: white;
@@ -83,10 +72,6 @@
 }
 
 @media only screen and (min-width: 1200px) {
-    /* .slide {
-        width: 1200px;
-    } */
-
     .caption {
         font-size: 96px;
         bottom: 96px;

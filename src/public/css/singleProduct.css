@@ -19,6 +19,7 @@
         min-width: 59vh;
         position: relative;
         background: #bdc3c7;
+        animation: loader-skeleton-card 2s ease-in infinite;
 }
 
 .container-image-singleProduct img {
@@ -121,6 +122,7 @@
         margin-left: 10px;
         transition: background .4s, color .5s;
 }
+
 
 .consulta-singleProduct:hover {
         background: transparent;
