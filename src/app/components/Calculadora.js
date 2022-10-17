@@ -238,6 +238,8 @@ export default class Calculadora extends Component {
 
     render() {
         return (
+            <>
+            <div className="Product-Type">Calculadora</div>
             <div className="position-relative">
 
                 <div className="fondo-calc" />
@@ -332,6 +334,7 @@ export default class Calculadora extends Component {
 
 
             </div>
+            </>
         )
     }
 }

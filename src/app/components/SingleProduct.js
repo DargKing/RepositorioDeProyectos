@@ -53,7 +53,7 @@ export default function singleProduct() {
 
         return (
                 <div>
-                        <main>
+                        <main className="main-SingleProduct">
                                 <div className="container-singleProduct">
                                         <div className="container-image-singleProduct">
                                                 <img src={currentProduct.url} />

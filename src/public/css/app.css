@@ -64,6 +64,12 @@ a {
         margin-top: 50px;
 }
 
+@media screen and (max-width: 768px) {
+        .Product-Type{
+                font-size: 45px;
+        }
+}
+
 .m-1 {
         margin: 10px;
 }

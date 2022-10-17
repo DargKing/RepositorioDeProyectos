@@ -239,7 +239,7 @@
                                 "carac": [
                                         "Galón(1 Gal): 3.2kg",
                                         "Cuñete(5 Gal): 16.3kg",
-                                        "Rendimiento: 1 por metro cuadradoGal;",
+                                        "Rendimiento: 10 metros cuadrados por Galon;",
                                         "Color: Negro"
                                 ],
                                 "desc": [
@@ -313,7 +313,7 @@
                                 "carac": [
                                         "Galón(1 Gal): 2.9kg",
                                         "Cuñete(5 Gal): 15.6kg",
-                                        "Rendimiento: 1 por metro cuadradoGal;",
+                                        "Rendimiento: 1 metros cuadrados por Galon;",
                                         "color: negro"
                                 ],
                                 "desc": [
@@ -335,7 +335,7 @@
                                 "carac": [
                                         "Galón(a Gal): 3.7kg",
                                         "Cuñete(5 Gal): 18.5kg",
-                                        "Rendimiento:  por metro cuadrado/Gal",
+                                        "Rendimiento: ? metros cuadrados por Galon",
                                         "color: negro"
                                 ],
                                 "desc": [
@@ -358,7 +358,7 @@
                                 "carac": [
                                         "Galón(1 Gal): 3.5kg",
                                         "Cuñete(5 Gal): 17.8kg",
-                                        "Rendimiento:  por metro cuadrado/Gal",
+                                        "Rendimiento: 5 metros cuadrados por Galon",
                                         "color: negro"
                                 ],
                                 "desc": [
@@ -381,7 +381,7 @@
                                 "url": "/img/productos/BLANCO TECH.jpg",
                                 "carac": [
                                         "Cuñete(5 Gal): 18.9kg",
-                                        "Rendimiento: Aproximadamente 10 por metro cuadrado/Cuñete",
+                                        "Rendimiento: Aproximadamente 10 metros cuadrados por Cuñete",
                                         "color: Blanco"
                                 ],
                                 "desc": [
@@ -402,7 +402,7 @@
                                 "carac": [
                                         "Galón(1 Gal): 3.1kg",
                                         "Cuñete(5 Gal): 15.5kg",
-                                        "Rendimiento: 2 por metro cuadrado/Gal",
+                                        "Rendimiento: 2 metros cuadrados por Galon",
                                         "color: Al Mezclarlo Asume Un Color Plateado"
                                 ],
                                 "desc": [
@@ -423,7 +423,7 @@
                                 "url": "/img/productos/PINTURA ELAST.jpg",
                                 "carac": [
                                         "Cuñete(5 Gal): 25kg",
-                                        "Rendimiento: 2 por metro cuadrado/Cuñetes",
+                                        "Rendimiento: 2 por metros cuadrados por Cuñete",
                                         "Color: Verde O Roja"
                                 ],
                                 "desc": [

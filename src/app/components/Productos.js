@@ -12,10 +12,6 @@ export default class productos extends Component {
         modal: {}
     }
 
-    componentDidMount(){
-        scrollToComponent(document.body, { offset: 0, align: 'top', duration: 1})
-    }
-
     render() {
         return (
             <div>

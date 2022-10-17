@@ -59,7 +59,7 @@
         cursor: pointer;
 }
 
-.icon-nuestras-redes {
+.footer-redes a{
         width: 45px;
         margin: 10px 15px 0px 0px;
         opacity: 0.9;
@@ -117,9 +117,14 @@
                 justify-self: initial;
         }
 
+        .footer-redes a{
+                margin: 10px 7px 0px 7px;
+        }
+
         .li-footer {
                 justify-content: center;
                 flex-wrap: wrap;
+                font-size: 19px;
         }
 
         .li-footer-title {

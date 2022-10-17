@@ -31,18 +31,24 @@ export default class Notes extends Component {
             }}>
 
                 {this.props.page == "home" &&
-                    this.state.cards.filter((item) => item.fav).map((card, i) => {
-                        return (
-                            <div key={card.nameCard + i} onClick={() => this.props.redirectModal(card)} className="card">
-                                <div className="container-card-image">
-                                    <img className="myImg" src={card.urlImage} alt={card.nameCard} />
-                                </div>
-                                <div className="backCard">
-                                    <h3>{card.nameCard}</h3>
-                                </div>
-                            </div>
-                        )
-                    })}
+                    <>
+                        <div className="Product-Type">Productos Destacados</div>
+                        {this.state.cards.filter((item) => item.fav).map((card, i) => {
+                            return (
+                                <Link to={"/products/" + card.nameCard.replace(/ /gi, "::")}>
+                                    <div key={card.nameCard} className="card">
+                                        <div className="container-card-image">
+                                            <img className="myImg" src={card.urlImage} alt={card.nameCard} />
+                                        </div>
+                                        <div className="backCard">
+                                            <h3>{card.nameCard}</h3>
+                                        </div>
+                                    </div>
+                                </Link>
+                            )
+                        })}
+                    </>
+                }
 
 
                 {this.props.page == "productos" &&
@@ -54,7 +60,7 @@ export default class Notes extends Component {
                         }).map(card => {
                             return (
                                 <Link to={"/products/" + card.nameCard.replace(/ /gi, "::")}>
-                                    <div key={card.nameCard} onClick={() => this.props.showModal(card)} className="card">
+                                    <div key={card.nameCard} className="card">
                                         <div className="container-card-image">
                                             <img className="myImg" src={card.urlImage} alt={card.nameCard} />
                                         </div>
@@ -73,14 +79,16 @@ export default class Notes extends Component {
                             return item.type == "vaciable"
                         }).map(card => {
                             return (
-                                <div key={card.nameCard} onClick={() => this.props.showModal(card)} className="card">
-                                    <div className="container-card-image">
-                                        <img className="myImg" src={card.urlImage} alt={card.nameCard} />
+                                <Link to={"/products/" + card.nameCard.replace(/ /gi, "::")}>
+                                    <div key={card.nameCard} className="card">
+                                        <div className="container-card-image">
+                                            <img className="myImg" src={card.urlImage} alt={card.nameCard} />
+                                        </div>
+                                        <div className="backCard">
+                                            <h3>{card.nameCard}</h3>
+                                        </div>
                                     </div>
-                                    <div className="backCard">
-                                        <h3>{card.nameCard}</h3>
-                                    </div>
-                                </div>
+                                </Link>
                             )
                         })}
 
@@ -91,14 +99,16 @@ export default class Notes extends Component {
                             return item.type == "tejas"
                         }).map(card => {
                             return (
-                                <div key={card.nameCard} onClick={() => this.props.showModal(card)} className="card">
-                                    <div className="container-card-image">
-                                        <img className="myImg" src={card.urlImage} alt={card.nameCard} />
+                                <Link to={"/products/" + card.nameCard.replace(/ /gi, "::")}>
+                                    <div key={card.nameCard} className="card">
+                                        <div className="container-card-image">
+                                            <img className="myImg" src={card.urlImage} alt={card.nameCard} />
+                                        </div>
+                                        <div className="backCard">
+                                            <h3>{card.nameCard}</h3>
+                                        </div>
                                     </div>
-                                    <div className="backCard">
-                                        <h3>{card.nameCard}</h3>
-                                    </div>
-                                </div>
+                                </Link>
                             )
                         })}
 

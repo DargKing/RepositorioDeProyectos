@@ -125,7 +125,11 @@
 
 .icon-nuestras-redes {
     width: 45px;
-    margin: 10px 10px 0px 10px;
-    opacity: 0.9;
+    opacity: 0.8;
     flex-wrap: wrap;
+    transition: opacity 0.2s;
+}
+
+.icon-nuestras-redes:hover{
+    opacity: 1;
 }

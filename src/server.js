@@ -2,7 +2,6 @@ const express = require('express');;
 const path = require('path');
 const morgan = require('morgan');
 const fs = require('fs');
-const { setTimeout } = require('timers/promises');
 
 const app = express();
 
@@ -37,7 +36,7 @@ app.get("/products/data/:nameCard", (req, res) => {
         if (data == undefined)
                 res.sendStatus(404)
 
-        setTimeout(10000, res.json(data))
+        setTimeout(() => res.json(data), 5000)
 })
 
 app.get("/*", (req, res) => {

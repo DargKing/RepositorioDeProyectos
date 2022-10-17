@@ -1,3 +1,8 @@
+.main-SingleProduct{
+        display: flex;
+        justify-content:center;
+}
+
 .container-singleProduct {
         display: flex;
         align-items: stretch;
@@ -6,11 +11,12 @@
         height: 80vh;
         max-height: 600px;
         border: 2px solid;
+        width: 100%;
 }
 
 .container-image-singleProduct {
         height: 100%;
-        min-width: 60vh;
+        min-width: 59vh;
         position: relative;
         background: #bdc3c7;
 }
@@ -127,6 +133,29 @@
         background-size: cover;
 }
 
+@media screen and (max-width: 940px){
+        .container-singleProduct{
+                flex-direction: column;
+                height: auto;
+                max-height: none;
+                width: clamp(320px, 75vw, 700px);
+        }
+
+        .container-image-singleProduct{
+                width: 100%;
+                height: clamp(426px, 100vw, 932px);
+                min-width: 0;
+        }
+
+        .container-image-singleProduct img{
+                width: 100%;
+        }
+
+        .container-text-singleProduct{
+                padding: 20px 40px 60px 40px;
+                height: auto;
+        }
+}
 
 /* Skeleton */
 
