@@ -1,32 +1,29 @@
-import React, { Component } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
-export default class Notes extends Component {
+export default function Notes (props) {
 
-    state = {
-        cards: [{}]
-    }
+    const [cards, setCards] = useState([{}])
 
-    getInfoProducts = async function () {
+    const getInfoProducts = async function () {
         fetch("/products/data")
             .then((obj) => obj.json())
-            .then((obj) => this.setState({ cards: obj }))
+            .then((obj) => setCards(obj))
     }
 
-    componentDidMount() {
-        this.getInfoProducts()
-    }
+   useEffect(() => {
+        getInfoProducts()
+    }, [])
 
-    render() {
         return (
 
             <div className="caja">
 
-                {this.props.page == "home" &&
+                {props.page == "home" &&
                     <>
                         <div className="Product-Type">Productos Destacados</div>
                         {
-                            (this.state.cards[0].nameCard != undefined) ? this.state.cards.filter((item) => item.fav).map((card, i) => {
+                            (cards[0].nameCard != undefined) ? cards.filter((item) => item.fav).map((card, i) => {
                                 return (
                                     <Link to={"/products/" + card.nameCard.replace(/ /gi, "::")}>
                                         <div key={card.nameCard} className="card">
@@ -69,11 +66,11 @@ export default class Notes extends Component {
                 }
 
 
-                {this.props.page == "productos" &&
+                {props.page == "productos" &&
                     <>
                         <div className="Product-Type">Mantos</div>
 
-                        {(this.state.cards[0].nameCard != undefined) ? this.state.cards.filter((item) => {
+                        {(cards[0].nameCard != undefined) ? cards.filter((item) => {
                             return item.type == "manto"
                         }).map(card => {
                             return (
@@ -117,7 +114,7 @@ export default class Notes extends Component {
 
                         <div className="Product-Type">Vaciables</div>
 
-                        {(this.state.cards[0].nameCard != undefined) ? this.state.cards.filter((item) => {
+                        {(cards[0].nameCard != undefined) ? cards.filter((item) => {
                             return item.type == "vaciable"
                         }).map(card => {
                             return (
@@ -174,7 +171,7 @@ export default class Notes extends Component {
 
                         <div className="Product-Type">Tejas</div>
 
-                        {(this.state.cards[0].nameCard != undefined) ? this.state.cards.filter((item) => {
+                        {(cards[0].nameCard != undefined) ? cards.filter((item) => {
                             return item.type == "tejas"
                         }).map(card => {
                             return (
@@ -212,5 +209,4 @@ export default class Notes extends Component {
 
             </div>
         )
-    }
 }

@@ -1,0 +1,39 @@
+.error404-main{
+        display: flex;
+        justify-content:center;
+        align-items:center;
+}
+
+.error404-container{
+        width: clamp(320px, 75vw, 500px);
+        color: #fff;
+}
+
+.error404-title{
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        font-size: 40px;
+}
+
+.error404-title img{
+        width: 45px;
+        margin-left: 15px;
+}
+
+.error404-text{
+        text-align: center;
+        font-weight: 500;
+        color: #c0c0c0;
+        font-size: 20px;
+}
+
+.error404-link{
+        font-weight: 700;
+        color: #cdcdcd;
+        transition: color .3s;
+}
+
+.error404-link:hover{
+        color: #ffffff
+}

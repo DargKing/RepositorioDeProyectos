@@ -9,6 +9,7 @@ import Contacto from './components/Contacto'
 import Footer from './components/Footer'
 import Garantia from './components/Garantia'
 import SingleProduct from './components/SingleProduct'
+import Error404 from './components/Error404'
 
 // Lista de productos
 
@@ -23,6 +24,7 @@ export default function app() {
                 <Route path={"/about"} element={<Contacto />} />
                 <Route path={"/faq"} element={<Faq />} />
                 <Route path={"/garantia"} element={<Garantia />} />
+                <Route path={"/*"} element={<Error404 />}/>
             </Routes>
             <Footer />
         </>
