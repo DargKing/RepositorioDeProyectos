@@ -36,7 +36,7 @@ app.get("/products/data/:nameCard", (req, res) => {
         if (data == undefined)
                 res.sendStatus(404)
 
-        setTimeout(() => res.json(data), 5000)
+        res.json(data)
 })
 
 app.get("/*", (req, res) => {
