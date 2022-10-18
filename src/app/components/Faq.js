@@ -1,66 +1,57 @@
-import React, { Component } from 'react'
+import React, { Component, useState } from 'react'
 
 import post from '../faq.json'
 
-export default class faq extends Component {
+export default function faq() {
 
-    state = {
-        data: post,
-        active: undefined,
-        infoList: []
-    }
+    const [data, setData] = useState(post)
+    const [active, setActive] = useState(undefined)
 
-    open = (number, target) => {
-
-        var lastItem = this.state.active != undefined ? document.getElementById("info" + this.state.active) : undefined
+    open = (number) => {
+        var lastItem = active != undefined ? document.getElementById("info" + active) : undefined
         var item = document.getElementById("info" + number)
-        if(lastItem && lastItem != item){
+        if (lastItem && lastItem != item) {
             lastItem.classList.toggle("open-animation")
             lastItem.classList.toggle("close-animation")
         }
         item.classList.toggle("open-animation")
         item.classList.toggle("close-animation")
-        if (this.state.active != number)
-        this.setState({
-            active: number
-        })
-        else this.setState({
-            active: undefined
-        })
+        if (active != number)
+            setActive(number)
+        else
+            setActive(undefined)
     }
 
-    render() {
-        return (
-            <main>
-                <h3 className="title-faq">Preguntas Frecuentes</h3>
-                {this.state.data.map((data, i) => {
-                    return (
-                        <div key={i}>
-                            <button onClick={(element) => this.open(i, element)}
-                                className={this.state.active == i ? "button-faq toggle-btn show" : "button-faq toggle-btn hide"}
-                                id="toggle-btn-${i}">
-                                {data.name}
-                            </button>
+    return (
+        <main>
+            <h3 className="title-faq">Preguntas Frecuentes</h3>
+            {data.map((data, i) => {
+                return (
+                    <div key={i}>
+                        <button onClick={() => open(i)}
+                            className={active == i ? "button-faq toggle-btn show" : "button-faq toggle-btn hide"}
+                            id="toggle-btn-${i}">
+                            {data.name}
+                        </button>
 
-                            <div className="info close-animation" id={"info" + i}>
-                                <div style={{ padding: "20px 25px" }}>
-                                    {data.info.map((text, i) => {
-                                        if (typeof text === "string")
-                                            return <Texto key={text + i} text={text} i={i} />
-                                        else if (typeof text === 'object')
-                                            return (
-                                                <ul key={text + i}>
-                                                    <Lista state={text} />
-                                                </ul>)
-                                    })}
-                                </div>
+                        <div className="info close-animation" id={"info" + i}>
+                            <div style={{ padding: "20px 25px" }}>
+                                {data.info.map((text, i) => {
+                                    if (typeof text === "string")
+                                        return <Texto key={text + i} text={text} i={i} />
+                                    else if (typeof text === 'object')
+                                        return (
+                                            <ul key={text + i}>
+                                                <Lista state={text} />
+                                            </ul>)
+                                })}
                             </div>
                         </div>
-                    )
-                })}
-            </main>
-        )
-    }
+                    </div>
+                )
+            })}
+        </main>
+    )
 }
 
 function Texto(props) {

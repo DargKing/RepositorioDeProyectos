@@ -7,6 +7,7 @@
     "start": "node ./src/server.js --omit=dev",
     "webpack": "webpack --mode production",
     "webpack-dev": "webpack --mode development --watch",
+    "webpack-dev-proc": "webpack --mode production --watch",
     "server-dev": "nodemon ./src/server.js",
     "lin": "eslint . --fix  --ext .js"
   },
