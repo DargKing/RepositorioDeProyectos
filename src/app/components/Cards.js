@@ -15,20 +15,12 @@ export default class Notes extends Component {
 
     componentDidMount() {
         this.getInfoProducts()
-        setTimeout(() => {
-            if (this.props.redirecting) {
-                this.props.moveToCard()
-            }
-        }, 300)
     }
 
     render() {
         return (
 
-            <div className="caja" ref={(element) => {
-                if (this.props.page != "home")
-                    this.props.putRef(element)
-            }}>
+            <div className="caja">
 
                 {this.props.page == "home" &&
                     <>
