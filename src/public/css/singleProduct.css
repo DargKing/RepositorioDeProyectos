@@ -6,7 +6,6 @@
 .container-singleProduct {
         display: flex;
         align-items: stretch;
-        font-family: 'raleway';
         background: #ffffff;
         height: 80vh;
         max-height: 600px;
