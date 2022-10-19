@@ -3,10 +3,16 @@ require("dotenv").config()
 const express = require('express');;
 const path = require('path');
 const morgan = require('morgan');
+const database = require("./database/database");
 
 const app = express();
 
-require('./database/database')
+database.connectToServer((err) => {
+        if (err)
+                console.error(err);
+        else
+                console.log("DB is conected")
+})
 
 // Midlewares
 console.log("******************")

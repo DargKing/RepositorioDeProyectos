@@ -8,7 +8,9 @@ export default function Notes (props) {
     const getInfoProducts = async function () {
         fetch("/products/data")
             .then((obj) => obj.json())
-            .then((obj) => setCards(obj))
+            .then((obj) => {
+                setCards(obj)
+            })
     }
 
    useEffect(() => {
