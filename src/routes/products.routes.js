@@ -7,7 +7,6 @@ const path = require('path');
 const productModel = require('../database/models/productsData')
 
 Route.get("/products/data", (req, res) => {
-        console.log(process.env.MONGODB_URI)
         productModel.find({}, (err, products) => {
                 if (err)
                         res.sendStatus(404).json(undefined)
