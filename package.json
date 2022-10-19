@@ -8,15 +8,30 @@
     "webpack": "webpack --mode production",
     "webpack-dev": "webpack --mode development --watch",
     "webpack-dev-proc": "webpack --mode production --watch",
-    "server-dev": "nodemon ./src/server.js",
-    "lin": "eslint . --fix  --ext .js"
+    "server-dev": "nodemon ./src/server.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^16.0.3",
     "ejs": "^3.1.7",
     "express": "^4.18.0",
     "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.17.6",
+    "@babel/core": "^7.17.9",
+    "@babel/preset-env": "^7.16.11",
+    "@babel/preset-react": "^7.16.7",
+    "babel-loader": "^8.2.5",
+    "mongoose": "^6.6.5",
+    "nodemon": "^2.0.15",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "react-router-dom": "^6.3.0",
+    "regenerator-runtime": "^0.13.9",
+    "webpack": "^5.72.0",
+    "webpack-cli": "^4.9.2"
   }
 }
