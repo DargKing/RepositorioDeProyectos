@@ -1,12 +1,28 @@
-const Moongose = require("mongoose");
+const { MongoClient } = require('mongodb')
 
-if(process.env.MONGODB_URI == undefined)
-        process.env.MONGODB_URI = "mongodb://127.0.0.1/LluvisolCA"
+if (process.env.MONGODB_URI == undefined) {
+        process.env.MONGODB_URI = "mongodb://localhost/27017"
+}
 
-Moongose.connect(process.env.MONGODB_URI, {
-        useUnifiedTopology: true,
-        useNewUrlParser: true
+const client = new MongoClient(process.env.MONGODB_URI, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true
 })
-        .then((res) => {
-                console.log("Database is Connected");
-        })
+
+let dbConection;
+
+module.exports = {
+        connectToServer: function (callback) {
+                client.connect(function (err, db) {
+                        if (err || !db) {
+                                return callback(err)
+                        }
+
+                        dbConection = db.db("LluvisolCA")
+                        return callback()
+                })
+        },
+        getDB: function () {
+                return dbConection
+        }
+}
