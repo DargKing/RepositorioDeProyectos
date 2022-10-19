@@ -15,10 +15,10 @@ Route.get("/products/data", (req, res) => {
 })
 
 Route.get("/products/data/:nameCard", (req, res) => {
-        productModel.findOne({name: req.params.nameCard.replace(/::/gi, " ")}, function (err, product) {
+        productModel.findOne({ name: req.params.nameCard.replace(/::/gi, " ") }, function (err, product) {
                 if (err)
                         res.sendStatus(404).json(undefined);
-        
+
                 res.json(product)
         })
 })

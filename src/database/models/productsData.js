@@ -1,7 +1,11 @@
 const { Schema, model } = require('mongoose')
 
 const productsData = new Schema({
-        nameCard: String
+        nameCard: String,
+        urlImage: String,
+        type: String,
+        fav: Boolean,
+        modal: Array
 }, {
         timestamps: true
 })
