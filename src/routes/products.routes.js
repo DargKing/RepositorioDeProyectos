@@ -7,9 +7,15 @@ const { getDB } = require('../database/database');
 Route.get("/products/data", async (req, res) => {
         const dbConnect = getDB()
 
+        const date = new Date()
+        
+        console.log(date.getMinutes() + ":" + date.getSeconds() + ":" + date.getMilliseconds())
+        
         dbConnect.collection("products")
-                .find({})
-                .toArray(function (err, products) {
+        .find({})
+        .toArray(function (err, products) {
+                        const date2 = new Date()
+                        console.log(date2.getMinutes() + ":" + date2.getSeconds() + ":" + date2.getMilliseconds())
                         if (err)
                                 res.sendStatus(404).json(undefined)
                         else
