@@ -1,0 +1,103 @@
+::after,
+::before {
+        display: block;
+}
+
+.header-nav {
+        padding: 10px 5%;
+}
+
+.nav {
+
+        width: 100%;
+        position: relative;
+        height: auto;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+}
+
+.nav > a img {
+
+        width: clamp(210px, 90vw, 320px);
+        float: left;
+        cursor: pointer;
+}
+
+.nav > a{
+        margin-bottom: 10px;
+}
+
+.container-links-nav{
+        display: flex;
+        justify-content: flex-end;
+        padding: 10px 30px;
+        margin-left: auto;
+        flex-direction: column;
+}
+
+@media (max-width: 1000px) {
+        .container-links-nav{
+                margin-left: 0;
+        }
+}
+
+.ul-nav{
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+}
+
+.li-nav{
+        list-style: none;
+        color: #ffffff;
+        font-weight: 600;
+        font-size: 18px;
+        margin: 5px 10px;
+        width: max-content;
+        transition: opacity 0.1s;
+        opacity: 0.8;
+}
+
+.active .li-nav{
+        opacity: inherit;
+}
+
+.li-nav:hover{
+        opacity: 1;
+}
+
+.redes-sociales-nav{
+        margin: 5px 10px;
+        opacity: 0.8;
+        transition: opacity 0.2s;
+}
+
+.redes-sociales-nav:hover{
+        opacity: 1;
+}
+
+.redes-sociales-nav img{
+        width: 50px;
+}
+
+.ul-redes-nav{
+        justify-content: flex-end;
+        margin: 5px 0;
+}
+
+@media screen and (max-width: 768px){
+        .li-nav{
+                font-size: 20px;
+        }
+        .container-links-nav{
+                padding: 10px;
+        }
+}
+
+
+@media screen and (max-width: 970px){
+        .ul-redes-nav{
+                justify-content: center;
+        }
+}

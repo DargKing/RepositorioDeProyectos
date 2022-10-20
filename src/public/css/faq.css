@@ -1,0 +1,119 @@
+@charset "UTF-8";
+
+.button-faq {
+        cursor: pointer;
+        background: transparent;
+        border: none;
+        border-bottom: 1px solid;
+        outline: none;
+        color: #000000;
+}
+
+.button-faq:disabled {
+        color: #000000;
+}
+
+.container-faq {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 0 25px;
+}
+
+.info {
+        background: #ffffff;
+        overflow: hidden;
+        transition: .5s;
+        line-height: 1.25;
+}
+
+.info ul {
+        padding: 15px 25px;
+}
+
+.toggle-btn {
+        display: grid;
+        text-align: left;
+        grid-template-columns: 1fr 25px;
+        background: #ffffff;
+        width: 100%;
+        font-weight: bold;
+        font-size: 26px;
+        font-family: 'raleway';
+        padding: 20px 25px;
+        margin-top: 10px;
+        text-transform: uppercase;
+}
+
+.open-animation {
+        height: auto;
+}
+
+.close-animation {
+        height: 0;
+}
+
+.show::after {
+        content: "";
+        background-image: url(../img/icons/proximo.png);
+        background-size: cover;
+        width: 25px;
+        height: 25px;
+        transform: rotate(90deg);
+        position: relative;
+        z-index: 2;
+        justify-self: right;
+}
+
+.hide::after {
+        content: "";
+        background-image: url(../img/icons/proximo.png);
+        background-size: cover;
+        width: 25px;
+        height: 25px;
+        transform: rotate(-90deg);
+        position: relative;
+        justify-self: right;
+        z-index: 2;
+}
+
+.info {
+        background: #ffffff;
+        overflow: hidden;
+        /* transition: height .5s; */
+        margin-bottom: 10px;
+}
+
+.title-faq {
+        text-align: center;
+        font-size: 42px;
+        font-weight: 800;
+        color: #fff;
+        text-transform: uppercase;
+        margin-bottom: 50px;
+}
+
+@media screen and (max-width: 550px) {
+        .toggle-btn {
+                font-size: 22px;
+        }
+}
+
+@keyframes open {
+        0% {
+                height: 0;
+        }
+
+        100% {
+                height: auto;
+        }
+}
+
+@keyframes close {
+        0% {
+                height: auto;
+        }
+
+        100% {
+                height: 0;
+        }
+}

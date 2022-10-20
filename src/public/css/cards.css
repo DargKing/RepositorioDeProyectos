@@ -1,0 +1,136 @@
+:root{
+        --image-height: 466px;
+}
+
+.caja {
+
+        position: relative;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        padding: 50px 0px 70px;
+        gap: 50px 25px;
+}
+
+.container-card-image{
+        --width: 340px;
+        position: relative;
+        overflow: hidden;
+        width: var(--width);
+        height: 466px;
+        border: 3px solid #000;
+
+        background: #bdc3c7;
+        animation: loader-skeleton-card 2s ease-in infinite;
+        /* transition: background 1s; */
+}
+
+.myImg {
+        transition: transform 0.5s;
+        /* box-sizing: content-box; */
+        height: var(--image-height);
+        transform-origin: center;
+        position: relative;
+        z-index: 0;
+}
+
+.card:hover .myImg {
+        transform: scale(1.08);
+        /* transform: translateY(-7%); */
+}
+
+.card .container-card-image::before {
+        content: '';
+        width: 0;
+        height: 0;
+        display: block;
+        position: absolute;
+        background: rgba(255, 255, 255, 0.3);
+        backdrop-filter: blur(1px);
+        -webkit-backdrop-filter: blur(1px);
+        top: calc(var(--image-height) / 2);
+        left: 50%;
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        transition: .6s;
+        z-index: 1;
+}
+
+.card:hover .container-card-image::before {
+        width: 600px;
+        height: 600px;
+}
+
+.card {
+        cursor: pointer;
+        width: 340px;
+        height: min-content;
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+}
+
+.card-a {
+        margin: 25px 15px;
+}
+
+.card-a .card {
+        margin: 0;
+}
+
+.backCard {
+        width: 100%;
+        min-height: 50px;
+        height: auto;
+        position: relative;
+        z-index: 2;
+        top: 0;
+        transition: top 1s 0.3s, transform 1s 0.9s, width 0.2s;
+        background: #ffffff;
+        padding: 15px 20px;
+        animation: loader-skeleton-backCard 1.5s ease-in infinite;
+        border: 3px solid;
+}
+
+.backCard h3 {
+        margin-top: 4px;
+        width: 100%;
+        text-align: center;
+        font-weight: 600;
+        font-size: 24px;
+}
+
+.card:hover .backCard{
+        top: -233px;
+        transform: translateY(-50%);
+}
+
+@keyframes loader-skeleton-card{
+        0% {
+                background-color: #bdc3c7;
+        }
+        
+        50%{
+                background-color:  #929799;
+        }
+
+        100% {
+                background-color: #bdc3c7;
+        }
+}
+
+@keyframes loader-skeleton-backCard{
+        0% {
+                background-color: #ffffff;
+        }
+        
+        50%{
+                background-color:  #eeeeee;
+        }
+
+        100% {
+                background-color: #ffffff;
+        }
+}
