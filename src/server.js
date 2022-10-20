@@ -19,6 +19,8 @@ console.log("******************")
 // app.use(morgan("dev"));
 console.log("******************")
 app.use(express.static(path.join(__dirname, 'public')))
+app.use(express.urlencoded({ extended: false }))
+app.use(express.json());
 
 // Config
 
