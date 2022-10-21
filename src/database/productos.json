@@ -4,6 +4,7 @@
                 "type": "manto",
                 "fav": true,
                 "urlImage": "/img/productos/MANTO STAND 27.jpg",
+                "visible": true,
                 "modal": [
                         {
                                 "name": "Manto Estandar EDIL 2.7mm",
@@ -13,7 +14,8 @@
                                         "Peso aproximado: 2,96 Kg por metro cuadrado",
                                         "Refuerzo: Fibra de vidrio de 40g por metro cuadrado",
                                         "Color: Negro",
-                                        "Espesor: 2.4mm x 2.6mm"
+                                        "Espesor: 2.4mm x 2.6mm",
+                                        "Rendimiento: 9.3 metros cuadrados por Rollo"
                                 ],
                                 "desc": [
                                         "- Impermeabilización general de techos de losas prefabricada o de placa aligerada (tabelones) para cualquier grado de inclinación con acabado final de Pintura de Aluminio. Blanco Tech o Elastomérica de colores, Tejas Asfálticas Edil o de arcilla.",
@@ -29,7 +31,8 @@
                                         "Peso aproximado: 3.9 Kg por metro cuadrado",
                                         "Refuerzo: Fibra de vidrio de 40g por metro cuadrado",
                                         "Color: Negro",
-                                        "Espesor: 3.0mm x 3.2mm"
+                                        "Espesor: 3.0mm x 3.2mm",
+                                        "Rendimiento: 9.3 metros cuadrados por Rollo"
                                 ],
                                 "desc": [
                                         "- Impermeabilización general de techos de losas prefabricada o de placa aligerada (tabelones) para cualquier grado de inclinación con acabado final de Pintura de Aluminio, Blanco Tech o Elastomérica de colores, Tejas Asfálticas Edil o de arcilla.",
@@ -45,7 +48,8 @@
                                         "Peso aproximado: 4.9 Kg por metro cuadrado",
                                         "Refuerzo: Fibra de vidrio de 40g por metro cuadrado",
                                         "Color: Negro",
-                                        "Espesor: 4.0mm x 4.2mm"
+                                        "Espesor: 4.0mm x 4.2mm",
+                                        "Rendimiento: 9.3 metros cuadrados por Rollo"
                                 ],
                                 "desc": [
                                         "- Impermeabilización general de techos de losas prefabricada o de placa aligerada (tabelones) para cualquier grado de inclinación con acabado final de Pintura de Aluminio, Blanco Tech o Elastomérica de colores, Tejas Asfálticas Edil o de arcilla.",
@@ -60,6 +64,7 @@
                 "urlImage": "/img/productos/MANTO POLIESTER 3.jpg",
                 "type": "manto",
                 "fav": false,
+                "visible": true,
                 "modal": [
                         {
                                 "name": "Manto Poliester EDIL 3mm",
@@ -69,7 +74,8 @@
                                         "Peso aproximado: 3.5 Kg por metro cuadrado",
                                         "Refuerzo: Fibra de vidrio de 40g por metro cuadrado",
                                         "Color: Negro",
-                                        "Espesor: 2.79mm x 3.0mm"
+                                        "Espesor: 2.79mm x 3.0mm",
+                                        "Rendimiento: 9.3 metros cuadrados por Rollo"
                                 ],
                                 "desc": [
                                         "- Impermeabilización general en zonas de clima frío.",
@@ -85,7 +91,8 @@
                                         "Tamaño del Rollo: 10m x 1m",
                                         "Peso aproximado: 4.5 Kg por metro cuadrado",
                                         "Color: Negro",
-                                        "Espesor: 3.72mm x 4.0mm"
+                                        "Espesor: 3.72mm x 4.0mm",
+                                        "Rendimiento: 9.3 metros cuadrados por Rollo"
                                 ],
                                 "desc": [
                                         "- Impermeabilización general en zonas de clima frío.",
@@ -102,7 +109,8 @@
                                         "Peso aproximado: 3.3 Kg por metro cuadrado",
                                         "Refuerzo: Fibra de vidrio de 120g por metro cuadrado",
                                         "Color: Negro",
-                                        "Espesor: 2.8mm x 3.0mm"
+                                        "Espesor: 2.8mm x 3.0mm",
+                                        "Rendimiento: 9.3 metros cuadrados por Rollo"
                                 ],
                                 "desc": [
                                         "- Para impermeabilización y re-impermeabilización de techos de cualquier grado de pendiente, material o tamaño, incluso aquellos con formas muy complicadas.",
@@ -116,6 +124,7 @@
                 "urlImage": "/img/productos/MANTO REAL AT.jpg",
                 "type": "manto",
                 "fav": true,
+                "visible": true,
                 "modal": [
                         {
                                 "name": "Manto Real AT EDIL 3mm",
@@ -124,7 +133,8 @@
                                         "Tamaño del Rollo: 10m x 1m",
                                         "Peso aproximado: 3.3 Kg por metro cuadrado",
                                         "Refuerzo: Fibra de vidrio de 40g por metro cuadrado",
-                                        "Espesor: 2.8mm x 3.0mm"
+                                        "Espesor: 2.8mm x 3.0mm",
+                                        "Rendimiento: 9.3 metros cuadrados por Rollo"
                                 ],
                                 "desc": [
                                         "- En cubrimiento de techos de madera macho-hembra, metal o concreto de cualquier grado de pendiente.",
@@ -139,7 +149,8 @@
                                         "Tamaño del Rollo: 10m x 1m",
                                         "Peso aproximado: 3.3 Kg por metro cuadrado",
                                         "Refuerzo: Fibra de vidrio de 40g por metro cuadrado",
-                                        "Espesor: 2.8mm x 3.0mm"
+                                        "Espesor: 2.8mm x 3.0mm",
+                                        "Rendimiento: 9.3 metros cuadrados por Rollo"
                                 ],
                                 "desc": [
                                         "- En cubrimiento de techos de madera macho-hembra, metal o concreto de cualquier grado de pendiente.",
@@ -154,6 +165,7 @@
                 "urlImage": "/img/productos/MANTO GRANUL VERDE.jpg",
                 "type": "manto",
                 "fav": false,
+                "visible": true,
                 "modal": [
                         {
                                 "name": "Manto Granulado Verde EDIL 3mm",
@@ -163,7 +175,8 @@
                                         "Peso aproximado: 3.5 Kg por metro cuadrado",
                                         "Refuerzo: Fibra de vidrio de 40g por metro cuadrado",
                                         "Espesor: 2.79mm x 3.0mm",
-                                        "Color: Verde"
+                                        "Color: Verde",
+                                        "Rendimiento: 9.3 metros cuadrados por Rollo"
                                 ],
                                 "desc": [
                                         "- Impermeabilización general de techos de losas nervada, para cualquier grado de inclinación",
@@ -179,7 +192,8 @@
                                         "Peso aproximado: 3.5 Kg por metro cuadrado",
                                         "Refuerzo: Fibra de vidrio de 40g por metro cuadrado",
                                         "Espesor: 2.79mm x 3.0mm",
-                                        "Color: Rojo"
+                                        "Color: Rojo",
+                                        "Rendimiento: 9.3 metros cuadrados por Rollo"
                                 ],
                                 "desc": [
                                         "- Impermeabilización general de techos de losas nervada, para cualquier grado de inclinación",
@@ -194,6 +208,7 @@
                 "type": "manto",
                 "fav": false,
                 "urlImage": "/img/productos/MANTO REFORZ 3 Y 4.jpg",
+                "visible": true,
                 "modal": [
                         {
                                 "name": "Manto Reforzado EDIL 3mm",
@@ -202,7 +217,8 @@
                                         "Tamaño del Rollo: 10m x 1m",
                                         "Peso aproximado: 3.2 Kg por metro cuadrado",
                                         "Refuerzo: Fibra de vidrio de 40g por metro cuadrado",
-                                        "Espesor: 2.79mm x 3.0mm"
+                                        "Espesor: 2.79mm x 3.0mm",
+                                        "Rendimiento: 9.3 metros cuadrados por Rollo"
                                 ],
                                 "desc": [
                                         "- Impermeabilización general de techos de losas prefabricada o de placa aligerada (tabelones) para cualquier grado de inclinación con  acabado final de Pintura de Aluminio, Blanco Techo o Elastomérica  de colores, Tejas Asfálticas Edil o de arcilla",
@@ -217,7 +233,8 @@
                                         "Tamaño del Rollo: 10m x 1m",
                                         "Peso aproximado: 4 Kg por metro cuadrado",
                                         "Refuerzo: Fibra de vidrio de 40g por metro cuadrado",
-                                        "Espesor: 3.72mm x 4.0mm"
+                                        "Espesor: 3.72mm x 4.0mm",
+                                        "Rendimiento: 9.3 metros cuadrados por Rollo"
                                 ],
                                 "desc": [
                                         "- Impermeabilización general de techos de losas prefabricada o de placa aligerada (tabelones) para cualquier grado de inclinación con  acabado final de Pintura de Aluminio, Blanco Techo o Elastomérica  de colores, Tejas Asfálticas Edil o de arcilla",
@@ -232,6 +249,7 @@
                 "type": "vaciable",
                 "fav": true,
                 "urlImage": "/img/productos/PRIMER NORMAL.jpg",
+                "visible": true,
                 "modal": [
                         {
                                 "name": "Primer Normal EDIL",
@@ -239,7 +257,7 @@
                                 "carac": [
                                         "Galón(1 Gal): 3.2kg",
                                         "Cuñete(5 Gal): 16.3kg",
-                                        "Rendimiento: 10 metros cuadrados por Galon;",
+                                        "Rendimiento: 16 metros cuadrados por Galon;",
                                         "Color: Negro"
                                 ],
                                 "desc": [
@@ -253,7 +271,7 @@
                                 "carac": [
                                         "Galón(1 Gal): 3.4kg",
                                         "Cuñete(5 Gal): 18kg",
-                                        "Rendimiento: 3 por metro cuadradoGal;",
+                                        "Rendimiento: 16 metros cuadrados por Galon;",
                                         "Color: Marrón Negruzco"
                                 ],
                                 "desc": [
@@ -267,7 +285,7 @@
                                 "carac": [
                                         "Galón(1 Gal): 2.9kg",
                                         "Cuñete(5 Gal): 14.5kg",
-                                        "Rendimiento: 1 por metro cuadrado/Gal",
+                                        "Rendimiento: 24 metros cuadrados por Galon",
                                         "color: negro"
                                 ],
                                 "desc": [
@@ -282,6 +300,7 @@
                 "type": "vaciable",
                 "fav": false,
                 "urlImage": "/img/productos/EMULFLEX.jpg",
+                "visible": true,
                 "modal": [
                         {
                                 "name": "Emulflex EF EDIL",
@@ -290,30 +309,33 @@
                                         "Galón(1 Gal): 3.2kg",
                                         "Cuñete(5 Gal): 18kg",
                                         "Rendimiento:  por metro cuadradoGal;",
-                                        "Color: Marrón Negruzco"
+                                        "Color: Marrón Negruzco",
+                                        "Rendimiento: 20 metros cuadrados por Galon para paredes sellado de paredes humedas"
                                 ],
                                 "desc": [
                                         "- Impermeabilización de tanques para agua, jardineras, muros de contención, pedestales en fundaciones.",
                                         "- Como cemento de contacto para la aplicación del termomanto.",
                                         "- Para preparación de impermeabilización en frío.",
-                                        "- Imprimación de paredes húmedas diluyéndolo 1: 1 con agua."
+                                        "- Imprimación de paredes húmedas diluyéndolo 1:2 con agua.",
+                                        "- Imprimación de superficies a impermeabilizar con manto asfáltico."
                                 ]
                         }
                 ]
         },
         {
-                "nameCard": "Asfalto Liquido AP EDIL",
+                "nameCard": "Asfalto Liquido AL EDIL",
                 "type": "vaciable",
                 "fav": false,
                 "urlImage": "/img/productos/ASFALTO LIQUIDO.jpg",
+                "visible": true,
                 "modal": [
                         {
-                                "name": "Asfalto Liquido AP EDIL",
+                                "name": "Asfalto Liquido AL EDIL",
                                 "url": "/img/productos/ASFALTO LIQUIDO.jpg",
                                 "carac": [
                                         "Galón(1 Gal): 2.9kg",
                                         "Cuñete(5 Gal): 15.6kg",
-                                        "Rendimiento: 1 metros cuadrados por Galon;",
+                                        "Rendimiento: 16 metros cuadrados por Galon",
                                         "color: negro"
                                 ],
                                 "desc": [
@@ -328,6 +350,7 @@
                 "type": "vaciable",
                 "fav": false,
                 "urlImage": "/img/productos/ASFADIL.jpg",
+                "visible": false,
                 "modal": [
                         {
                                 "name": "Asfadil AF EDIL",
@@ -335,7 +358,7 @@
                                 "carac": [
                                         "Galón(a Gal): 3.7kg",
                                         "Cuñete(5 Gal): 18.5kg",
-                                        "Rendimiento: ? metros cuadrados por Galon",
+                                        "Rendimiento: 15 metros cuadrados por Galon",
                                         "color: negro"
                                 ],
                                 "desc": [
@@ -351,14 +374,15 @@
                 "type": "vaciable",
                 "fav": false,
                 "urlImage": "/img/productos/CEMENTO PLAST.jpg",
+                "visible": true,
                 "modal": [
                         {
                                 "name": "Cemento Plástico EDIL",
                                 "url": "/img/productos/CEMENTO PLAST.jpg",
                                 "carac": [
-                                        "Galón(1 Gal): 3.5kg",
-                                        "Cuñete(5 Gal): 17.8kg",
-                                        "Rendimiento: 5 metros cuadrados por Galon",
+                                        "Galón(1 Gal): 3.7kg",
+                                        "Cuñete(5 Gal): 18.5kg",
+                                        "Rendimiento: 3 metros cuadrados por Galon",
                                         "color: negro"
                                 ],
                                 "desc": [
@@ -375,6 +399,7 @@
                 "type": "vaciable",
                 "fav": false,
                 "urlImage": "/img/productos/BLANCO TECH.jpg",
+                "visible": false,
                 "modal": [
                         {
                                 "name": "Blanco Tech BT EDIL",
@@ -395,14 +420,15 @@
                 "type": "vaciable",
                 "fav": false,
                 "urlImage": "/img/productos/PINTURA ALUM.jpg",
+                "visible": true,
                 "modal": [
                         {
                                 "name": "Pintura De Aluminio EDIL",
                                 "url": "/img/productos/PINTURA ALUM.jpg",
                                 "carac": [
-                                        "Galón(1 Gal): 3.1kg",
-                                        "Cuñete(5 Gal): 15.5kg",
-                                        "Rendimiento: 2 metros cuadrados por Galon",
+                                        "Galón(1 Gal): 3.2kg",
+                                        "Cuñete(5 Gal): 15.4kg",
+                                        "Rendimiento: 20 metros cuadrados por Galon",
                                         "color: Al Mezclarlo Asume Un Color Plateado"
                                 ],
                                 "desc": [
@@ -417,13 +443,14 @@
                 "type": "vaciable",
                 "fav": false,
                 "urlImage": "/img/productos/PINTURA ELAST.jpg",
+                "visible": false,
                 "modal": [
                         {
                                 "name": "Pintura Elastomérica EDIL",
                                 "url": "/img/productos/PINTURA ELAST.jpg",
                                 "carac": [
                                         "Cuñete(5 Gal): 25kg",
-                                        "Rendimiento: 2 por metros cuadrados por Cuñete",
+                                        "Rendimiento: 37 por metros cuadrados por Cuñete para dos manos",
                                         "Color: Verde O Roja"
                                 ],
                                 "desc": [
@@ -437,6 +464,7 @@
                 "type": "tejas",
                 "fav": false,
                 "urlImage": "/img/productos/TEJA RECT ROJA.jpg",
+                "visible": true,
                 "modal": [
                         {
                                 "name": "Teja Asfáltica Rectangular EDIL Rojo",
@@ -481,12 +509,13 @@
                 "type": "tejas",
                 "fav": false,
                 "urlImage": "/img/productos/TEJA HEX ROJA.jpg",
+                "visible": true,
                 "modal": [
                         {
                                 "name": "Teja Asfáltica Hexagonal EDIL Rojo",
                                 "url": "/img/productos/TEJA HEX ROJA.jpg",
                                 "carac": [
-                                        "Peso x por metro cuadrado: 7.8kg",
+                                        "Peso x por metro cuadrado: 5.3-5.9kg",
                                         "Lamina: 100cm x 33cm",
                                         "Forma: Hexagonal",
                                         "Espesor: 3mm",
@@ -504,13 +533,13 @@
                                 "name": "Teja Asfáltica Hexagonal EDIL Verde",
                                 "url": "/img/productos/TEJA HEX VERDE.jpg",
                                 "carac": [
-                                        "Peso x por metro cuadrado: 7.8kg",
+                                        "Peso x por metro cuadrado: 5.3-5.9kg",
                                         "Lamina: 100cm x 33cm",
                                         "Forma: Hexagonal",
                                         "Espesor: 3mm",
                                         "Paquetes: 21 Laminas",
                                         "Rendimiento: 3 por metro cuadrado por paquete",
-                                        "color: Roja"
+                                        "color: Verde"
                                 ],
                                 "desc": [
                                         "- Como acabado decorativo e impermeabilizante.",
