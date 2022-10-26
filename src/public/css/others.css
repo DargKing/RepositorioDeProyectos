@@ -1,0 +1,48 @@
+
+:root{
+        --width: 30px;
+        --height: 35px;
+}
+
+.button-3-points{
+        position: absolute;
+        width: var(--width);
+        height: var(--height);
+        right: calc(var(--width) / 5);
+        top: calc(var(--height) / 5);
+        cursor: pointer;
+        transition: transform .1s;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+}
+
+.button-3-points:hover{
+        transform: scale(1.05);
+}
+
+.button-3-points .bolitas{
+        width: 5px;
+        height: 5px;
+        margin: 1px 1px;
+        border-radius: 50%;
+        background-color: #000000;
+}
+
+.disabled-style{
+        filter: grayscale(0.7);
+}
+
+.dropdown-card-container{
+        top: calc(var(--height) + (var(--height) / 6));
+        right: calc(var(--width) + (var(--width) / 6));
+}
+
+.dropdown-card-container li{
+        list-style: none;
+}
+
+.cursor-pointer{
+        cursor: pointer;
+}

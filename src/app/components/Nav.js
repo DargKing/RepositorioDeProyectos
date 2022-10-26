@@ -5,35 +5,42 @@ import { Link, NavLink } from 'react-router-dom'
 export default function Nav() {
 
         return (
-                <header className="header-nav" id="header-nav" >
-                        <nav className="nav">
-
-                                <Link to="/"><img src="/img/Logo-Lluvisol.png" alt="Logo De LLuvisol" /></Link>
-
-
-                                <div className="container-links-nav">
-                                        <ul className="ul-nav ul-redes-nav">
-                                                <a className="redes-sociales-nav" href=""><img src="/img/icons/icono_facebook.svg" alt="Facebook" /></a>
-                                                <a className="redes-sociales-nav" href=""><img src="/img/icons/icono_instagram.svg" alt="Instagram" /></a>
-                                                <a className="redes-sociales-nav" href=""><img src="/img/icons/Whatsapp_logo.svg" alt="Whatsapp" /></a>
-                                                <a className="redes-sociales-nav" href=""><img src="/img/icons/tiktok.svg" alt="Tiktok" /></a>
-                                                <a className="redes-sociales-nav" href=""><img src="/img/icons/pinterest.svg" alt="Pinterest" /></a>
-                                                <a className="redes-sociales-nav" href=""><img src="/img/icons/youtube.svg" alt="Youtube" /></a>
+                <nav className="navbar navbar-expand-lg bg-light px-5">
+                        <div className="container-fluid pb-1 border-bottom border-3">
+                                <Link to="/" className="navbar-brand" href="#">LluvisolCA Admin</Link>
+                                <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                        <span className="navbar-toggler-icon"></span>
+                                </button>
+                                <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                                        <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                                                <li className="nav-item">
+                                                        <a className="nav-link active" aria-current="page" href="#">Home</a>
+                                                </li>
+                                                <li className="nav-item">
+                                                        <a className="nav-link" href="#">Link</a>
+                                                </li>
+                                                <li className="nav-item dropdown">
+                                                        <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                                Dropdown
+                                                        </a>
+                                                        <ul className="dropdown-menu">
+                                                                <li><a className="dropdown-item" href="#">Action</a></li>
+                                                                <li><a className="dropdown-item" href="#">Another action</a></li>
+                                                                <li><hr className="dropdown-divider" /></li>
+                                                                <li><a className="dropdown-item" href="#">Something else here</a></li>
+                                                        </ul>
+                                                </li>
+                                                <li className="nav-item">
+                                                        <a className="nav-link disabled">Disabled</a>
+                                                </li>
                                         </ul>
-                                        <ul className="ul-nav">
-                                                <NavLink style={({ isActive }) => isActive ? { opacity: "1 !important" } : undefined} to="/"><li className="li-nav">Inicio</li></NavLink>
-
-                                                <NavLink style={({ isActive }) => isActive ? { opacity: "1" } : undefined} to="/products"><li className="li-nav">Productos</li></NavLink>
-
-                                                <NavLink style={({ isActive }) => isActive ? { opacity: "1" } : undefined} to="/about"><li className="li-nav">Contacto</li></NavLink>
-
-                                                <NavLink style={({ isActive }) => isActive ? { opacity: "1" } : undefined} to="/faq"><li className="li-nav">Preguntas Frecuentes</li></NavLink>
-                                        </ul>
+                                        <form className="d-flex" role="search">
+                                                <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+                                                <button className="btn btn-outline-success" type="submit">Search</button>
+                                        </form>
                                 </div>
-
-                        </nav>
-                        <hr />
-                </header>
+                        </div>
+                </nav>
         )
 
 }

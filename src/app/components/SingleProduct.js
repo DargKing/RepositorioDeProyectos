@@ -52,7 +52,7 @@ export default function singleProduct() {
         }
 
         return (
-                <div>
+                <div className="container">
                         <main className="main-SingleProduct">
                                 <div className="container-singleProduct">
                                         <div className="container-image-singleProduct">
@@ -75,17 +75,16 @@ export default function singleProduct() {
                                                         <ul className="list-ul-singleProduct">
                                                                 <h3>Características:</h3>
                                                                 {currentProduct.carac.map((element, index) => {
-                                                                        return <li key={element + index} className="list-li-singleProduct">{element}</li>
+                                                                        return <li key={element + index} className="list-li-singleProduct pe-5">{element}</li>
                                                                 })}
                                                         </ul>
 
                                                         <ul className="list-ul-singleProduct">
                                                                 <h3>Usos:</h3>
                                                                 {currentProduct.desc.map((element, index) => {
-                                                                        return <li key={element + index} className="list-li-singleProduct">{element}</li>
+                                                                        return <li key={element + index} className="list-li-singleProduct pe-5">{element}</li>
                                                                 })}
                                                         </ul>
-                                                        <a target="_blank" href={"https://api.whatsapp.com/send?phone=" + "04148698221" + "&text=" + "HOLA BABY"} className="consulta-singleProduct">Consulta</a>
                                                 </div>)
                                         }
                                         {
@@ -123,7 +122,6 @@ export default function singleProduct() {
                                                                         <div className="placeholder-loading-5"></div>
                                                                 </li>
                                                         </ul>
-                                                        <a className="consulta-singleProduct">Consulta</a>
                                                 </div>)
                                         }
 

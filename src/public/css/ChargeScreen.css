@@ -1,0 +1,47 @@
+.charging-text{
+        font-size: 32px;
+        animation: charging-text 1.6s ease-in-out infinite;
+}
+
+.charging-wheel{
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        border: 8px solid #000000a3;
+        border-right-color: transparent;
+        animation: charging-wheel 2s linear infinite;
+        margin-left: 20px;
+}
+
+.charging-wheel-sm{
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        border: 5px solid #000000a3;
+        border-right-color: transparent;
+        animation: charging-wheel 2s linear infinite;
+}
+
+@keyframes charging-text{
+        0%{
+                color: #000;
+        }
+        
+        50%{
+                color: #0000004b;
+        }
+
+        100%{
+                color: #000000;
+        }
+}
+
+@keyframes charging-wheel{
+        0%{
+                transform: rotate(0deg);
+        }
+
+        100%{
+                transform: rotate(360deg);
+        }
+}
