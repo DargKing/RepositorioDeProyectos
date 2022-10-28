@@ -46,3 +46,18 @@
 .cursor-pointer{
         cursor: pointer;
 }
+
+.filter:hover{
+        filter: contrast(0.9);
+}
+
+.no-rounded-start{
+        border-top-left-radius: 0 !important;
+        border-bottom-left-radius: 0 !important;
+}
+
+.no-rounded-end{
+        border-top-right-radius: 0 !important;
+        border-bottom-right-radius: 0 !important;
+
+}

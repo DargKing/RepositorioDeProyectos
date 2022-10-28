@@ -8,10 +8,11 @@ export default function Notes(props) {
     const navigate = useNavigate()
     const location = useLocation()
 
-    const getInfoProducts = function () {
-        fetch("/products/data")
-            .then((obj) => obj.json())
-            .then((obj) => setCards(obj))
+    const getInfoProducts = async function () {
+        const response = await props.getInfoProducts()
+
+        if (response)
+            setCards(response)
     }
 
     const openDropdow = (id) => {
@@ -29,17 +30,17 @@ export default function Notes(props) {
     const toDisable = async (id) => {
         openDropdow("dropdownMenu" + id)
         const res = await props.toDisable(id)
-        if (res){
+        if (res) {
             // window.location.reload()
             setLastDropdown(undefined)
             getInfoProducts()
         }
     }
-    
+
     const deleteProduct = async (id) => {
         openDropdow("dropdownMenu" + id)
         const res = await props.deleteProduct(id)
-        if(res){
+        if (res) {
             setLastDropdown(undefined)
             getInfoProducts()
         }

@@ -191,6 +191,81 @@ export default function app() {
         }
     }
 
+    const editProduct = async (editInfo) => {
+
+        setNotifications([...notifications, { message: "Realizando Tarea", type: "warning", ico: "waiting", id: generateID() }])
+
+        editInfo.token = JSON.parse(getTokenSessionStorage()).token
+
+        const response = await fetch("/products/data/" + editInfo._id, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(editInfo)
+        })
+
+        const data = await response.json()
+
+        if (!data.ok) {
+            setNotifications([...notifications, { message: data.error, type: "danger", id: generateID() }])
+            const status = response.status
+            if (status === 401)
+                window.location.reload()
+            return { ok: false }
+        } else {
+            setNotifications([...notifications, { message: "Producto Modificado", type: "success", id: generateID() }])
+            return { ok: true };
+        }
+    }
+
+    const getInfoProducts = async () => {
+
+        const token = JSON.parse(getTokenSessionStorage()).token
+
+        const response = await fetch("/products/data/all/" + token, {
+            method: "GET"
+        })
+
+        const data = await response.json()
+
+        if (response.status != 200) {
+            setNotifications([...notifications, { message: "Error, No se pudo descargar la informacion", type: "danger", id: generateID() }])
+            if (response.status == 401)
+                window.location.reload()
+            return false
+        } else {
+            return data
+        }
+    }
+
+    const getInfoSingleProduct = async (id, iteration) => {
+
+        const token = JSON.parse(getTokenSessionStorage()).token
+
+        const response = await fetch(`/products/data/product/${id}?token=${token}`).catch(err => err)
+
+        if (response instanceof TypeError) {
+            let num = (iteration == undefined) ? 0 : iteration
+            num++;
+            if (num < 5)
+                getInfoSingleProduct(id, num)
+            return;
+        }
+
+        const data = await response.json()
+
+        if (response.status != 200) {
+            setNotifications([...notifications, { message: data.error, type: "danger", id: generateID() }])
+            if (response.status == 401)
+                window.location.reload()
+            return false
+        } else {
+            return data
+        }
+    }
+
+
     useEffect(() => {
         getTokenSessionStorage()
     })
@@ -199,8 +274,9 @@ export default function app() {
         <>
             <Nav />
             <Routes>
-                <Route path={"/"} element={<Home deleteProduct={deleteProduct} toDisable={toDisable} deleteNotification={deleteNotification} notifications={notifications} verifyToken={verifyToken} />} />
-                <Route path={"/products/*"} element={<SingleProduct />}/>
+                <Route path={"/"} element={<Home getInfoProducts={getInfoProducts} deleteProduct={deleteProduct} toDisable={toDisable} deleteNotification={deleteNotification}
+                    notifications={notifications} verifyToken={verifyToken} />} />
+                <Route path={"/products/:id"} element={<SingleProduct getInfoSingleProduct={getInfoSingleProduct} notifications={notifications} deleteNotification={deleteNotification} verifyToken={verifyToken} editProduct={editProduct} />} />
                 <Route path={"/login"} element={<Login deleteNotification={deleteNotification} notifications={notifications} login={login} />} />
                 <Route path={"/singup"} element={<Singup deleteNotification={deleteNotification} notifications={notifications} singup={singup} />} />
             </Routes>

@@ -81,15 +81,15 @@ class dbOption {
         searchData = async (collectionName, dataName, value) => {
 
                 if (typeof (collectionName) != "string") {
-                        return false
+                        return {error: "Invalid collectionName"}
                 }
                 
                 if (typeof (dataName) != "string") {
-                        return false
+                        return {error: "Invalid dataName"}
                 }
 
-                if(value == null)
-                        return false;
+                if (value == null)
+                        return {error: "Invalid value"};
 
                 /** @type {dbI} */
                 const db = this.GetDB();

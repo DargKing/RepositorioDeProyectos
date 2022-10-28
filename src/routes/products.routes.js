@@ -292,7 +292,7 @@ Route.patch("/products/data/:id", (req, res) => {
                                                 res.status(200).json({ ok: true })
                                         })
                                         .catch(err => {
-                                                res.status(404).json({ ok: false, error: err })
+                                                res.status(404).json({ ok: false, error: ["No se pudo actualizar el producto"] })
                                         })
                         } else {
                                 res.status(418).json({ ok: false, error: "I'm teapot" })
@@ -340,7 +340,15 @@ Route.patch("/products/data/visibility/:id", (req, res) => {
 
 })
 
-Route.get("/products/data", async (req, res) => {
+Route.get("/products/data/all/:token", async (req, res) => {
+
+        try {
+                jwt.verify(req.params.token, process.env.SECRET_KEY_JWT)
+        } catch (err) {
+                res.status(401).json({ ok: false, error: "La sesion ha expirado" })
+                return;
+        }
+
         const data = await db.getList("products")
 
         if (data.message) {
@@ -351,21 +359,28 @@ Route.get("/products/data", async (req, res) => {
         res.status(200).json(data)
 })
 
-Route.get("/products/data/:id", async (req, res) => {
-        const data = await db.searchData("products", "_id", new ObjectId(req.params.id))
-
-        if (!data) {
-                res.status(400).json({ ok: false })
+Route.get("/products/data/product/:id", async (req, res) => {
+        try {
+                jwt.verify(req.query.token, process.env.SECRET_KEY_JWT)
+        } catch (err) {
+                res.status(401).json({ ok: false, error: "La sesion ha expirado" })
                 return;
         }
 
-        if (data == null) {
-                res.status(404).json(undefined)
+        const data = await db.searchData("products", "_id", new ObjectId(req.params.id))
+        console.log(data)
+        if (!data) {
+                res.status(404).json({ok: false, error: "Producto No Encontrado"})
+                return;
+        }
+
+        if (data.error) {
+                res.status(500).json({ ok: false, error: "Server Error" })
                 return;
         }
 
         if (data.message) {
-                res.status(500).json({ ok: false, error: data })
+                res.status(500).json({ ok: false, error: data.message })
                 return;
         }
 

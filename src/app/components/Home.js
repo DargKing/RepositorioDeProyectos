@@ -25,7 +25,7 @@ export default function home(props) {
             <main className="container flex-fill d-grid px-6">
                 {!isValid && <ChargeScreen />}
                 {isValid && !isValid.ok && <Navigate to="/login"/>}
-                {isValid && isValid.ok && <Cards deleteProduct={props.deleteProduct} toDisable={props.toDisable} />}
+                {isValid && isValid.ok && <Cards getInfoProducts={props.getInfoProducts} deleteProduct={props.deleteProduct} toDisable={props.toDisable} />}
                 <Notifications deleteNotification={props.deleteNotification} notifications={props.notifications}/>
             </main>
     )
