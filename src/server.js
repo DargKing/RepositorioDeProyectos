@@ -14,6 +14,7 @@ database.connectToServer((err) => {
                 console.log("DB is conected")
 })
 
+
 // Midlewares
 console.log("******************")
 // app.use(morgan("dev"));

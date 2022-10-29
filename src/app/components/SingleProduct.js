@@ -1,5 +1,5 @@
 import React, { Component, useEffect, useState } from 'react'
-import { useLocation, Link } from 'react-router-dom'
+import { useLocation, Link, useParams } from 'react-router-dom'
 
 const defaultProp = {
         nameCard: "undefined",
@@ -26,9 +26,10 @@ export default function singleProduct() {
         const [currentProduct, setCurrentProduct] = useState(defaultProp.modal[0]);
         const [get, setGet] = useState(false);
         const [connectionAttemp, setConnectionAttemp] = useState(0)
+        const params = useParams()
 
         const getInfo = async function () {
-                let path = useLocation().pathname.split("/")[2]
+                let path = params.id
                 fetch("/products/data/" + path)
                         .then(response => response.json())
                         .then(response => {
@@ -55,16 +56,18 @@ export default function singleProduct() {
                 <div>
                         <main className="main-SingleProduct">
                                 <div className="container-singleProduct">
-                                        <div className="container-image-singleProduct">
-                                                <img src={currentProduct.url} />
-                                                <div className="container-mini-image-singleProduct">
-                                                        {product.modal.filter((element) => element.name != currentProduct.name).map((element) => {
-                                                                return (
-                                                                        <div key={element.name} className="mini-image-singleProduct" onClick={() => ChangeProduct(element.name)}>
-                                                                                <img src={element.url} />
-                                                                        </div>
-                                                                )
-                                                        })}
+                                        <div style={{ display: 'grid' }}>
+                                                <div className="container-image-singleProduct">
+                                                        <img src={currentProduct.url} />
+                                                        <div className="container-mini-image-singleProduct">
+                                                                {product && product.modal.filter((element) => element.name != currentProduct.name).map((element) => {
+                                                                        return (
+                                                                                <div key={element.name} className="mini-image-singleProduct" onClick={() => ChangeProduct(element.name)}>
+                                                                                        <img src={element.url} />
+                                                                                </div>
+                                                                        )
+                                                                })}
+                                                        </div>
                                                 </div>
                                         </div>
                                         {

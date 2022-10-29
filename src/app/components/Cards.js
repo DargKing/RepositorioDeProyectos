@@ -27,7 +27,7 @@ export default function Notes (props) {
                         {
                             (cards[0].nameCard != undefined) ? cards.filter((item) => item.fav).map((card, i) => {
                                 return (
-                                    <Link to={"/products/" + card.nameCard.replace(/ /gi, "::")}>
+                                    <Link to={"/products/" + card._id}>
                                         <div key={card.nameCard} className="card">
                                             <div className="container-card-image">
                                                 <img className="myImg" src={card.urlImage} alt={card.nameCard} />
@@ -76,7 +76,7 @@ export default function Notes (props) {
                             return item.type == "manto"
                         }).map(card => {
                             return (
-                                <Link to={"/products/" + card.nameCard.replace(/ /gi, "::")}>
+                                <Link to={"/products/" + card._id}>
                                     <div key={card.nameCard} className="card">
                                         <div className="container-card-image">
                                             <img className="myImg" src={card.urlImage} alt={card.nameCard} />
@@ -120,7 +120,7 @@ export default function Notes (props) {
                             return item.type == "vaciable"
                         }).map(card => {
                             return (
-                                <Link to={"/products/" + card.nameCard.replace(/ /gi, "::")}>
+                                <Link to={"/products/" + card._id}>
                                     <div key={card.nameCard} className="card">
                                         <div className="container-card-image">
                                             <img className="myImg" src={card.urlImage} alt={card.nameCard} />
@@ -184,7 +184,7 @@ export default function Notes (props) {
                             return item.type == "tejas"
                         }).map(card => {
                             return (
-                                <Link to={"/products/" + card.nameCard.replace(/ /gi, "::")}>
+                                <Link to={"/products/" + card._id}>
                                     <div key={card.nameCard} className="card">
                                         <div className="container-card-image">
                                             <img className="myImg" src={card.urlImage} alt={card.nameCard} />

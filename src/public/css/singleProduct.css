@@ -7,29 +7,30 @@
         display: flex;
         align-items: stretch;
         background: #ffffff;
-        height: 80vh;
-        max-height: 600px;
+        min-height: 80vh;
+        height: auto;
         border: 2px solid;
         width: 100%;
 }
 
 .container-image-singleProduct {
-        height: 100%;
-        min-width: 59vh;
-        position: relative;
+        position: sticky;
+        top: 0;
+        min-height: 300px;
+        height: min-content;
         background: #bdc3c7;
         animation: loader-skeleton-card 2s ease-in infinite;
+        width: 35vw;
 }
 
 .container-image-singleProduct img {
-        height: 100%;
+        width: 100%;
 }
 
 .container-text-singleProduct {
-        padding: 20px 40px;
-        height: min-content;
+        padding: 20px 40px 55px 40px;
         position: relative;
-        height: 100%;
+        height: auto;
         width: 100%;
 }
 
@@ -42,7 +43,6 @@
         position: absolute;
         top: 5px;
         left: 5px;
-        height: 100%;
         width: 40%;
 }
 
@@ -84,7 +84,8 @@
 }
 
 .list-li-singleProduct {
-        margin: 2px 0;
+        margin: 5px 1.5ch;
+        list-style: square;
 }
 
 .consulta-singleProduct {
@@ -134,7 +135,7 @@
         background-size: cover;
 }
 
-@media screen and (max-width: 940px){
+@media screen and (max-width: 750px){
         .container-singleProduct{
                 flex-direction: column;
                 height: auto;

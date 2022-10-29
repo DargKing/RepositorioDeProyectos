@@ -28,15 +28,16 @@ Route.get("/products/data", (req, res) => {
                 })
 })
 
-Route.get("/products/data/:nameCard", (req, res) => {
+Route.get("/products/data/:id", (req, res) => {
         const dbConnect = getDB()
 
+
         dbConnect.collection("products")
-                .findOne({ nameCard: req.params.nameCard.replace(/::/gi, " ") }, (err, product) => {
+                .findOne({ _id: new ObjectId(req.params.id) }, (err, product) => {
                         if (err)
                                 res.sendStatus(404).json(undefined)
                         else
-                                res.json(product)
+                                setTimeout(()=>res.json(product), 5000)
                 })
 })
 
