@@ -368,7 +368,6 @@ Route.get("/products/data/product/:id", async (req, res) => {
         }
 
         const data = await db.searchData("products", "_id", new ObjectId(req.params.id))
-        console.log(data)
         if (!data) {
                 res.status(404).json({ok: false, error: "Producto No Encontrado"})
                 return;

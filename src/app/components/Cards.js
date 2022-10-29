@@ -68,7 +68,9 @@ export default function Notes(props) {
                         </div>
                         <ul id={"dropdownMenu" + card._id} className="dropdown-menu dropdown-card-container">
                             <li onClick={() => toDisable(card._id)} className="dropdown-item cursor-pointer user-select-none">{(card.visible) ? "Desactivar Producto" : "Activar Producto"}</li>
-                            <li className="dropdown-item cursor-pointer user-select-none">Editar Producto</li>
+                            <Link className="text-decoration-none text-reset" to={"/products/" + card._id}>
+                                <li className="dropdown-item cursor-pointer user-select-none">Editar Producto</li>
+                            </Link>
                             <li><hr className="dropdown-divider" /></li>
                             <li onClick={() => deleteProduct(card._id)} className="dropdown-item cursor-pointer user-select-none">Eliminar Producto</li>
                         </ul>

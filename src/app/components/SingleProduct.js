@@ -115,6 +115,14 @@ export default function singleProduct(props) {
         setEditDataModal(array)
     }
 
+    const changeFocusInput = (e) => {
+        if (e.keyCode == 13) {
+            const target = e.target.parentNode.parentNode.nextSibling.firstChild.firstChild // Esto guarda el siguiente input
+            if (target.tagName == 'INPUT' && !target.readOnly)
+                target.focus()
+        }
+    }
+
     return (
         <>
             <main className="container d-flex justify-content-center flex-fill flex-column flex-md-row pb-5 border-dark border d-grid border-2">
@@ -222,10 +230,10 @@ export default function singleProduct(props) {
             {
                 modal &&
                 <div onClick={(e) => closeModal(e)} className="bg-dark bg-opacity-50 position-fixed top-0 left-0 vw-100 vh-100 d-flex justify-content-center align-items-center">
-                    <div className="col-10 col-md-8 col-lg-6 h-75 bg-light rounded px-5 py-5 overflow-auto">
+                    <div className="col-10 col-md-8 col-lg-6 col-xl-5 h-75 bg-light rounded px-5 py-5 overflow-auto">
                         <h1 className="text-uppercase text-center fw-bold">{modal.title}</h1>
 
-                        <div className="my-4 d-flex flex-wrap">
+                        <div className="my-4 d-flex flex-column justify-content-center">
                             {typeof (modal.info[modal.param]) == 'string' &&
                                 <input type="text" value={editDataModal} onChange={(e) => setEditDataModal(e.target.value)} className="form-control fs-4"
                                     placeholder={"Dato"} />
@@ -236,9 +244,9 @@ export default function singleProduct(props) {
                                 <>
                                     {editDataModal.map((element, index) => {
                                         return (
-                                            <div className="flex-fill d-flex mt-1">
+                                            <div key={index} className="flex-fill d-flex mt-1">
                                                 <div className="col-11">
-                                                    <input key={index} type="text" value={element} onChange={(e) => changeArrayEditProduct(e.target.value, index)}
+                                                    <input type="text" onKeyDown={(e) => changeFocusInput(e)} value={element} onChange={(e) => changeArrayEditProduct(e.target.value, index)}
                                                         className="form-control fs-6 no-rounded-end" placeholder={"List " + (index + 1)} />
                                                 </div>
                                                 <button onClick={() => changeArrayEditProduct(undefined, index, true)} className="btn btn-warning col-1 fs-4 lh-1 no-rounded-start">-</button>

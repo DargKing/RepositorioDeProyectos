@@ -16,7 +16,7 @@ app.use(express.json());
 
 // Config
 
-app.set("port", process.env.PORT || 4000);
+app.set("port", process.env.PORT || 4010);
 app.set('views', path.join(__dirname, '/public/'));
 app.engine('html', require('ejs').__express);
 app.set('view engine', 'html');
