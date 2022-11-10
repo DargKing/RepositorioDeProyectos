@@ -26,7 +26,6 @@ export default function singleProduct() {
 
         const [product, setProduct] = useState(defaultProp);
         const [currentProduct, setCurrentProduct] = useState(defaultProp.modal[0]);
-        const [get, setGet] = useState(false);
         const [connectionAttemp, setConnectionAttemp] = useState(0)
         const [count, setCount] = useState(1)
         const [intervalID, setIntervalID] = useState(0)
@@ -35,14 +34,13 @@ export default function singleProduct() {
 
         const createWhatsappLink = (product, cantidad, precio) => {
                 const link = `https://wa.me/584249574402?text=Buenos%20dias,%20estoy%20interesad@%20en%0AProducto:%20${product.replace(" ", "%20")}%0ACantidad:%20${cantidad}%0APrecio:%20${precio * cantidad}$`
-                console.log(link)
                 setLink(link)
                 return;
         }
 
-        const getInfo = async function () {
+        const getInfo = (signal) => {
                 let path = params.id
-                fetch("/products/data/" + path)
+                fetch("/products/data/" + path, { signal })
                         .then(response => response.json())
                         .then(response => {
                                 setProduct(response);
@@ -50,22 +48,31 @@ export default function singleProduct() {
                                 createWhatsappLink(response.modal[0].name, 1, response.modal[0].price);
                         })
                         .catch(error => {
-                                if (connectionAttemp < 3)
-                                        setGet(false)
-                                setConnectionAttemp(connectionAttemp + 1)
+                                setConnectionAttemp((prev) => prev + 1)
                         })
         }
 
+        useEffect(() => {
+                const controller = new AbortController()
+                const signal = controller.signal
+                getInfo(signal)
+
+                return () => {
+                        controller.abort()
+                }
+        }, [])
+
         const increaseCount = (value) => {
+                console.log(value)
                 if (value < 99) {
-                        setCount(value + 1)
+                        setCount((prev) => prev + 1)
                         createWhatsappLink(currentProduct.name, value + 1, currentProduct.price)
                 }
         }
 
         const decreaseCount = (value) => {
                 if (value > 1) {
-                        setCount(value - 1)
+                        setCount(prev => prev - 1)
                         createWhatsappLink(currentProduct.name, value - 1, currentProduct.price)
                 }
         }
@@ -106,11 +113,6 @@ export default function singleProduct() {
                 setCurrentProduct(product.modal.filter((element) => element.name == name)[0])
         }
 
-        if (get == false) {
-                setGet(true)
-                getInfo()
-        }
-
         return (
                 <div>
                         <main className="main-SingleProduct">
@@ -136,9 +138,9 @@ export default function singleProduct() {
 
                                                         <div className="container-price-singleProduct">
                                                                 <span className="container-controller-price-singleProduct">
-                                                                        <div onMouseDown={(e) => decreaseCountMouseDown()} onMouseUp={() => clearInterval(intervalID)} className="decrease-arrow"></div>
+                                                                        <div onClick={(e) => decreaseCount( count - 1)} onMouseDown={(e) => decreaseCountMouseDown()} onMouseUp={() => clearInterval(intervalID)} className="decrease-arrow"></div>
                                                                         <input onChange={(e) => changeCount(e.target.value)} className="counter-input-singleProduct" type="number" value={count} />
-                                                                        <div onMouseDown={(e) => increaseCountMouseDown()} onMouseUp={() => clearInterval(intervalID)} className="increase-arrow"></div>
+                                                                        <div onClick={(e) => increaseCount(count + 1)} onMouseDown={(e) => increaseCountMouseDown()} onMouseUp={() => clearInterval(intervalID)} className="increase-arrow"></div>
                                                                 </span>
                                                                 <div className="price-text-container-singleProduct">
                                                                         <h3 className="price-text-singleProduct">{`${currentProduct.price * count}$`}</h3>

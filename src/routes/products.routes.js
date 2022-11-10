@@ -37,7 +37,7 @@ Route.get("/products/data/:id", (req, res) => {
                         if (err)
                                 res.sendStatus(404).json(undefined)
                         else
-                                setTimeout(() => res.json(product), 5)
+                                setTimeout(() => res.json(product), 54)
                 })
 })
 
