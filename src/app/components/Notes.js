@@ -23,9 +23,9 @@ export default function Notes() {
 
         return (
                 <div className="caja">
-                        {notes.map(note => {
+                        {notes.map((note, index) => {
                                 return (
-                                        <Link key={note.title} to={note.link}>
+                                        <Link key={index} to={note.link}>
                                                 <div className="notes">
                                                         <div className="note-fila-1">
                                                                 <div className="note-icon text-white">
@@ -42,7 +42,8 @@ export default function Notes() {
                                                                 Mas Informacion
                                                         </div>
                                                 </div>
-                                        </Link>)
+                                        </Link>
+                                )
                         })}
                 </div>
         )

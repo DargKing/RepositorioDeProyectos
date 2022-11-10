@@ -13,14 +13,17 @@ let dbConection;
 
 module.exports = {
         connectToServer: function (callback) {
-                client.connect(function (err, db) {
-                        if (err || !db) {
-                                return callback(err)
-                        }
+                const func = () => {
+                        client.connect(function (err, db) {
+                                if (err || !db) {
+                                        return callback(err, func)
+                                }
 
-                        dbConection = db.db("LluvisolCA")
-                        return callback()
-                })
+                                dbConection = db.db("LluvisolCA")
+                                return callback()
+                        })
+                }
+                func()
         },
         getDB: function () {
                 return dbConection

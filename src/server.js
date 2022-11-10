@@ -7,13 +7,14 @@ const database = require("./database/database");
 
 const app = express();
 
-database.connectToServer((err) => {
-        if (err)
+database.connectToServer((err, retry) => {
+        if (err) {
                 console.error(err);
+                setTimeout(() => retry(), 5000)
+        }
         else
                 console.log("DB is conected")
 })
-
 
 // Midlewares
 console.log("******************")

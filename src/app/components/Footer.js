@@ -20,9 +20,9 @@ export default class Footer extends Component {
                     <ul className="ul-footer ul-footer-img ul-data-footer">
                         <li className="li-footer li-data-footer">
                             <img src="/img/icons/pin-de-mapa.png" className="icons-footer" alt="" />
-                            <a className="footer-a" href="https://g.page/impermeabilizadora-lluvisol-c-a-?share">UD-291 COMPLEJO
-                                MICRO EMPRESARIAL CALLE VENTUARI GALPON N°7 DE UNARE 1 Ciudad Guayana
-                                8050, Bolívar Venezuela</a>
+                            <a className="footer-a" href="https://g.page/impermeabilizadora-lluvisol-c-a-?share">AV. GUARAPICHE, CENTRO COMERCIAL ATLANTICO DE UNARE 1 LOCAL N° 9 UD 291
+                                COMPLEJO MICROEMPRESARIAL DE LA CALLE VENTUARI DE UNARE 1 GALPON N° 7,
+                                Ciudad Guayana 8050, Bolívar</a>
                         </li>
                         <li className="li-footer li-data-footer">
                             <img src="/img/icons/llamada-telefonica.png" className="icons-footer" alt="" />

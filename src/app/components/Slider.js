@@ -9,7 +9,17 @@ export default class Slider extends Component {
                         width: 0,
                         stop: true,
                         active: false,
-
+                        sliders: [{
+                                img: "./img/slider/photo1.jpg"
+                        }, {
+                                img: "./img/slider/photo2.jpg"
+                        }, {
+                                img: "./img/slider/photo3.jpg"
+                        }, {
+                                img: "./img/slider/photo4.jpg"
+                        }, {
+                                img: "./img/slider/photo5.jpg"
+                        }]
                 },
                         this.sliderRef = React.createRef()
         }
@@ -57,11 +67,6 @@ export default class Slider extends Component {
                 })
         }
 
-        /*
-                700     1400
-                350     
-        */
-
         componentDidMount() {
                 this.animation()
                 window.addEventListener('resize', () => {
@@ -82,31 +87,21 @@ export default class Slider extends Component {
                         <div className="wrapper" id="wrapper">
                                 <div className="slider">
                                         <ul className="slides" style={{ left: this.state.leftPosition + "px" }} ref={this.sliderRef}>
-                                                <li className="slide" id="slide1">
-                                                        <img src="./img/slider/photo1.jpg" alt="Slider 1" />
-                                                </li>
-                                                <li className="slide" id="slide2">
-                                                        <img src="./img/slider/photo2.jpg" alt="Slider 2" />
-                                                </li>
-                                                <li className="slide" id="slide3">
-                                                        <img src="./img/slider/photo3.jpg" alt="Slider 3" />
-                                                </li>
-                                                <li className="slide" id="slide4">
-                                                        <img src="./img/slider/photo4.jpg" alt="Slider 4" />
-                                                </li>
-                                                <li className="slide" id="slide5">
-                                                        <img src="./img/slider/photo5.jpg" alt="Slider 5" />
-                                                </li>
-                                                <li className="slide">
-                                                        <img src="./img/slider/photo1.jpg" alt="Slider 6" />
+                                                {this.state.sliders.map((slider, index, arr) => {
+                                                        return (
+                                                                <li className="slide" key={index + slider.img} id={"slide" + index}>
+                                                                        <img src={slider.img} alt={"Slider " + index} />
+                                                                </li>
+                                                        )
+                                                })}
+                                                <li className="slide" key={this.state.sliders.length + this.state.sliders.img} id={"slide" + this.state.sliders.length}>
+                                                        <img src={this.state.sliders[0].img} alt={"Slider " + this.state.sliders.length} />
                                                 </li>
                                         </ul>
                                         <ul className="slider-controler" id="controller">
-                                                <li onClick={() => this.changePosition(0)}>&#8226;</li>
-                                                <li onClick={() => this.changePosition(1)}>&#8226;</li>
-                                                <li onClick={() => this.changePosition(2)}>&#8226;</li>
-                                                <li onClick={() => this.changePosition(3)}>&#8226;</li>
-                                                <li onClick={() => this.changePosition(4)}>&#8226;</li>
+                                                {this.state.sliders.map((element, index) => {
+                                                        return <li key={index + "points-slider"} onClick={() => this.changePosition(index)}>&#8226;</li>
+                                                })}
                                         </ul>
                                 </div>
                         </div>

@@ -1,69 +1,118 @@
-import React, { createRef } from 'react'
+import React, { useRef, useState } from 'react'
 
-export default function contacto (props) {
+export default function contacto(props) {
 
-    const refLoadMobile = createRef()
-    const refLoadDesktop = createRef()
+      const dataContact = [
+            {
+                  tag: "T",
+                  phone: ["0424-9163501", "0424-9574402"],
+                  address: "AV. GUARAPICHE, CENTRO COMERCIAL ATLANTICO DE UNARE 1 LOCAL N° 9 UD 291 COMPLEJO MICROEMPRESARIAL DE LA CALLE VENTUARI DE UNARE 1 GALPON N° 7, Ciudad Guayana 8050, Bolívar",
+                  horary: ["Lunes a Viernes: 7:30-17:30", "Sábado: 8:00-16:30"],
+                  googleMapLinkIframe: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d684.6387851359708!2d-62.749254274772426!3d8.283542114678644!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8dcbf9dbf20f6843%3A0xfccba790112d792d!2sImpermeabilizadora%20EDIL%20Lluvisol!5e0!3m2!1ses-419!2sve!4v1668006917918!5m2!1ses-419!2sve",
+                  googleMapLink: "https://g.page/impermeabilizadora-lluvisol-c-a-?share",
+                  imageLinkMobile: "./img/gmaps/mapa-mobile-D.jpg",
+                  imageLinkDesktop: "./img/gmaps/mapa-D.jpg"
+            },
+            {
+                  tag: "D",
+                  phone: ["0424-9163501", "0424-9574402"],
+                  address: "UD-291 COMPLEJO MICRO EMPRESARIAL CALLE VENTUARI GALPON N°7 DE UNARE 1 Ciudad Guayana 8050, Bolívar Venezuela",
+                  horary: ["Lunes a Viernes: 7:30-17:30", "Sábado: 8:00-16:30"],
+                  googleMapLinkIframe: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d684.6387851359708!2d-62.749254274772426!3d8.283542114678644!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8dcbf9dbf20f6843%3A0xfccba790112d792d!2sImpermeabilizadora%20EDIL%20Lluvisol!5e0!3m2!1ses-419!2sve!4v1668006917918!5m2!1ses-419!2sve",
+                  googleMapLink: "https://g.page/impermeabilizadora-lluvisol-c-a-?share",
+                  imageLinkMobile: "./img/gmaps/mapa-mobile-T.jpg",
+                  imageLinkDesktop: "./img/gmaps/mapa-T.jpg"
+            }
+      ]
 
-    const load = (target, element) => {
-        target.classList.add("display-none")
-        element.target.classList.remove("display-none")
-    }
+      const refLoadMobile = useRef()
+      const refLoadDesktop = useRef()
+      const [currentSelect, setCurrentSelect] = useState(dataContact[0])
+      const [select, setSelect] = useState("T")
 
-        return (
+      const load = (target, element) => {
+            target.classList.add("display-none")
+            element.target.classList.remove("display-none")
+      }
+
+      const changeSelect = (value) => {
+            setSelect(value)
+            setCurrentSelect(dataContact.filter((element => element.tag == value))[0])
+      }
+
+      return (
             <div>
-                <main>
-
-                    {/* Este Iframe Muestra La Direccion En Google Maps --> */}
-
-                <div className="center">
-                    <div className="map-responsive">
-                        {/* <!-- Para dispositivos moviles --> */}
-                        <iframe onLoad={(element) => load(refLoadMobile.current, element)} className="mobile display-none"
-                            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15792.764047869729!2d-62.748869!3d8.28378!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xfccba790112d792d!2sImpermeabilizadora%20EDIL%20Lluvisol%2C%20C.A%20Puerto%20Ordaz%2C%20Ciudad%20Guayana%2C%20Bolivar%2CVenezuela(%20Mantos%2C%20Tejas%20y%20Pinturas)!5e0!3m2!1ses-419!2sve!4v1628093014523!5m2!1ses-419!2sve"
-                            style={{ border: "0"}} allowFullScreen="" loading="lazy"></iframe>
-
-                        {/* Para Desktop */}
-                        <iframe onLoad={(element) => load(refLoadDesktop.current, element)} className="desktop display-none"
-                            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d31585.528095739457!2d-62.748869!3d8.28378!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xfccba790112d792d!2sImpermeabilizadora%20EDIL%20Lluvisol%2C%20C.A%20Puerto%20Ordaz%2C%20Ciudad%20Guayana%2C%20Bolivar%2CVenezuela(%20Mantos%2C%20Tejas%20y%20Pinturas)!5e0!3m2!1ses-419!2sve!4v1639869412121!5m2!1ses-419!2sve"
-                            style={{ border: "0"}} allowFullScreen="" loading="lazy"></iframe>
-
-                        <a target="_blank" ref={refLoadMobile} className="mobile" href="https://maps.google.com/maps?ll=8.28378,-62.748869&z=14&t=m&hl=es-419&gl=VE&mapclient=embed&cid=18215837355035425069">
-                            <img className="loading-map" src="./img/gmaps/mapa-mobile.jpg" />
-                        </a>
-
-                        <a target="_blank" ref={refLoadMobile} className="desktop" href="https://maps.google.com/maps?ll=8.28378,-62.748869&z=14&t=m&hl=es-419&gl=VE&mapclient=embed&cid=18215837355035425069">
-                            <img className="loading-map" src="./img/gmaps/mapa.jpg" />
-                        </a>
-
-                    </div>
-                </div>
-
-
-                    <div className="container-contact text-white">
-                        <div className="div-info-contact">
-                            <h3>Teléfonos:</h3>
-                            0424-9163501
-                            <br />
-                            0424-9574402
+                  <main>
+                        <div className="container-select-contact">
+                              <select className="select-contact" value={select} onChange={(e) => changeSelect(e.target.value)}>
+                                    <option value="T">Tienda Principal</option>
+                                    <option value="D">Deposito</option>
+                              </select>
                         </div>
-                        <div className="div-info-contact">
-                            <h3>Dirección:</h3>
-                            <a href="https://www.google.com/maps/place//data=!4m2!3m1!1s0x8dcbf9dbf20f6843:0xfccba790112d792d?source=g.page.share">
-                                UD-291 COMPLEJO MICRO EMPRESARIAL
-                                CALLE VENTUARI GALPON N°7
-                                DE UNARE 1 Ciudad Guayana 8050,
-                                Bolívar Venezuela</a>
-                        </div>
-                        <div className="div-info-contact">
-                            <h3>Horario:</h3>
-                            Lunes a Viernes: 7:30-17:30
-                            Sábado: 8:00-16:30
-                        </div>
-                    </div>
 
+                        <div className="container-contact">
 
-                </main>
+                              {/* Este Iframe Muestra La Direccion En Google Maps --> */}
+                              <div className="map-responsive">
+                                    {/* <!-- Para dispositivos moviles --> */}
+                                    <iframe onLoad={(element) => load(refLoadMobile.current, element)} className="mobile display-none"
+                                          src={currentSelect.googleMapLinkIframe}
+                                          style={{ border: "0" }} allowFullScreen="" loading="lazy"></iframe>
+
+                                    {/* Para Desktop */}
+                                    <iframe onLoad={(element) => load(refLoadDesktop.current, element)} className="desktop display-none"
+                                          src={currentSelect.googleMapLinkIframe}
+                                          style={{ border: "0" }} allowFullScreen="" loading="lazy"></iframe>
+
+                                    <a target="_blank" ref={refLoadMobile} className="mobile" href={currentSelect.googleMapLink}>
+                                          <img className="loading-map" src={currentSelect.imageLinkMobile} />
+                                    </a>
+
+                                    <a target="_blank" ref={refLoadDesktop} className="desktop" href={currentSelect.googleMapLink}>
+                                          <img className="loading-map" src={currentSelect.imageLinkDesktop} />
+                                    </a>
+
+                              </div>
+
+                              <div className="container-text-white-contact">
+                                    <div className="div-info-contact">
+                                          <h3>Teléfonos:</h3>
+                                          {currentSelect.phone.map((phone, index, array) => {
+                                                if (index < array.length - 1) {
+                                                      return (
+                                                            <span key={index + "PHONEBR"}>
+                                                                  {phone}
+                                                                  <br />
+                                                            </span>)
+                                                }
+
+                                                return <span key={index + "PHONE"}>{phone}</span>
+                                          })}
+                                    </div>
+                                    <div className="div-info-contact">
+                                          <h3>Dirección:</h3>
+                                          <a target="_blank" href={currentSelect.googleMapLink}>
+                                                {currentSelect.address}
+                                          </a>
+                                    </div>
+                                    <div className="div-info-contact">
+                                          <h3>Horario:</h3>
+                                          {currentSelect.horary.map((horary, index, array) => {
+                                                if (index < array.length - 1) {
+                                                      return (
+                                                            <span key={index + "HORARYBR"}>
+                                                                  {horary}
+                                                                  <br/>
+                                                            </span>
+                                                      )
+                                                }
+
+                                                return <span key={index + "HORARY"}>horary</span>
+                                          })}
+                                    </div>
+                              </div>
+                        </div>
+                  </main>
             </div>
-        )
+      )
 }

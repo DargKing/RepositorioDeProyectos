@@ -24,7 +24,7 @@ Route.get("/products/data", (req, res) => {
                         if (err)
                                 res.sendStatus(404).json(undefined)
                         else
-                                res.json(products)
+                                setTimeout(() => res.json(products), 5)
                 })
 })
 
@@ -37,7 +37,7 @@ Route.get("/products/data/:id", (req, res) => {
                         if (err)
                                 res.sendStatus(404).json(undefined)
                         else
-                                setTimeout(()=>res.json(product), 5000)
+                                setTimeout(() => res.json(product), 5)
                 })
 })
 
