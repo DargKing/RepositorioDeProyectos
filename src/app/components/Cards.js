@@ -36,8 +36,8 @@ export default function Notes(props) {
                     {
                         (cards[0].nameCard != undefined) ? cards.filter((item) => item.fav).map((card, i) => {
                             return (
-                                <Link to={"/products/" + card._id}>
-                                    <div key={card.nameCard} className="card">
+                                <Link key={card.nameCard} to={"/products/" + card._id}>
+                                    <div className="card">
                                         <div className="container-card-image">
                                             <img className="myImg" src={card.urlImage} alt={card.nameCard} />
                                         </div>

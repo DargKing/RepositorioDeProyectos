@@ -66,14 +66,14 @@ export default function singleProduct() {
         }, [])
 
         const increaseCount = (value) => {
-                if (value < 99) {
-                        setCount((prev) => prev + 1)
+                if (value < 100) {
+                        setCount((prev) => parseInt(prev) + 1)
                         createWhatsappLink(currentProduct.name, value + 1, currentProduct.price)
                 }
         }
 
         const decreaseCount = (value) => {
-                if (value > 1) {
+                if (value > 0) {
                         setCount(prev => prev - 1)
                         createWhatsappLink(currentProduct.name, value - 1, currentProduct.price)
                 }
@@ -141,9 +141,9 @@ export default function singleProduct() {
 
                                                         <div className="container-price-singleProduct">
                                                                 <span className="container-controller-price-singleProduct">
-                                                                        <div onClick={(e) => decreaseCount(count - 1)} onMouseDown={(e) => decreaseCountMouseDown()} onMouseUp={() => clearInterval(intervalID)} className="decrease-arrow"></div>
+                                                                        <div onClick={(e) => decreaseCount(count - 1)} onMouseDown={(e) => decreaseCountMouseDown()} onMouseLeave={() => clearInterval(intervalID)} onMouseUp={() => clearInterval(intervalID)} className="decrease-arrow"></div>
                                                                         <input onChange={(e) => changeCount(e.target.value)} className="counter-input-singleProduct" type="number" value={count} />
-                                                                        <div onClick={(e) => increaseCount(count + 1)} onMouseDown={(e) => increaseCountMouseDown()} onMouseUp={() => clearInterval(intervalID)} className="increase-arrow"></div>
+                                                                        <div onClick={(e) => increaseCount(count + 1)} onMouseDown={(e) => increaseCountMouseDown()} onMouseLeave={() => clearInterval(intervalID)} onMouseUp={() => clearInterval(intervalID)} className="increase-arrow"></div>
                                                                 </span>
                                                                 <div className="price-text-container-singleProduct">
                                                                         <h3 className="price-text-singleProduct">{`${currentProduct.price * count}$`}</h3>

@@ -24,7 +24,7 @@ export default function faq() {
 
     useEffect(() => {
         window.scrollTo(0, 0);
-    })
+    }, [])
 
     return (
         <main>
