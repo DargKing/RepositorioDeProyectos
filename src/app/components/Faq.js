@@ -1,4 +1,4 @@
-import React, { Component, useState } from 'react'
+import React, { Component, useEffect, useState } from 'react'
 
 import post from '../faq.json'
 
@@ -21,6 +21,10 @@ export default function faq() {
         else
             setActive(undefined)
     }
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    })
 
     return (
         <main>

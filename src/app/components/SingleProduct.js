@@ -53,6 +53,9 @@ export default function singleProduct() {
         }
 
         useEffect(() => {
+                const target = document.getElementById("header-nav");
+                const top = target.clientHeight - 50
+                window.scrollTo(0, top)
                 const controller = new AbortController()
                 const signal = controller.signal
                 getInfo(signal)
@@ -109,6 +112,7 @@ export default function singleProduct() {
 
 
         const ChangeProduct = (name) => {
+                setCount(1)
                 setCurrentProduct(product.modal.filter((element) => element.name == name)[0])
         }
 
@@ -120,7 +124,7 @@ export default function singleProduct() {
                                                 <div className="container-image-singleProduct">
                                                         <img src={currentProduct.url} />
                                                         <div className="container-mini-image-singleProduct">
-                                                                {product && product.modal.filter((element) => element.name != currentProduct.name).map((element) => {
+                                                                {product && product.modal.filter((element) => element.name != currentProduct.name && element.visible == true).map((element) => {
                                                                         return (
                                                                                 <div key={element.name} className="mini-image-singleProduct" onClick={() => ChangeProduct(element.name)}>
                                                                                         <img src={element.url} />

@@ -31,15 +31,15 @@
 }
 
 .toggle-btn {
-        display: grid;
-        text-align: left;
-        grid-template-columns: 1fr 25px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
         background: #ffffff;
         width: 100%;
         font-weight: bold;
         font-size: 26px;
         font-family: 'raleway';
-        padding: 20px 25px;
+        padding: 20px 35px 20px 25px;
         margin-top: 10px;
         text-transform: uppercase;
 }
@@ -54,26 +54,26 @@
 
 .show::after {
         content: "";
-        background-image: url(../img/icons/proximo.png);
-        background-size: cover;
-        width: 25px;
-        height: 25px;
-        transform: rotate(90deg);
+        width: 15px;
+        height: 15px;
+        transform: rotate(45deg) translate(0px, -5px);
         position: relative;
         z-index: 2;
-        justify-self: right;
+        border: 5px solid;
+        border-top: transparent;
+        border-left: transparent;
 }
 
 .hide::after {
         content: "";
-        background-image: url(../img/icons/proximo.png);
-        background-size: cover;
-        width: 25px;
-        height: 25px;
-        transform: rotate(-90deg);
+        width: 15px;
+        height: 15px;
+        transform: rotate(-135deg) translate(-5px, 0px);
         position: relative;
-        justify-self: right;
         z-index: 2;
+        border: 5px solid;
+        border-top: transparent;
+        border-left: transparent;
 }
 
 .info {

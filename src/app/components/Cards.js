@@ -81,9 +81,7 @@ export default function Notes(props) {
                 <>
                     <div className="Product-Type">Mantos</div>
 
-                    {(cards[0].nameCard != undefined) ? cards.filter((item) => {
-                        return item.type == "manto"
-                    }).map(card => {
+                    {(cards[0].nameCard != undefined) ? cards.filter((item) => item.type == "manto" && item.modal.filter((element) => element.visible).length > 0).map(card => {
                         return (
                             <Link to={"/products/" + card._id}>
                                 <div key={card.nameCard} className="card">
@@ -125,9 +123,7 @@ export default function Notes(props) {
 
                     <div className="Product-Type">Vaciables</div>
 
-                    {(cards[0].nameCard != undefined) ? cards.filter((item) => {
-                        return item.type == "vaciable"
-                    }).map(card => {
+                    {(cards[0].nameCard != undefined) ? cards.filter((item) => item.type == "vaciable" && item.modal.filter((element) => element.visible).length > 0 ).map(card => {
                         return (
                             <Link to={"/products/" + card._id}>
                                 <div key={card.nameCard} className="card">
@@ -188,10 +184,7 @@ export default function Notes(props) {
 
 
                     <div className="Product-Type">Tejas</div>
-
-                    {(cards[0].nameCard != undefined) ? cards.filter((item) => {
-                        return item.type == "tejas"
-                    }).map(card => {
+                    {(cards[0].nameCard != undefined) ? cards.filter((item) => item.type == "tejas" && item.modal.filter((element) => element.visible).length > 0).map(card => {
                         return (
                             <Link to={"/products/" + card._id}>
                                 <div key={card.nameCard} className="card">

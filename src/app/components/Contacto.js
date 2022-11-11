@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 
 export default function contacto(props) {
 
@@ -39,6 +39,10 @@ export default function contacto(props) {
             setSelect(value)
             setCurrentSelect(dataContact.filter((element => element.tag == value))[0])
       }
+
+      useEffect(() => {
+            window.scrollTo(0, 0);
+      })
 
       return (
             <div>
@@ -102,7 +106,7 @@ export default function contacto(props) {
                                                       return (
                                                             <span key={index + "HORARYBR"}>
                                                                   {horary}
-                                                                  <br/>
+                                                                  <br />
                                                             </span>
                                                       )
                                                 }
