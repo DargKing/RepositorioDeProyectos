@@ -144,6 +144,8 @@ export default function singleProduct(props) {
                                     </div>
                                 </div>
                                 <div className="col-12 col-md-7 px-4 py-3">
+                                    
+                                    {/* Nombre del Producto */}
                                     <div className="d-flex mb-2 flex-column flex-md-row justify-content-between border-bottom border-2 pb-2">
                                         <h1 className="fs-2 fw-bold col-md-10">{currentProduct.name}</h1>
                                         <div className="pt-md-0 col-12 col-md-1 d-flex align-items-end">
@@ -151,7 +153,19 @@ export default function singleProduct(props) {
                                         </div>
                                     </div>
 
-                                    <div className="my-4 position-relative d-flex flex-column flex-md-row flex-md-wrap justify-content-md-between">
+
+                                    {/* Precio del Producto */}
+
+                                    <div className="col-12 mt-3 d-flex flex-column flex-md-row justify-content-between">
+                                        <h3 className="fw-semibold">Precio: {currentProduct.price}$</h3>
+                                        <div className="pt-md-0 col-12 col-md-1 d-flex align-items-end">
+                                            <button onClick={() => openModal(currentProduct, "price", "Change Price")} className="btn btn-warning flex-fill fw-semibold fs-6">Edit</button>
+                                        </div>
+                                    </div>
+
+
+                                    {/* Caracteristicas del producto */}
+                                    <div className="my-3 position-relative d-flex flex-column flex-md-row flex-md-wrap justify-content-md-between">
                                         <h3 className="fw-semibold col-12">Características:</h3>
                                         <ul className="list-group col-12 col-md-10">
                                             {currentProduct.carac.map(element => {
@@ -165,6 +179,8 @@ export default function singleProduct(props) {
                                         </div>
                                     </div>
 
+
+                                    {/* Usos del Producto */}
                                     <div className="my-4 position-relative d-flex flex-column flex-md-row flex-md-wrap justify-content-md-between">
                                         <h3 className="fw-semibold col-12">Usos:</h3>
                                         <ul className="list-group col-12 col-md-10">
@@ -182,6 +198,7 @@ export default function singleProduct(props) {
                             </>
                             :
                             <>
+                                {/* Place Holder */}
                                 <div className="col-12 col-md-5 d-grid align-items-stretch">
                                     <div className="position-sticky top-0 pt-3">
                                         <img className="card-img-top" src="" />
@@ -234,7 +251,7 @@ export default function singleProduct(props) {
                         <h1 className="text-uppercase text-center fw-bold">{modal.title}</h1>
 
                         <div className="my-4 d-flex flex-column justify-content-center">
-                            {typeof (modal.info[modal.param]) == 'string' &&
+                            {(typeof (modal.info[modal.param]) == 'string' || modal.info[modal.param] == undefined) &&
                                 <input type="text" value={editDataModal} onChange={(e) => setEditDataModal(e.target.value)} className="form-control fs-4"
                                     placeholder={"Dato"} />
                             }

@@ -1,3 +1,11 @@
+/* 
+
+Archivo manejador de rutas
+
+process.env.SECRET_KEY_JWT
+
+*/
+
 const express = require('express');
 const app = express();
 const Route = express.Router();

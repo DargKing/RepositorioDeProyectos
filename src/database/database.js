@@ -1,3 +1,9 @@
+/* 
+Este archivo te conecta a la base de datos 
+
+process.env.MONGODB_URI
+*/
+
 const mongodb = require('mongodb')
 const { MongoClient } = require('mongodb');
 
