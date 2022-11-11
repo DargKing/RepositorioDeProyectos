@@ -19,7 +19,7 @@ Route.get("/products/data", (req, res) => {
                                 console.log("Error Data")
                                 res.sendStatus(404).json(undefined)
                         } else {
-                                console.log(products)
+                                console.log("Data is found")
                                 res.status(200).json(products)
                         }
                 })
@@ -32,8 +32,10 @@ Route.get("/products/data/:id", (req, res) => {
         dbConnect.collection("products")
                 .findOne({ _id: new ObjectId(req.params.id) }, (err, product) => {
                         if (err){
+                                console.error("Data ID error")
                                 res.sendStatus(404).json(undefined)
                         } else{
+                                console.log("Data ID found")
                                res.status(200).json(product)
                         }
                 })
