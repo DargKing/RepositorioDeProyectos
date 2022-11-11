@@ -11,6 +11,9 @@ export default function Notes(props) {
             .then((obj) => {
                 setCards(obj)
             })
+            .catch((err) => {
+                console.error(err)
+            })
     }
 
     useEffect(() => {

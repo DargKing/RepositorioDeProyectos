@@ -10,23 +10,17 @@ const { getDB } = require('../database/database');
 Route.get("/products/data", (req, res) => {
         const dbConnect = getDB()
 
-        const date = new Date()
-
-        console.log("Comienzo de peticion", date.getMinutes() + ":" + date.getSeconds() + ":" + date.getMilliseconds())
-
         dbConnect.collection("products")
                 .find({
                         visible: true
                 })
                 .toArray(function (err, products) {
-                        const date2 = new Date()
-                        console.log("Fin de peticion", date2.getMinutes() + ":" + date2.getSeconds() + ":" + date2.getMilliseconds())
                         if (err){
                                 console.log("Error Data")
                                 res.sendStatus(404).json(undefined)
                         } else {
                                 console.log(products)
-                                setTimeout(() => res.status(200).json(products), 5)
+                                res.status(200).json(products)
                         }
                 })
 })
@@ -38,11 +32,9 @@ Route.get("/products/data/:id", (req, res) => {
         dbConnect.collection("products")
                 .findOne({ _id: new ObjectId(req.params.id) }, (err, product) => {
                         if (err){
-                                console.error("Error Data ID")
                                 res.sendStatus(404).json(undefined)
                         } else{
-                                console.log(product)
-                                setTimeout(() => res.status(200).json(product), 54)
+                               res.status(200).json(product)
                         }
                 })
 })

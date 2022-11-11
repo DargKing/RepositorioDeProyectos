@@ -63,7 +63,6 @@ export default function singleProduct() {
         }, [])
 
         const increaseCount = (value) => {
-                console.log(value)
                 if (value < 99) {
                         setCount((prev) => prev + 1)
                         createWhatsappLink(currentProduct.name, value + 1, currentProduct.price)
@@ -138,7 +137,7 @@ export default function singleProduct() {
 
                                                         <div className="container-price-singleProduct">
                                                                 <span className="container-controller-price-singleProduct">
-                                                                        <div onClick={(e) => decreaseCount( count - 1)} onMouseDown={(e) => decreaseCountMouseDown()} onMouseUp={() => clearInterval(intervalID)} className="decrease-arrow"></div>
+                                                                        <div onClick={(e) => decreaseCount(count - 1)} onMouseDown={(e) => decreaseCountMouseDown()} onMouseUp={() => clearInterval(intervalID)} className="decrease-arrow"></div>
                                                                         <input onChange={(e) => changeCount(e.target.value)} className="counter-input-singleProduct" type="number" value={count} />
                                                                         <div onClick={(e) => increaseCount(count + 1)} onMouseDown={(e) => increaseCountMouseDown()} onMouseUp={() => clearInterval(intervalID)} className="increase-arrow"></div>
                                                                 </span>
