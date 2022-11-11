@@ -48,7 +48,7 @@ export default function singleProduct() {
                                 createWhatsappLink(response.modal[0].name, 1, response.modal[0].price);
                         })
                         .catch(error => {
-                                setConnectionAttemp((prev) => prev + 1)
+                                console.log(error);
                         })
         }
 
