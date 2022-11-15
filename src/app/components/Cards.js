@@ -54,9 +54,9 @@ export default function Notes(props) {
         <div className="d-flex justify-content-center flex-wrap">
             {cards[0].nameCard != undefined && cards.map((card, i) => {
                 return (
-                    <div key={card._id} className="card card-animation mx-1 my-3" style={{ width: "18rem" }}>
+                    <div key={card._id} className="card card-animation mx-1 my-3" style={{ width: "18rem"}}>
                         <Link className="text-decoration-none text-reset" to={"/products/" + card._id}>
-                            <img src={card.urlImage} className={"card-img-top" + ((!card.visible) ? " disabled-style" : "")} alt="..." />
+                            <img src={card.urlImage} className={"card-img-top" + ((!card.visible) ? " disabled-style" : "")} style={{minHeight: "20rem"}} alt="..." />
                             <div className="card-body d-flex align-items-center justify-content-center border-top border-2">
                                 <p className="card-text text-decoration-none fs-4 fw-semibold text-center">{card.nameCard}</p>
                             </div>

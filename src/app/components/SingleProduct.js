@@ -32,6 +32,8 @@ export default function singleProduct(props) {
     const [modal, setModal] = useState(false)
     const [editDataModal, setEditDataModal] = useState(false)
     const [isValid, setIsValid] = useState(false)
+    const [lastDropdown, setLastDropdown] = useState(undefined)
+
     const idParam = useParams()
     const searchParams = useSearchParams()
 
@@ -115,12 +117,58 @@ export default function singleProduct(props) {
         setEditDataModal(array)
     }
 
+    const changeVisiblityArrayEditProduct = async (element) => {
+        const newProducto = element
+
+        if (element.visible != true) {
+            element.visible = true
+        } else {
+            element.visible = false
+        }
+
+        const listaDeProductos = product
+        const index = product.modal.findIndex((el) => el.name == currentProduct.name)
+        listaDeProductos.modal.splice(index, 1, newProducto)
+
+        let buttonsHtml = document.getElementsByClassName("btn")
+
+        let buttons = Array.from(buttonsHtml)
+
+        buttons.forEach((button) => {
+            button.disabled = true
+        })
+
+        setProduct(listaDeProductos)
+        setCurrentProduct(newProducto)
+
+        const response = await props.editProduct(listaDeProductos)
+
+        if (response) {
+            buttons.forEach((button) => {
+                button.disabled = false
+            })
+        }
+
+    }
+
     const changeFocusInput = (e) => {
         if (e.keyCode == 13) {
             const target = e.target.parentNode.parentNode.nextSibling.firstChild.firstChild // Esto guarda el siguiente input
             if (target.tagName == 'INPUT' && !target.readOnly)
                 target.focus()
         }
+    }
+
+    const openDropdow = (id) => {
+        let target = document.getElementById(id)
+        target.classList.toggle("show")
+
+        if (lastDropdown != undefined && lastDropdown != id) {
+            target = document.getElementById(lastDropdown)
+            target.classList.remove("show")
+        }
+
+        setLastDropdown(id)
     }
 
     return (
@@ -132,19 +180,33 @@ export default function singleProduct(props) {
                             <>
                                 <div className="col-12 col-md-5 d-grid align-items-stretch">
                                     <div className="position-sticky top-0 pt-3">
-                                        <img className="card-img-top" src={currentProduct.url} />
+                                        <img className={"card-img-top" + (!currentProduct.visible ? " disabled-style" : "")} src={currentProduct.url} />
                                         <div className="col-3 position-absolute top-0 pt-3">
                                             {product.modal.filter(element => element.name != currentProduct.name).map((element) => {
                                                 return (
-                                                    <img key={element.name + element.url} onClick={() => ChangeProduct(element.name)} className="card-img-top m-1 border border-3 border-dark filter cursor-pointer"
+                                                    <img key={element.name + element.url} onClick={() => ChangeProduct(element.name)} className={"card-img-top m-1 border border-3 border-dark filter cursor-pointer" + (!element.visible ? " disabled-style" : "")}
                                                         src={element.url} />
                                                 )
                                             })}
                                         </div>
+
+                                        {/* DropMenu */}
+                                        <div onClick={() => openDropdow("dropdownMenu")} style={{ top: "calc(1rem + 5px)" }} className="button-3-points bg-light bg-gradient rounded border-dark border-2 border bg-opacity-75">
+                                            <div className="bolitas"></div>
+                                            <div className="bolitas"></div>
+                                            <div className="bolitas"></div>
+                                        </div>
+                                        <ul id={"dropdownMenu"} style={{ top: "calc(1rem + 5px + 35px)" }} className="dropdown-menu dropdown-card-container">
+                                            <li onClick={() => {
+                                                openDropdow("dropdownMenu")
+                                                changeVisiblityArrayEditProduct(currentProduct)
+                                            }} className="dropdown-item cursor-pointer user-select-none">{(!currentProduct.visible) ? "Activar Elemento" : "Desactivar Elemento"}</li>
+                                        </ul>
                                     </div>
                                 </div>
+
                                 <div className="col-12 col-md-7 px-4 py-3">
-                                    
+
                                     {/* Nombre del Producto */}
                                     <div className="d-flex mb-2 flex-column flex-md-row justify-content-between border-bottom border-2 pb-2">
                                         <h1 className="fs-2 fw-bold col-md-10">{currentProduct.name}</h1>

@@ -27,6 +27,9 @@ db.connectDatabase((err) => {
 if (process.env.SECRET_KEY_JWT == undefined)
         process.env.SECRET_KEY_JWT = "passord";
 
+if (process.env.EXPIRES_KEY_JWT == undefined)
+        process.env.EXPIRES_KEY_JWT = "2h"
+
 Route.post("/users/token", (req, res) => {
         const token = req.body.token;
 
@@ -93,7 +96,7 @@ Route.post("/users/login", async (req, res) => {
                 },
                 ok: true
         }, process.env.SECRET_KEY_JWT, {
-                expiresIn: "5h"
+                expiresIn: process.env.EXPIRES_KEY_JWT
         }, (err, token) => {
                 if (err) {
                         res.status(500).json({
