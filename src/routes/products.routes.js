@@ -15,7 +15,7 @@ Route.get("/products/data", (req, res) => {
                         visible: true
                 })
                 .toArray(function (err, products) {
-                        if (err){
+                        if (err) {
                                 console.log("Error Data")
                                 res.sendStatus(404).json(undefined)
                         } else {
@@ -31,12 +31,12 @@ Route.get("/products/data/:id", (req, res) => {
 
         dbConnect.collection("products")
                 .findOne({ _id: new ObjectId(req.params.id) }, (err, product) => {
-                        if (err){
+                        if (err) {
                                 console.error("Data ID error")
                                 res.sendStatus(404).json(undefined)
-                        } else{
+                        } else {
                                 console.log("Data ID found")
-                               res.status(200).json(product)
+                                res.status(200).json(product)
                         }
                 })
 })

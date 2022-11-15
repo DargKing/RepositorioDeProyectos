@@ -10,15 +10,20 @@ export default class Slider extends Component {
                         stop: true,
                         active: false,
                         sliders: [{
-                                img: "./img/slider/photo1.jpg"
+                                img: "./img/slider/photo1.jpg",
+                                caption: "La Mejor Impermeabilizadora de Ciudad Guayana"
                         }, {
-                                img: "./img/slider/photo2.jpg"
+                                img: "./img/slider/photo2.jpg",
+                                caption: "Incididunt excepteur sit adipisicing commodo sit dolor dolore non cillum non."
                         }, {
-                                img: "./img/slider/photo3.jpg"
+                                img: "./img/slider/photo3.jpg",
+                                caption: "Ipsum tempor laboris occaecat nisi culpa sunt."
                         }, {
-                                img: "./img/slider/photo4.jpg"
+                                img: "./img/slider/photo4.jpg",
+                                caption: "Ex enim laboris dolor adipisicing veniam dolor do laboris aliqua."
                         }, {
-                                img: "./img/slider/photo5.jpg"
+                                img: "./img/slider/photo5.jpg",
+                                caption: "Culpa eu Lorem adipisicing in nostrud ut esse id deserunt ea."
                         }]
                 },
                         this.sliderRef = React.createRef()
@@ -91,13 +96,16 @@ export default class Slider extends Component {
                                                         return (
                                                                 <li className="slide" key={index + slider.img} id={"slide" + index}>
                                                                         <img src={slider.img} alt={"Slider " + index} />
+                                                                        <div className="caption">{slider.caption}</div>
                                                                 </li>
                                                         )
                                                 })}
                                                 <li className="slide" key={this.state.sliders.length + this.state.sliders.img} id={"slide" + this.state.sliders.length}>
                                                         <img src={this.state.sliders[0].img} alt={"Slider " + this.state.sliders.length} />
+                                                        <div className="caption">{this.state.sliders[0].caption}</div>
                                                 </li>
                                         </ul>
+                                        
                                         <ul className="slider-controler" id="controller">
                                                 {this.state.sliders.map((element, index) => {
                                                         return <li key={index + "points-slider"} onClick={() => this.changePosition(index)}>&#8226;</li>

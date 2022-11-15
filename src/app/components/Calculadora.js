@@ -11,7 +11,7 @@ export default function Calculadora() {
       ])
       const [showModal, setShowModal] = useState(false)
       const [valueM2, setValueM2] = useState("")
-      const [select, setSelect] = useState("CP")
+      const [select, setSelect] = useState("RM")
 
       const addNumCalc = (value) => {
             if (value == "0" && valueM2.length == 0)
