@@ -47,8 +47,8 @@ export default function singleProduct(props) {
         }
     }
 
-    const verifyToken = async () => {
-        const response = await props.verifyToken()
+    const verifyToken = async (signal) => {
+        const response = await props.verifyToken(signal)
         setIsValid(response)
         if (response.ok)
             getInfo()
@@ -56,7 +56,13 @@ export default function singleProduct(props) {
 
 
     useEffect(() => {
-        verifyToken()
+        const controller = new AbortController()
+        const signal = controller.signal
+        verifyToken(signal)
+
+        return () => {
+            controller.abort()
+        }
     }, [])
 
     const ChangeProduct = (name) => {

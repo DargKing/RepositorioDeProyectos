@@ -12,13 +12,19 @@ export default function home(props) {
 
     const [isValid, setIsValid] = useState(false)
 
-    const verifyToken = async () => {
-        const response = await props.verifyToken()
+    const verifyToken = async (signal) => {
+        const response = await props.verifyToken(signal)
         setIsValid(response)
     }
 
     useEffect(() => {
-        verifyToken()
+        const controller = new AbortController()
+        const signal = controller.signal
+        verifyToken(signal)
+
+        return () => {
+            controller.abort()
+        }
     }, [])
 
     return (

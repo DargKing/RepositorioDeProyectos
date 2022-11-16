@@ -8,8 +8,8 @@ export default function Notes(props) {
     const navigate = useNavigate()
     const location = useLocation()
 
-    const getInfoProducts = async function () {
-        const response = await props.getInfoProducts()
+    const getInfoProducts = async function (signal) {
+        const response = await props.getInfoProducts(signal)
 
         if (response)
             setCards(response)
@@ -47,7 +47,13 @@ export default function Notes(props) {
     }
 
     useEffect(() => {
-        getInfoProducts()
+        const controller = new AbortController()
+        const signal = controller.signal
+        getInfoProducts(signal)
+
+        return () => {
+            controller.abort()
+        }
     }, [])
 
     return (

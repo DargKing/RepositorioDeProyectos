@@ -118,7 +118,7 @@ export default function app() {
     /**
      * Comprueba la valides del token
      */
-    const verifyToken = async () => {
+    const verifyToken = async (signal) => {
         const token = JSON.parse(getTokenSessionStorage())
 
         if (!token)
@@ -131,7 +131,8 @@ export default function app() {
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify(token)
+            body: JSON.stringify(token),
+            signal: signal
         })
 
         const data = await response.json()
@@ -219,12 +220,13 @@ export default function app() {
         }
     }
 
-    const getInfoProducts = async () => {
+    const getInfoProducts = async (signal) => {
 
         const token = JSON.parse(getTokenSessionStorage()).token
 
         const response = await fetch("/products/data/all/" + token, {
-            method: "GET"
+            method: "GET",
+            signal: signal
         })
 
         const data = await response.json()
@@ -239,11 +241,11 @@ export default function app() {
         }
     }
 
-    const getInfoSingleProduct = async (id, iteration) => {
+    const getInfoSingleProduct = async (id, iteration, signal) => {
 
         const token = JSON.parse(getTokenSessionStorage()).token
 
-        const response = await fetch(`/products/data/product/${id}?token=${token}`).catch(err => err)
+        const response = await fetch(`/products/data/product/${id}?token=${token}`, { signal: signal }).catch(err => err)
 
         if (response instanceof TypeError) {
             let num = (iteration == undefined) ? 0 : iteration
