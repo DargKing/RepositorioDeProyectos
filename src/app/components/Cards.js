@@ -34,7 +34,7 @@ export default function Notes(props) {
                 <>
                     <div className="Product-Type">Productos Destacados</div>
                     {
-                        (cards[0].nameCard != undefined) ? cards.filter((item) => item.fav).map((card, i) => {
+                        (cards.length > 0 && cards[0].nameCard != undefined) ? cards.filter((item) => item.fav).map((card, i) => {
                             return (
                                 <Link key={card.nameCard} to={"/products/" + card._id}>
                                     <div className="card">
@@ -81,7 +81,7 @@ export default function Notes(props) {
                 <>
                     <div className="Product-Type">Mantos</div>
 
-                    {(cards[0].nameCard != undefined) ? cards.filter((item) => item.type == "manto" && item.modal.filter((element) => element.visible).length > 0).map(card => {
+                    {(cards.length && cards[0].nameCard != undefined) ? cards.filter((item) => item.type == "manto" && item.modal.filter((element) => element.visible).length > 0).map(card => {
                         return (
                             <Link to={"/products/" + card._id}>
                                 <div key={card.nameCard} className="card">
@@ -123,7 +123,7 @@ export default function Notes(props) {
 
                     <div className="Product-Type">Vaciables</div>
 
-                    {(cards[0].nameCard != undefined) ? cards.filter((item) => item.type == "vaciable" && item.modal.filter((element) => element.visible).length > 0 ).map(card => {
+                    {(cards.length && cards[0].nameCard != undefined) ? cards.filter((item) => item.type == "vaciable" && item.modal.filter((element) => element.visible).length > 0 ).map(card => {
                         return (
                             <Link to={"/products/" + card._id}>
                                 <div key={card.nameCard} className="card">
@@ -184,7 +184,7 @@ export default function Notes(props) {
 
 
                     <div className="Product-Type">Tejas</div>
-                    {(cards[0].nameCard != undefined) ? cards.filter((item) => item.type == "tejas" && item.modal.filter((element) => element.visible).length > 0).map(card => {
+                    {(cards.length && cards[0].nameCard != undefined) ? cards.filter((item) => item.type == "tejas" && item.modal.filter((element) => element.visible).length > 0).map(card => {
                         return (
                             <Link to={"/products/" + card._id}>
                                 <div key={card.nameCard} className="card">

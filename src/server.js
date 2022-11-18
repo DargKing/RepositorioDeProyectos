@@ -7,18 +7,8 @@ const database = require("./database/database");
 
 const app = express();
 
-database.connectToServer((err, retry) => {
-        if (err) {
-                console.error(err);
-                setTimeout(() => retry(), 5000)
-        }
-        else
-                console.log("DB is conected")
-})
-
 // Midlewares
-console.log("******************")
-// app.use(morgan("dev"));
+app.use(morgan("dev"));
 console.log("******************")
 app.use(express.static(path.join(__dirname, 'public')))
 app.use(express.urlencoded({ extended: false }))
