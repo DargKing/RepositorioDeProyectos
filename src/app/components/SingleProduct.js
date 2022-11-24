@@ -139,6 +139,8 @@ export default function singleProduct() {
                                                 (<div className="container-text-singleProduct">
                                                         <h1 className="text-productName-singleProduct">{currentProduct.name}</h1>
 
+
+
                                                         <div className="container-price-singleProduct">
                                                                 <span className="container-controller-price-singleProduct">
                                                                         <div onClick={(e) => decreaseCount(count - 1)} onMouseDown={(e) => decreaseCountMouseDown()} onMouseLeave={() => clearInterval(intervalID)} onMouseUp={() => clearInterval(intervalID)} className="decrease-arrow"></div>
@@ -147,6 +149,9 @@ export default function singleProduct() {
                                                                 </span>
                                                                 <div className="price-text-container-singleProduct">
                                                                         <h3 className="price-text-singleProduct">{`${currentProduct.price * count}$`}</h3>
+                                                                </div>
+                                                                <div style={{ display: 'flex', flex: 'auto' }}>
+                                                                        <a target="_blank" href={link} className="consulta-singleProduct">Consulta</a>
                                                                 </div>
                                                         </div>
 
@@ -163,7 +168,6 @@ export default function singleProduct() {
                                                                         return <li key={element + index} className="list-li-singleProduct">{element}</li>
                                                                 })}
                                                         </ul>
-                                                        <a target="_blank" href={link} className="consulta-singleProduct">Consulta</a>
                                                 </div>)
                                         }
                                         {
@@ -172,6 +176,7 @@ export default function singleProduct() {
                                                         <h1 className="text-productName-singleProduct">
                                                                 <div className="placeholder-loading-6"></div>
                                                         </h1>
+                                                        {/* <a className="consulta-singleProduct">Consulta</a> */}
 
                                                         <ul className="list-ul-singleProduct">
                                                                 <h3>Características:</h3>
@@ -201,7 +206,6 @@ export default function singleProduct() {
                                                                         <div className="placeholder-loading-5"></div>
                                                                 </li>
                                                         </ul>
-                                                        <a className="consulta-singleProduct">Consulta</a>
                                                 </div>)
                                         }
 

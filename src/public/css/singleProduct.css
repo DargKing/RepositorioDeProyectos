@@ -102,14 +102,9 @@
         cursor: pointer;
         transition: background .5s, color .5s, border .5s;
         align-items: center;
-
+        margin: auto;
         font-weight: bold;
         font-size: 20px;
-
-        position: absolute;
-        bottom: 20px;
-        left: calc(100% - 40px);
-        transform: translateX(-100%)
 }
 
 .consulta-singleProduct::after {
@@ -137,9 +132,11 @@
 
 .container-price-singleProduct{
         display: flex;
-        margin: 10px 40px 0 40px;
+        margin: 10px 40px 0 15px;
         padding: 10px;
         align-items: center;
+        flex-wrap: wrap;
+        gap: 30px 10px;
 }
 
 .container-controller-price-singleProduct{
