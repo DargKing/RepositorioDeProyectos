@@ -267,6 +267,39 @@ export default function app() {
         }
     }
 
+    const editImage = async (id, file, nameElement) => {
+        if (file.type != "image/jpeg") {
+            setNotifications([...notifications, { message: "Invalid Type", type: "danger", id: generateID() }])
+            return { ok: false };
+        }
+        let formData = new FormData()
+        
+        formData.append("token", JSON.parse(getTokenSessionStorage()).token)
+        formData.append("img", file)
+        formData.append("nameElement", nameElement)
+        
+        setNotifications([...notifications, { message: "Realizando Tarea", type: "warning", ico: "waiting", id: generateID() }])
+        
+        let request = await fetch(`/products/data/ModifyModalImg/${id}`, {
+            "Content-Type": "multipart/form-data",
+            body: formData,
+            method: "PATCH",
+            accept: "application/json"
+        })
+
+        let response = await request.json()
+
+        console.log(response)
+        
+        if (request.status === 200) {
+            setNotifications([...notifications, { message: "Imagen Cambiada", type: "success", id: generateID() }])
+            return { ok: true }
+        } else {
+            console.log("Tarea Fallida")
+            setNotifications([...notifications, { message: response.error, type: "danger", id: generateID() }])
+            return { ok: false }
+        } 
+    }
 
     useEffect(() => {
         getTokenSessionStorage()
@@ -278,7 +311,7 @@ export default function app() {
             <Routes>
                 <Route path={"/"} element={<Home getInfoProducts={getInfoProducts} deleteProduct={deleteProduct} toDisable={toDisable} deleteNotification={deleteNotification}
                     notifications={notifications} verifyToken={verifyToken} />} />
-                <Route path={"/products/:id"} element={<SingleProduct getInfoSingleProduct={getInfoSingleProduct} notifications={notifications} deleteNotification={deleteNotification} verifyToken={verifyToken} editProduct={editProduct} />} />
+                <Route path={"/products/:id"} element={<SingleProduct editImage={editImage} getInfoSingleProduct={getInfoSingleProduct} notifications={notifications} deleteNotification={deleteNotification} verifyToken={verifyToken} editProduct={editProduct} />} />
                 <Route path={"/login"} element={<Login deleteNotification={deleteNotification} notifications={notifications} login={login} />} />
                 <Route path={"/singup"} element={<Singup deleteNotification={deleteNotification} notifications={notifications} singup={singup} />} />
             </Routes>

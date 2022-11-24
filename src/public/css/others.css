@@ -48,7 +48,7 @@
 }
 
 .filter:hover{
-        filter: contrast(0.9);
+        filter: contrast(0.8);
 }
 
 .no-rounded-start{
@@ -60,4 +60,35 @@
         border-top-right-radius: 0 !important;
         border-bottom-right-radius: 0 !important;
 
+}
+
+.container-symbol-sum{
+        --width: 50px;
+        --height: 50px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: var(--width);
+        height: var(--height);
+        transform: translate(-50%, -50%);
+}
+
+.first-symbol-sum,
+.second-symbol-sum {
+        position: absolute;
+        border-radius: 5px;
+}
+
+.first-symbol-sum{
+        width: 100%;
+        height: 12px;
+        top: 50%;
+        transform: translateY(-50%);
+}
+
+.second-symbol-sum{
+        width: 12px;
+        height: 100%;
+        left: 51%;
+        transform: translateX(-50%)
 }

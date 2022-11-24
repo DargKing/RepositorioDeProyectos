@@ -2,6 +2,7 @@ import React, { Component, useEffect, useState } from 'react'
 import { useLocation, Link, Navigate, useParams, useSearchParams } from 'react-router-dom'
 
 const defaultProp = {
+    _id: "default",
     nameCard: "undefined",
     type: "undefined",
     fav: "undefined",
@@ -22,6 +23,7 @@ const defaultProp = {
 
 import ChargeScreen from "./ChargeScreen"
 import Notifications from "./Notifications"
+import Suma from "./others/Suma"
 
 export default function singleProduct(props) {
 
@@ -30,9 +32,11 @@ export default function singleProduct(props) {
     const [get, setGet] = useState(false);
     const [connectionAttemp, setConnectionAttemp] = useState(0)
     const [modal, setModal] = useState(false)
-    const [editDataModal, setEditDataModal] = useState(false)
+    const [editDataModal, setEditDataModal] = useState("")
+    const [fileData, setFileData] = useState("")
     const [isValid, setIsValid] = useState(false)
     const [lastDropdown, setLastDropdown] = useState(undefined)
+    const [isChanged, setIsChanged] = useState(false)
 
     const idParam = useParams()
     const searchParams = useSearchParams()
@@ -67,6 +71,7 @@ export default function singleProduct(props) {
 
     const ChangeProduct = (name) => {
         setCurrentProduct(product.modal.filter((element) => element.name == name)[0])
+        setIsChanged(false)
     }
 
     const openModal = (info, param, title) => {
@@ -77,13 +82,13 @@ export default function singleProduct(props) {
         })
         setEditDataModal(info[param])
         document.body.style.overflow = 'hidden'
-
     }
 
     const closeModal = (e) => {
-        if (e == undefined || e.target == e.currentTarget) {
+        if (e == undefined || e.target == e.currentTarget || e.close) {
             setModal(false)
-            setEditDataModal(false)
+            setEditDataModal("")
+            setFileData("")
             document.body.style.overflow = ""
         }
     }
@@ -97,21 +102,8 @@ export default function singleProduct(props) {
 
         closeModal()
 
-        let buttonsHtml = document.getElementsByClassName("btn")
-
-        let buttons = Array.from(buttonsHtml)
-
-        buttons.forEach((button) => {
-            button.disabled = true
-        })
-
-        const response = await props.editProduct(editProduct)
-
-        if (response) {
-            buttons.forEach((button) => {
-                button.disabled = false
-            })
-        }
+        setProduct(editProduct)
+        setIsChanged(true)
     }
 
     const changeArrayEditProduct = (value, index, del) => {
@@ -177,6 +169,84 @@ export default function singleProduct(props) {
         setLastDropdown(id)
     }
 
+    const saveChanges = async () => {
+        let editProduct = product
+
+        const index = editProduct.modal.findIndex((element) => element.name == currentProduct.name)
+
+        editProduct.modal[index][modal.param] = editDataModal
+
+        closeModal()
+
+        let buttonsHtml = document.getElementsByClassName("btn")
+
+        let buttons = Array.from(buttonsHtml)
+
+        buttons.forEach((button) => {
+            button.disabled = true
+        })
+
+        const response = await props.editProduct(editProduct)
+
+        if (response) {
+            buttons.forEach((button) => {
+                button.disabled = false
+            })
+            if (response.ok)
+                setIsChanged(false)
+        }
+    }
+
+    const newModal = async () => {
+        let temp = {
+            ...product
+        }
+
+        temp.modal = [...temp.modal, {
+            name: "Articulo Numero " + temp.modal.length,
+            url: "/img/productos/ASFADIL.jpg",
+            carac: ["Caracteristica 1", "Caracteristica 2"],
+            desc: ["Uso 1", "Uso 2"],
+            price: "10",
+            visibility: true,
+            idImg: ""
+        }]
+
+        let buttonsHtml = document.getElementsByClassName("btn")
+
+        let buttons = Array.from(buttonsHtml)
+
+        buttons.forEach((button) => {
+            button.disabled = true
+        })
+
+        const response = await props.editProduct(temp)
+
+        if (response) {
+            buttons.forEach((button) => {
+                button.disabled = false
+            })
+            if (response.ok) {
+                setProduct(temp)
+                setCurrentProduct(temp.modal[temp.modal.length - 1])
+            }
+        }
+    }
+
+    const editImage = async (file) => {
+        closeModal({ close: true })
+        let response = await props.editImage(product._id, file, currentProduct.name)
+        if(response.ok) {
+            getInfo()
+        }
+    }
+
+    const setFileDataModal = (value) => {
+        setFileData(value)
+        console.log(value.files)
+        console.log(value)
+    }
+
     return (
         <>
             <main className="container d-flex justify-content-center flex-fill flex-column flex-md-row pb-5 border-dark border d-grid border-2">
@@ -187,13 +257,17 @@ export default function singleProduct(props) {
                                 <div className="col-12 col-md-5 d-grid align-items-stretch">
                                     <div className="position-sticky top-0 pt-3">
                                         <img className={"card-img-top" + (!currentProduct.visible ? " disabled-style" : "")} src={currentProduct.url} />
-                                        <div className="col-3 position-absolute top-0 pt-3">
-                                            {product.modal.filter(element => element.name != currentProduct.name).map((element) => {
+                                        <div className="col-2 position-absolute ms-1 top-0 pt-3">
+                                            {product.modal.filter(element => element.name != currentProduct.name).map((element, index, array) => {
                                                 return (
-                                                    <img key={element.name + element.url} onClick={() => ChangeProduct(element.name)} className={"card-img-top m-1 border border-3 border-dark filter cursor-pointer" + (!element.visible ? " disabled-style" : "")}
+                                                    <img key={index} onClick={() => ChangeProduct(element.name)} className={"card-img-top my-1 border border-3 border-dark filter cursor-pointer" + (!element.visible ? " disabled-style" : "")}
                                                         src={element.url} />
                                                 )
                                             })}
+                                            <div onClick={() => newModal()} style={{ position: "relative" }} className={"border border-3 mt-1 border-dark filter cursor-pointer bg-light"}>
+                                                <img style={{ opacity: 0 }} className="card-img-top" src={product.modal[0].url} />
+                                                <Suma />
+                                            </div>
                                         </div>
 
                                         {/* DropMenu */}
@@ -207,6 +281,10 @@ export default function singleProduct(props) {
                                                 openDropdow("dropdownMenu")
                                                 changeVisiblityArrayEditProduct(currentProduct)
                                             }} className="dropdown-item cursor-pointer user-select-none">{(!currentProduct.visible) ? "Activar Elemento" : "Desactivar Elemento"}</li>
+                                            <li onClick={() => {
+                                                openDropdow("dropdownMenu")
+                                                openModal(currentProduct, "url", "Change Image")
+                                            }} className="dropdown-item cursor-pointer user-select-none">Cambiar Imagen</li>
                                         </ul>
                                     </div>
                                 </div>
@@ -262,6 +340,11 @@ export default function singleProduct(props) {
                                             <button onClick={() => openModal(currentProduct, "desc", "Cambiar Usos")} className="btn btn-warning flex-fill fw-semibold fs-6">Edit</button>
                                         </div>
                                     </div>
+
+                                    {isChanged == true &&
+                                        <div className="d-flex justify-content-end">
+                                            <button onClick={() => saveChanges()} className="btn btn-primary fs-5 fw-semibold">Guardar Cambios</button>
+                                        </div>}
                                 </div>
                             </>
                             :
@@ -319,13 +402,17 @@ export default function singleProduct(props) {
                         <h1 className="text-uppercase text-center fw-bold">{modal.title}</h1>
 
                         <div className="my-4 d-flex flex-column justify-content-center">
-                            {(typeof (modal.info[modal.param]) == 'string' || modal.info[modal.param] == undefined) &&
+                            {(typeof (modal.info[modal.param]) == 'string' && modal.param != "url" || modal.info[modal.param] == undefined) &&
                                 <input type="text" value={editDataModal} onChange={(e) => setEditDataModal(e.target.value)} className="form-control fs-4"
                                     placeholder={"Dato"} />
                             }
 
-                            {Array.isArray(modal.info[modal.param]) &&
+                            {
+                                modal.param == "url" &&
+                                <input type="file" value={fileData.value || ""} onChange={(e) => setFileDataModal(e.target)} className="form-control" accept="image/jpeg" />
+                            }
 
+                            {Array.isArray(modal.info[modal.param]) &&
                                 <>
                                     {editDataModal.map((element, index) => {
                                         return (
@@ -349,11 +436,24 @@ export default function singleProduct(props) {
                             }
                         </div>
 
-                        {
-                            (JSON.stringify(editDataModal) != JSON.stringify(modal.info[modal.param])) ?
-                                <button onClick={() => editProduct()} className="btn btn-warning col-12 fs-4 fw-semibold">Editar</button>
-                                :
-                                <button onClick={() => editProduct()} className="btn btn-warning col-12 fs-4 fw-semibold" disabled>Editar</button>
+                        {modal.param != "url" &&
+                            <>
+                                {(JSON.stringify(editDataModal) != JSON.stringify(modal.info[modal.param])) ?
+                                    <button onClick={() => editProduct()} className="btn btn-warning col-12 fs-4 fw-semibold">Editar</button>
+                                    :
+                                    <button className="btn btn-warning col-12 fs-4 fw-semibold" disabled>Editar</button>
+                                }
+                            </>}
+
+                        {modal.param == "url" &&
+                            <>
+                                {
+                                    (fileData.files && fileData.files.length > 0) ?
+                                        <button onClick={() => editImage(fileData.files[0])} className="btn btn-warning col-12 fs-4 fw-semibold">Editar</button>
+                                        :
+                                        <button className="btn btn-warning col-12 fs-4 fw-semibold" disabled>Editar</button>
+                                }
+                            </>
                         }
                     </div>
                 </div>

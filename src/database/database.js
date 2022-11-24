@@ -35,7 +35,9 @@ class dbOption {
                 this.dbConnection = dbConnection;
         }
 
-        /** Devuelve la base de datos */
+        /** Devuelve la base de datos 
+         * @return Base de dato MongoDB
+        */
         GetDB = () => {
                 return this.dbConnection
         }
@@ -49,7 +51,7 @@ class dbOption {
                 client.connect((err, db) => {
                         if (err || !db)
                                 return callback(err);
-                        this.SetDB(db.db("LluvisolCA"));
+                        this.SetDB(db.db("LluvisolCA-IMAGETEST"));
                         return callback()
                 })
         }
@@ -131,9 +133,9 @@ class dbOption {
 
         /**
          * Devuelve todos los items que coincidan con el dataFilter
-         * @param {*} collectionName Nombre de la coleccion
-         * @param {*} dataFilter Datos a filtrar
-         * @param {*} callback Funcion que se ejecutara al final de la busqueda
+         * @param {String} collectionName Nombre de la coleccion
+         * @param  {String} dataFilter Datos a filtrar
+         * @param {Function} callback Funcion que se ejecutara al final de la busqueda
          * @returns Array
          */
         getList = async (collectionName, dataFilter, callback) => {
