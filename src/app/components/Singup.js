@@ -29,7 +29,7 @@ export default function login(props) {
 
                                         <div className="mb-3">
                                                 <label htmlFor="username-form" className="form-label">Username</label>
-                                                <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} className="form-control" id="username-form" placeholder="Username" />
+                                                <input type="text" value={username} onKeyDownCapture={(e) => console.log(e)} onKeyDown={(e) => console.log(e)} onChange={(e) => setUsername(e.target.value)} className="form-control" id="username-form" placeholder="Username" />
                                         </div>
 
                                         <div className="mb-4">

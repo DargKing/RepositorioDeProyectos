@@ -57,6 +57,7 @@ class dbOption {
         }
 
         /**
+         *
         * Busca en la base de datos si el usuario existe
         * 
         *       @param {String} username: El nombre del usuario.

@@ -83,6 +83,13 @@ export default function app() {
     }
 
     /**
+     * Logout
+     */
+    const logout = ()=>{
+        deleteTokenSessionStorage()
+    }
+
+    /**
      * Manda un metodo post al servidor
      * @param {String} username 
      * @param {String} password 
@@ -273,13 +280,13 @@ export default function app() {
             return { ok: false };
         }
         let formData = new FormData()
-        
+
         formData.append("token", JSON.parse(getTokenSessionStorage()).token)
         formData.append("img", file)
         formData.append("nameElement", nameElement)
-        
+
         setNotifications([...notifications, { message: "Realizando Tarea", type: "warning", ico: "waiting", id: generateID() }])
-        
+
         let request = await fetch(`/products/data/ModifyModalImg/${id}`, {
             "Content-Type": "multipart/form-data",
             body: formData,
@@ -290,15 +297,72 @@ export default function app() {
         let response = await request.json()
 
         console.log(response)
-        
+
         if (request.status === 200) {
             setNotifications([...notifications, { message: "Imagen Cambiada", type: "success", id: generateID() }])
             return { ok: true }
         } else {
-            console.log("Tarea Fallida")
             setNotifications([...notifications, { message: response.error, type: "danger", id: generateID() }])
             return { ok: false }
-        } 
+        }
+    }
+
+    const deleteElement = async (nameElement, listElements, id, idImg) => {
+
+        setNotifications([...notifications, { message: "Realizando Tarea", type: "warning", ico: "waiting", id: generateID() }])
+
+        const newListElements = listElements.filter((e) => e.name != nameElement)
+        console.log(newListElements)
+
+        const request = await fetch(`/products/data/deleteModal/${id}`, {
+            method: "DELETE",
+            body: JSON.stringify({
+                modal: newListElements,
+                idImg: idImg,
+                token: JSON.parse(getTokenSessionStorage()).token
+            }),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        })
+
+        const response = await request.json()
+
+        if (request.status === 200) {
+            setNotifications([...notifications, { message: "Elemento Eliminado", type: "success", id: generateID() }])
+            return { ok: true }
+        } else {
+            setNotifications([...notifications, { message: response.message, type: "danger", id: generateID() }])
+            return { ok: false, status: request.status }
+        }
+    }
+
+    const editHeaderCard = async (nameCard, file, id, lastIdImg, type) => {
+        let formData = new FormData();
+        formData.append("nameCard", nameCard);
+        formData.append("token", JSON.parse(getTokenSessionStorage()).token)
+        formData.append("img", (file) ? file.files[0]: "");
+        formData.append("lastIdImg", lastIdImg);
+        formData.append("type", type)
+
+        setNotifications([...notifications, { message: "Realizando Tarea", type: "warning", ico: "waiting", id: generateID() }])
+
+        const request = await fetch(`/products/data/ModifyHeaderCard/${id}`, { 
+            method: "PATCH",
+            body: formData,
+            "Content-Type": "multipart/form-data",
+            accept: "application/json"
+        })
+
+        const response = await request.json()
+
+        if (request.status === 200) {
+            setNotifications([...notifications, { message: "Elemento Actualizado", type: "success", id: generateID() }])
+            return { ok: true }
+        } else {
+            setNotifications([...notifications, { message: response.message, type: "danger", id: generateID() }])
+            return { ok: false, status: request.status }
+        }
     }
 
     useEffect(() => {
@@ -307,11 +371,12 @@ export default function app() {
 
     return (
         <>
-            <Nav />
+            <Nav logout={logout}/>
             <Routes>
-                <Route path={"/"} element={<Home getInfoProducts={getInfoProducts} deleteProduct={deleteProduct} toDisable={toDisable} deleteNotification={deleteNotification}
+                <Route path={"/"} element={<Home editHeaderCard={editHeaderCard} getInfoProducts={getInfoProducts} deleteProduct={deleteProduct} toDisable={toDisable} deleteNotification={deleteNotification}
                     notifications={notifications} verifyToken={verifyToken} />} />
-                <Route path={"/products/:id"} element={<SingleProduct editImage={editImage} getInfoSingleProduct={getInfoSingleProduct} notifications={notifications} deleteNotification={deleteNotification} verifyToken={verifyToken} editProduct={editProduct} />} />
+                <Route path={"/products/:id"} element={<SingleProduct editImage={editImage} getInfoSingleProduct={getInfoSingleProduct} notifications={notifications}
+                    deleteNotification={deleteNotification} verifyToken={verifyToken} editProduct={editProduct} deleteElement={deleteElement} />} />
                 <Route path={"/login"} element={<Login deleteNotification={deleteNotification} notifications={notifications} login={login} />} />
                 <Route path={"/singup"} element={<Singup deleteNotification={deleteNotification} notifications={notifications} singup={singup} />} />
             </Routes>

@@ -203,7 +203,7 @@ export default function singleProduct(props) {
         }
 
         temp.modal = [...temp.modal, {
-            name: "Articulo Numero " + temp.modal.length,
+            name: "Elemento Creado " + Date.now(),
             url: "/img/productos/ASFADIL.jpg",
             carac: ["Caracteristica 1", "Caracteristica 2"],
             desc: ["Uso 1", "Uso 2"],
@@ -236,7 +236,7 @@ export default function singleProduct(props) {
     const editImage = async (file) => {
         closeModal({ close: true })
         let response = await props.editImage(product._id, file, currentProduct.name)
-        if(response.ok) {
+        if (response.ok) {
             getInfo()
         }
     }
@@ -245,6 +245,29 @@ export default function singleProduct(props) {
         setFileData(value)
         console.log(value.files)
         console.log(value)
+    }
+
+    const deleteElement = async (nameElement) => {
+
+        let buttonsHtml = document.getElementsByClassName("btn")
+
+        let buttons = Array.from(buttonsHtml)
+
+        buttons.forEach((button) => {
+            button.disabled = true
+        })
+
+        const response = await props.deleteElement(nameElement, product.modal, product._id, currentProduct.idImg)
+
+        if (response) {
+            buttons.forEach((button) => {
+                button.disabled = false
+            })
+        }
+
+        if (response.ok || response.status === 500) {
+            getInfo()
+        }
     }
 
     return (
@@ -264,7 +287,7 @@ export default function singleProduct(props) {
                                                         src={element.url} />
                                                 )
                                             })}
-                                            <div onClick={() => newModal()} style={{ position: "relative" }} className={"border border-3 mt-1 border-dark filter cursor-pointer bg-light"}>
+                                            <div onClick={() => newModal()} style={{ position: "relative", height: "60px" }} className={"border border-3 mt-1 border-dark filter cursor-pointer bg-light"}>
                                                 <img style={{ opacity: 0 }} className="card-img-top" src={product.modal[0].url} />
                                                 <Suma />
                                             </div>
@@ -285,6 +308,11 @@ export default function singleProduct(props) {
                                                 openDropdow("dropdownMenu")
                                                 openModal(currentProduct, "url", "Change Image")
                                             }} className="dropdown-item cursor-pointer user-select-none">Cambiar Imagen</li>
+                                            <hr className="dropdown-divider" />
+                                            <li onClick={() => {
+                                                openDropdow("dropdownMenu")
+                                                deleteElement(currentProduct.name)
+                                            }} className="dropdown-item cursor-pointer user-select-none">Eliminar Elemento</li>
                                         </ul>
                                     </div>
                                 </div>

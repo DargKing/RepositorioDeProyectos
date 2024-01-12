@@ -15,7 +15,9 @@ const { ObjectId, MongoClient } = require('mongodb')
 const DataBase = require('../database/database');
 const jwt = require('jsonwebtoken')
 const multer = require('multer')
-const { generateID } = require('../helpers/ID')
+const { generateID } = require('../helpers/ID');
+const { json } = require('express');
+const { Console } = require('console');
 
 const db = new DataBase();
 
@@ -284,64 +286,13 @@ Route.get("/updateAll", async (req, res) => {
         const data = await db.getList("products", {})
 
         data.forEach(async (element) => {
-                const file = fs.readFileSync(path.join(__dirname, "../public" + element.urlImage))
-
-                const dataImage = {
-                        fieldname: "img",
-                        originalname: element.urlImage.split("/")[3],
-                        encoding: "7bit",
-                        mimetype: "image/jpeg",
-                        buffer: file.toString("base64"),
-                        size: file.byteLength
-                }
-
-                const imageCollection = db.GetDB().collection("images")
-                const responseDbImage = await imageCollection.insertOne(dataImage)
-
                 const productsCollection = db.GetDB().collection("products")
-
-                const ID = responseDbImage.insertedId.toString()
 
                 productsCollection.updateOne({ _id: element._id }, {
                         $set: {
-                                urlImage: `/products/data/modalImg/${ID}`
+                                idImg: element.urlImage.split("/")[4]
                         }
                 })
-
-                let newElement = []
-
-                element.modal.forEach(async (mod) => {
-                        let target = mod
-                        if (target.url == element.urlImage) {
-                                target.url = `/products/data/modalImg/${ID}`
-                                target.idImg = ID
-                                newElement.push(mod)
-                        } else {
-                                const fileModal = fs.readFileSync(path.join(__dirname, "../public" + target.url))
-                                const dataImageModal = {
-                                        fieldname: "img",
-                                        originalname: target.url.split("/")[3],
-                                        encoding: "7bit",
-                                        mimetype: "image/jpeg",
-                                        buffer: fileModal.toString("base64"),
-                                        size: fileModal.length
-                                }
-                                const responseDbImageModal = await imageCollection.insertOne(dataImageModal)
-
-                                const IdModal = responseDbImageModal.insertedId.toString()
-
-                                target.url = `/products/data/modalImg/${IdModal}`
-                                target.idImg = IdModal
-                                newElement.push(target)
-                        }
-                })
-                setTimeout(() => {
-                        productsCollection.updateOne({ _id: element._id }, {
-                                $set: {
-                                        modal: newElement
-                                }
-                        })
-                }, 5000)
         });
         res.sendStatus(200)
 })
@@ -358,8 +309,8 @@ Route.delete("/products/data/deleteModal/:id", (req, res) => {
                         return;
                 }
 
-                if (modal[0] == undefined) {
-                        res.sendStatus(400)
+                if (modal[0] == undefined || typeof (modal[0]) == "string") {
+                        res.status(400).json({ ok: false, error: "Tipo de dato incorrecto" })
                         return;
                 }
 
@@ -374,26 +325,102 @@ Route.delete("/products/data/deleteModal/:id", (req, res) => {
                 }
                 ).then((resDB) => {
                         if (resDB.modifiedCount > 0) {
+                                if (idImg == "null") {
+                                        res.status(200), json({ ok: true })
+                                        return;
+                                }
+
                                 const imageCollection = db.GetDB().collection('images')
 
                                 imageCollection.deleteOne({ _id: new ObjectId(idImg) })
                                         .then(() => {
-                                                res.sendStatus(200)
+                                                res.status(200).json({ ok: true })
                                         })
                                         .catch(() => {
-                                                res.sendStatus(400)
+                                                res.status(400).json({ ok: false, message: "Imagen no encontrada" })
                                         })
                         } else {
-                                res.sendStatus(404)
+                                res.status(404).json({ ok: false, message: "El Producto No Existe" })
                         }
                 })
-                        .catch(() => {
-                                res.sendStatus(500)
+                        .catch((err) => {
+                                console.error(err)
+                                res.status(500).json({ ok: false, message: "Error del Servidor" })
                         })
         })
 })
 
-Route.patch("/products/data/ModifyModalImg/:id", multer({ storage: multer.memoryStorage(), limits: { fileSize: 200000 } }).single("img"), async (req, res) => {
+Route.patch("/products/data/ModifyHeaderCard/:id", multer({ storage: multer.memoryStorage(), limits: { fileSize: 200000 } }).single("img"), async (req, res) => {
+        const { token, nameCard, lastIdImg, type } = req.body
+        const { id } = req.params
+
+        jwt.verify(token, process.env.SECRET_KEY_JWT, (err, decoded) => {
+                if (err) {
+                        res.status(401).json({ ok: false, error: "La sesion a expirado" })
+                        return;
+                }
+
+                const productsCollection = db.GetDB().collection("products")
+                const imageCollection = db.GetDB().collection("images")
+                
+                if (req.file) {
+                        imageCollection.deleteOne({ _id: new ObjectId(lastIdImg) })
+                                .then((resDB) => {
+                                        if (resDB.deletedCount > 0) {
+
+                                                let file = req.file
+                                                file.buffer = file.buffer.toString("base64")
+
+                                                imageCollection.insertOne(file)
+                                                        .then((resDB) => {
+                                                                productsCollection.updateOne({ _id: new ObjectId(id) }, {
+                                                                        $set: {
+                                                                                nameCard: nameCard,
+                                                                                idImg: resDB.insertedId.toString(),
+                                                                                urlImage: "/products/data/modalImg/" + resDB.insertedId.toString(),
+                                                                                type: type
+                                                                        }
+                                                                }).then((resDB) => {
+                                                                        if (resDB.modifiedCount > 0) {
+                                                                                res.status(200).json({ ok: true })
+                                                                        } else {
+                                                                                res.status(404).json({ ok: false, error: "Producto No Encontrado" })
+                                                                        }
+                                                                }).catch((err) => {
+                                                                        console.error(err)
+                                                                        res.status(500).json({ ok: false, error: "Error Del Servidor" })
+                                                                })
+                                                        })
+
+                                        } else {
+                                                res.status(404).json({ ok: false, error: "Error Id de la Imagen No Encontrada" })
+                                        }
+                                }).catch((err) => {
+                                        console.error(err)
+                                        res.status(500).json({ ok: false, error: "Error del Servidor" })
+                                })
+                                return;
+                }
+                
+                productsCollection.updateOne({ _id: new ObjectId(id) }, {
+                        $set: {
+                                nameCard: nameCard,
+                                type: type
+                        }
+                }).then((resDB) => {
+                        if (resDB.modifiedCount > 0) {
+                                res.status(200).json({ ok: true })
+                        } else {
+                                res.status(404).json({ ok: false, error: "Producto No Encontrado" })
+                        }
+                }).catch((err) => {
+                        console.error(err)
+                        res.status(500).json({ ok: false, error: "Error Del Servidor" })
+                })
+        })
+})
+
+Route.patch("/products/data/ModifyModalImg/:id", multer({ storage: multer.memoryStorage(), limits: { fileSize: 1800000 } }).single("img"), async (req, res) => {
         const { nameElement, token } = req.body
         const file = req.file
         const { id } = req.params
@@ -435,7 +462,7 @@ Route.patch("/products/data/ModifyModalImg/:id", multer({ storage: multer.memory
                                 modal[index].idImg = ID
 
 
-                                
+
                                 productsCollection.updateOne({
                                         _id: new ObjectId(id)
                                 }, {
