@@ -10,6 +10,7 @@ export default function Notes(props) {
             .then((obj) => obj.json())
             .then((obj) => {
                 setCards(obj)
+                console.log(obj)
             })
             .catch((err) => {
                 console.error(err)

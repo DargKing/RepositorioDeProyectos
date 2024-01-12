@@ -12,7 +12,7 @@ db.connectDatabase((err) => {
         if (err)
                 console.error(err);
         else
-                console.log("DB is conected")
+                console.log("DB isconected")
 })
 
 Route.get("/products/data/modalImg/:id", async (req, res) => {
@@ -31,7 +31,7 @@ Route.get("/products/data/modalImg/:id", async (req, res) => {
                 "Content-Type": data.mimetype,
                 "Content-Length": data.size,
         })
-        res.end(buffer)
+        setTimeout(() => res.end(buffer), 100)
 })
 
 Route.get("/products/data", async (req, res) => {
@@ -55,17 +55,17 @@ Route.get("/products/data/:id", (req, res) => {
         const dbConnect = db.GetDB().collection("products")
 
 
-        dbConnect.findOne({ 
-                _id: new ObjectId(req.params.id) 
+        dbConnect.findOne({
+                _id: new ObjectId(req.params.id)
         }, (err, product) => {
-                        if (err) {
-                                console.error("Data ID error")
-                                res.sendStatus(404).json(undefined)
-                        } else {
-                                console.log("Data ID found")
-                                res.status(200).json(product)
-                        }
-                })
+                if (err) {
+                        console.error("Data ID error")
+                        res.sendStatus(404).json(undefined)
+                } else {
+                        console.log("Data ID found")
+                        setTimeout(() => res.status(200).json(product), 2000)
+                }
+        })
 })
 
 Route.get("/*", (req, res) => {

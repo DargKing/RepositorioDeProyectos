@@ -121,8 +121,8 @@ export default function singleProduct() {
                         <main className="main-SingleProduct">
                                 <div className="container-singleProduct">
                                         <div style={{ display: 'grid' }}>
-                                                <div className="container-image-singleProduct">
-                                                        <img src={currentProduct.url} />
+                                                <div className="container-image-singleProduct img-placeholder-singleProduct">
+                                                        <img onLoad={(e) => e.currentTarget.parentElement.classList.remove("img-placeholder-singleProduct")} src={currentProduct.url} />
                                                         <div className="container-mini-image-singleProduct">
                                                                 {product && product.modal.filter((element) => element.name != currentProduct.name && element.visible == true).map((element) => {
                                                                         return (
