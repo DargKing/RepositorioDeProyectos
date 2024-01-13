@@ -13,7 +13,7 @@ const { MongoClient } = require('mongodb');
  */
 
 if (process.env.MONGODB_URI == undefined)
-        process.env.MONGODB_URI = "mongodb://localhost/27017"
+        process.env.MONGODB_URI = "mongodb+srv://yorman:casalago@basededatosprueballuvis.fhzhmtr.mongodb.net/"
 
 const client = new MongoClient(process.env.MONGODB_URI, {
         useNewUrlParser: true,
